@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: pins
+#
+#  id         :bigint           not null, primary key
+#  pin        :string           not null
+#  title      :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  author_id  :integer          not null
+#
+# Indexes
+#
+#  index_pins_on_author_id  (author_id) UNIQUE
+#
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value
