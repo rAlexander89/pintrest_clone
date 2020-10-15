@@ -1,4 +1,52 @@
+
 .login-form-container{
-    background: green;
-    color: purple;
+    //container specific
+    min-height: 400px;
+    width: 425px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    //content specific
+    text-align: center;
+    padding: 20px 10px 24px;
+    // container aesthetics
+        // outer glow
+        // inner glow
+    box-shadow: inset 0px 0px 32px -6px rgba(0,0,0,0.47);
+
+
+}
+
+#form-greeting{
+    color: rgb(51, 51, 51);
+    font-size: 36px;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -1.2px;
+    word-break: break-word;
+}
+
+#placeholder{
+    height: 25px;
+    width: 250px;
+    border-radius: 8px;
+    font-size: medium;
+    margin-bottom: 5px;
+    border: 2px solid #ddd;
+    padding: 8px 16px;
+
+}
+
+#button{
+    height: 45px;
+    width: 286px;
+    border-radius: 8px;
+    color: white;
+    background: rgb(230, 0, 35);
+
+}
+
+.login-signup{
+    background: lightgray;
 }

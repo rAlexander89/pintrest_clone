@@ -8,10 +8,12 @@ const mSTP = state => {
     return {
         formType: 'signup',
         loginInfo: {
-        username: '',
+            email: '',
+            username: '',
             password: ''
         },
         navLink: <Link to="/login">Have an account? Sign in!</Link>,
+        errors: state.errors.session
     };
 };
 

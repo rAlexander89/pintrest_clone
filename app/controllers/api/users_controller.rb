@@ -11,7 +11,8 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render json: @user
         else
-            remder json: @user.errors.full_messages
+            render json: @user.errors.full_messages, status: 422
+            # render json: ['error! sign up stuff'], status: 401
         end
     end
 

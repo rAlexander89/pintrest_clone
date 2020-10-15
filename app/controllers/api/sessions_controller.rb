@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
             login!(@user)
             render 'api/users/show.json.jbuilder'
         else
-            render json: ['error! username stuff'], status: 404
+            render json: ['error! username stuff'], status: 401
         end
     end
 

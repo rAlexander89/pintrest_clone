@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded',() =>{
     ReactDOM.render(<Root store={store}/>, root);
     // ReactDOM.render(<h1>beep boop beep boop</h1>, root);
     // window.login = login;
+    window.getState = store.getState();
 });
 
 

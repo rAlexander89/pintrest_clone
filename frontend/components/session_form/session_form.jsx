@@ -19,49 +19,68 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-  renderEmail(){
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+
+
+  renderEmail() {
     if (this.props.formType === 'signup') {
       return (
         <div>
-        <label> Email:
+          <label>
           <input type="text"
-            value={this.state.email}
-            onChange={this.update('email')}
-          />
-        </label>
-        <br/>
+              placeholder='Email'
+              id='placeholder'
+              value={this.state.email}
+              onChange={this.update('email')}
+            />
+          </label>
+          <br />
         </div>
       )
     }
   }
 
-
-
   render() {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Pintrest Clone!
-          <br/>
-          Please {this.props.formType} or {this.props.navLink}
+          <h1 id='form-greeting'>Welcome to Pintrest Clone</h1>
+          <br />
+            Please {this.props.formType} or {this.props.navLink}
+          {this.renderErrors()}
           <div>
-            <br/>
+            <br />
             {this.renderEmail()}
-            <label>Username:
+            <label>
               <input type="text"
+                placeholder='Username'
+                id='placeholder'
                 value={this.state.username}
                 onChange={this.update('username')}
               />
             </label>
-            <br/>
-            <label>Password:
+            <br />
+            <label>
               <input type="password"
+                placeholder='Password'
+                id='placeholder'
                 value={this.state.password}
                 onChange={this.update('password')}
               />
             </label>
-            <br/>
-            <button type="submit" value={this.props.formType}> DO THE THING!</button>
+            <br />
+            <input type="submit" id='button' value={this.props.formType} />
           </div>
         </form>
       </div>

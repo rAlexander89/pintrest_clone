@@ -12,6 +12,7 @@ const mSTP = state => {
       password: ''
     },
     navLink: <Link to="/signup">No account? Sign Up!</Link>,
+    errors: state.errors.session
   };
 };
 
