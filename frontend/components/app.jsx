@@ -9,20 +9,10 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import Modal from './modal/modal';
 
-// const App = () => {
-//     return(
-//     <div>
-//         <header>
-//         <h1>HELLO!!!</h1>
-//         <GreetingContainer/>
-//         </header>
-//         <AuthRoute exact path="/login" component={LogInFormContainer} />
-//         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-//     </div>
-//     );
-// };
+// checkLogInStatus(){
 
-// export default App;
+// }
+
 
 const App = () => {
     return (

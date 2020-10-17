@@ -5,36 +5,41 @@ class SessionForm extends React.Component {
     super(props);
     this.state = this.props.loginInfo;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.switcharoni = this.switcharoni.bind(this);
+    this.formType = this.props.formType;
+    this.switchForm = this.props.switchForm;
+    // session = false;
   }
 
   update(field) {
     return e => this.setState({
-      [field]: e.target.value
+      [field]: e.target.value,
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    if (this.formType === 'login'){
+      this.props.loginUser(user);
+    } else {
+      this.props.signupUser(user);
+    } 
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+  switcharoni(e){
+    e.preventDefault();
+    // console.log('hello')
+    let sType = this.formType;
+    let fType = this.switchForm;
+    this.formType = this.switchForm;
+    this.switchForm= sType;
+    this.forceUpdate();
   }
-
 
 
   renderEmail() {
-    if (this.props.formType === 'signup') {
+    if (this.formType === 'signup') {
       return (
         <div>
           <label>
@@ -51,15 +56,38 @@ class SessionForm extends React.Component {
     }
   }
 
+  renderErrors() {
+    return (
+      <div>
+        <ul id='errors'>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>  
+      </div>
+    );
+  }
+  
+  clearErrors(){
+    if (this.props.errors.length > 0){
+      return(
+        <div id='clear-errors' onClick={this.props.clearErrors}>clear errors</div>
+      )
+    }
+  }
   render() {
     return (
+    <div>
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <h1 id='form-greeting'>Welcome to Pintrest Clone</h1>
           <br />
-            Please {this.props.formType}
-          {this.renderErrors()}
+            <p id='sub-greeting'>Please {this.formType}</p>
           <div>
+          {this.renderErrors()}
+          {this.clearErrors()}
             <br />
             {this.renderEmail()}
             <label>
@@ -80,10 +108,15 @@ class SessionForm extends React.Component {
               />
             </label>
             <br />
-            <input type="submit" id='button' value={this.props.formType} />
+            <input type="submit" id='button' value={this.formType} />
           </div>
         </form>
       </div>
+        <div className="switch-tab">
+          <p onClick={this.switcharoni} id='toggle'> or {this.switchForm}</p>
+        </div>
+    </div>
+      
     );
   }
 }

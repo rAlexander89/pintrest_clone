@@ -21,6 +21,22 @@
     word-break: break-word;
 }
 
+#sub-greeting{
+    margin-bottom: 5px;
+}
+
+#clear-errors{
+    background:yellow;
+}
+
+ul#errors > li {
+    list-style-type: disc;
+    list-style-position: inside;
+    
+
+}
+
+
 #placeholder{
     height: 25px;
     width: 250px;
@@ -43,4 +59,27 @@
 
 .login-signup{
     background: lightgray;
+}
+
+.switch-tab{
+    height: 45px;
+    width: 100%;
+    color: whitesmoke;
+    margin: auto;
+    border-radius: 0px 0px 10px 10px;
+    //text specific
+    text-align: center;
+    padding-left: 15px;
+    padding-top: 15px;
+    // font-size: 18px;
+    font-weight: 700;
+    background: #2ed9bc;
+    box-sizing: border-box;
+    z-index:65;
+}
+
+.toggle{
+    cursor: pointer;
+    // cursor: auto;
+    // text-align: center;
 }

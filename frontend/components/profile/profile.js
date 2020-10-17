@@ -1,0 +1,4 @@
+
+const profile = () => {
+    const { user }
+}
