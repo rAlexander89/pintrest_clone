@@ -7,11 +7,12 @@ import { login } from '../../actions/session_actions';
 const mSTP = state => {
   return {
     formType: 'login',
+    switchForm: 'signup',
     loginInfo:{
       username: '',
       password: ''
     },
-    navLink: <Link to="/signup">No account? Sign Up!</Link>,
+    // navLink: <Link to="/signup">No account? Sign Up!</Link>,
     errors: state.errors.session
   };
 };

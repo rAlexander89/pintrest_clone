@@ -38,7 +38,7 @@ class SessionForm extends React.Component {
       return (
         <div>
           <label>
-          <input type="text"
+            <input type="text"
               placeholder='Email'
               id='placeholder'
               value={this.state.email}
@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <h1 id='form-greeting'>Welcome to Pintrest Clone</h1>
           <br />
-            Please {this.props.formType} or {this.props.navLink}
+            Please {this.props.formType}
           {this.renderErrors()}
           <div>
             <br />

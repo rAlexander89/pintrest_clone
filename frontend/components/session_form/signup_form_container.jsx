@@ -7,12 +7,13 @@ import { Link } from 'react-router-dom';
 const mSTP = state => {
     return {
         formType: 'signup',
+        switchForm: 'login',
         loginInfo: {
             email: '',
             username: '',
             password: ''
         },
-        navLink: <Link to="/login">Have an account? Sign in!</Link>,
+        // navLink: <Link to="/login">Have an account? Sign in!</Link>,
         errors: state.errors.session
     };
 };

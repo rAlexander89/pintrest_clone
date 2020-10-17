@@ -2,18 +2,12 @@
 .login-form-container{
     //container specific
     min-height: 400px;
-    width: 425px;
+    width: 100%;
     margin: auto;
-    background: white;
-    border-radius: 0px 0px 10px 10px;
-    border: 0px 1px 1px 1px 1px solid #ddd;
-    //content specific
+     //content specific
     text-align: center;
     padding: 20px 10px 24px;
-    // container aesthetics
-        // outer glow
-        // inner glow
-    box-shadow: inset 0px 0px 32px -6px rgba(0,0,0,0.60);
+    box-sizing: border-box;
 
 
 }

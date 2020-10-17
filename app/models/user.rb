@@ -61,4 +61,9 @@ class User < ApplicationRecord
         end 
     end
 
+    has_many :pins,
+    foreign_key: :author_id,
+    class_name: :Pin
+
+  
 end

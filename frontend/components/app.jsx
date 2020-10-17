@@ -32,9 +32,6 @@ const App = () => {
                 <h1><Link to="/" className="header-link"> Pintrest Clone </Link></h1>
                 <GreetingContainer />
             </header>
-            
-            {/* <AuthRoute exact path="/login" component={LogInFormContainer} /> */}
-            <AuthRoute exact path="/signup" component={SignUpFormContainer} />
         </div>
     );
 };
