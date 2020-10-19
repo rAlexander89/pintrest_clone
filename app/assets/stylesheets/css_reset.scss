@@ -51,3 +51,35 @@ table {
 input{
     border: none;
 }
+
+//
+
+button {
+    display: inline-block;
+    border: none;
+    margin: 0;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+}
+
+
+button:active{
+    border: none;
+    outline: none;
+
+}
+
+
+button:focus{
+}
+
+
+
+

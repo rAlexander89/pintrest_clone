@@ -8,7 +8,6 @@ class SessionForm extends React.Component {
     this.switcharoni = this.switcharoni.bind(this);
     this.formType = this.props.formType;
     this.switchForm = this.props.switchForm;
-    // session = false;
   }
 
   update(field) {
@@ -77,14 +76,27 @@ class SessionForm extends React.Component {
       )
     }
   }
+
+
+
+
   render() {
     return (
     <div>
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <h1 id='form-greeting'>Welcome to Pintrest Clone</h1>
+          <ul>
+            <li>
+              <img src='https://i.imgur.com/IaouNpW.jpg' />
+            </li>
+            <li>
+              <h1 id='form-greeting'>Welcome to Pintrest</h1>
+            </li>
+            <li>
+              <p id='sub-greeting'>Please {this.formType}</p>
+            </li>
+          </ul>
           <br />
-            <p id='sub-greeting'>Please {this.formType}</p>
           <div>
           {this.renderErrors()}
           {this.clearErrors()}

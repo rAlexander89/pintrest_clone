@@ -8,12 +8,21 @@
     text-align: center;
     padding: 20px 10px 24px;
     box-sizing: border-box;
+}
 
+ul#login-signup{
+    list-style: none;
+    // font-size: 16px;
+}
 
+ul#login-signup li{
+    display: inline;
+    margin-left: 40px;
+    margin-right: 5px;
 }
 
 #form-greeting{
-    color: rgb(51, 51, 51);
+    // color: rgb(51, 51, 51);
     font-size: 36px;
     font-weight: 600;
     -webkit-font-smoothing: antialiased;
@@ -23,6 +32,7 @@
 
 #sub-greeting{
     margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 #clear-errors{
@@ -53,12 +63,26 @@ ul#errors > li {
     width: 286px;
     border-radius: 8px;
     color: white;
-    background: rgb(230, 0, 35);
+    background: #e60023;
 
 }
 
-.login-signup{
-    background: lightgray;
+#loginbtn{
+    height: 45px;
+    width: 100px;
+    border-radius: 8px;
+    color: white;
+    background: #2d2d2d;
+
+}
+
+#signinbtn{
+    height: 45px;
+    width: 200px;
+    border-radius: 8px;
+    color: white;
+    background: #e60023;
+
 }
 
 .switch-tab{

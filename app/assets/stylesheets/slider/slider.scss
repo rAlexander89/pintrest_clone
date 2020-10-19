@@ -1,0 +1,81 @@
+
+.carousel-div{
+    font-size: 60px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.carousel {
+  // position: relative;
+  // background: orange;
+  width: 100%;
+  text-align: center;
+  // margin: 30px;
+  // font-size: 30px;
+  // line-height: 60px;
+  line-height: 65px;
+  height: 80px;
+}
+
+.carousel .change_outer {
+
+  text-align: center;
+  height: 70px;
+  overflow: hidden;
+}
+.carousel .change_outer .change_inner {
+  // position: relative;
+  animation: rotate 12s ease-in-out infinite;
+}
+
+#hallo{
+  color: #C25D00;
+}
+
+#din{
+  color: #C28B00;
+}
+
+
+#home{
+   color: #618C7B;
+  
+}
+
+#look{
+   color: #0076D3;
+  
+}
+
+
+// @keyframes rotate {
+//   20%, 40%, 100% {
+//             transform: translateY(0);
+//   }
+//   60%,65% {
+//             transform: translateY(-61px);
+//   }
+//   80%,85% {
+//             transform: translateY(-132px);
+//   }
+//   95%,97% {
+//             transform: translateY(-190px);
+//   }
+// }
+
+@keyframes rotate {
+  20%, 25%, 100% {
+            transform: translateY(0);
+  }
+  45%,50% {
+            transform: translateY(-61px);
+  }
+  70%,75% {
+            transform: translateY(-132px);
+  }
+  95%,99% {
+            transform: translateY(-190px);
+  }
+}
+

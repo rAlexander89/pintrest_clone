@@ -1,37 +1,23 @@
 import React from 'react';
+import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 
-
-
 const Greeting = ({ currentUser, logout, openModal, closeModal }) => {
+    
     const sessionLinks = () => (
-        <nav className="login-signup">
-            <Link to='' onClick={() => openModal('login')}>Login</Link>
-            &nbsp;or&nbsp;
-            <Link to='' onClick={() => openModal('signup')}>Sign up!</Link>
-        </nav>
+        <ul id="login-signup">
+            <li><button id='loginbtn' onClick={() => openModal('login')}>Log in</button></li>
+            <li><button id='signinbtn' onClick={() => openModal('signup')}>Sign up</button></li>
+        </ul>
     );
-    const personalGreeting = () => (
-        
+
+    const personalGreeting = () => (    
         <hgroup className="header-group">
             <h2 className="header-name">Hi, {currentUser.username}!</h2>
             <button className="header-button" onClick={logout}>Log Out</button>
-            {/* <div onClick={closeModal()} on></div> */}
-            <div onLoad={closeModal()} on></div>
-            
+            <div onLoad={closeModal()}></div>
         </hgroup>
     );
-
-    // if (currentUser){
-    //     return(
-    //         personalGreeting(),
-    //         console.log(currentUser.username)
-    //     )
-    // } else {
-    //     return(
-    //         sessionLinks()
-    //     )
-    // }
 
     return currentUser ? personalGreeting() : sessionLinks();
 };

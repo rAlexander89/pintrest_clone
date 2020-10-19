@@ -1,0 +1,29 @@
+.header{
+    clear: both;
+    height: 80px;
+    padding: 30px;
+    box-sizing: border-box;
+    // display: flex;
+    // flex-direction: row;
+}
+
+
+#logo{
+    float: left;
+    margin-top: -8px;
+    margin-right: 5px;
+    // color: #e60023;
+}
+
+
+
+#nav-list{
+    float: right;
+}
+
+#nav-title{
+    float: left;
+    color: #e60023;
+    font-size: 20px;
+    font-weight: bold;
+}
