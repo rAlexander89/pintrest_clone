@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchPins } from '../../actions/pin_actions';
 
-
 import PinIndex from './pin_index';
 
 

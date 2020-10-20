@@ -1,3 +1,34 @@
+
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+
+// // import PinShowContainer from '../pins/pin_show_container.js';
+
+// class PinIndexItem extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.handleClick = this.handleClick.bind(this);
+//     }
+
+//     handleClick(e) { // this is to get a modal a model going
+//         e.preventDefault();
+//         // open modal that has the pin's photo, title, and description
+//     }
+
+//     render() {
+//         const { pin } = this.props;
+
+//         return (
+//             <img onClick={/* modal takes pin data - pins/${pin.id}*/} className="index-img" src={pin.photoUrl} />
+//         );
+//     }
+// }
+
+// export default (PinIndexItem);
+
+/// ORIGINAL WAY UP TOP
+
+
 // import React from 'react';
 // import { render } from 'react-dom';
 // // import {Link} from 'react-router-dom';
@@ -7,7 +38,7 @@
 //         super(props)
 //     }
 
-    
+
 //     render(){
 //         if (!this.props.pin) return null;
 //         // debugger;
@@ -46,18 +77,10 @@ class PinIndexItem extends React.Component {
     }
 
     render() {
-        const { pin, openModal } = this.props;
+        const { pin } = this.props;
 
         return (
-            <Link to={`pins/${pin.id}`}>
-                <button
-                    className='pin-index-save'
-                    onClick={this.handleClick}
-                >
-                    Save
-        </button>
-                <img className="masonry-pin-item" src={pin.photoUrl} />
-            </Link>
+                <img className="idx-image" src={pin.photoUrl} />
         );
     }
 }
