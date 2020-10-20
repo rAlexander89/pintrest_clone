@@ -1,13 +1,12 @@
-
 import { connect } from 'react-redux';
 import { fetchPin } from '../../actions/pin_actions';
 
 import PinShow from './pin_show';
 
 const mSTP = (state, ownProps) => {
-    // debugger
     return {
         currentUser: state.entities.users[state.session.id],
+        // pin: state.entities.pins[ownProps.match.params.pinId]
         pin: state.entities.pins[ownProps.match.params.pinId]
     }
 }

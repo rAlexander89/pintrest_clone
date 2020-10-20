@@ -6,6 +6,7 @@ import { login } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 import { clearErrors } from '../../actions/session_actions';
 import { closeModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom'
 
 const mSTP = state => {
     return {
@@ -29,4 +30,4 @@ const mDTP = dispatch => {
     };
 };
 
-export default connect(mSTP, mDTP)(SessionForm);
+export default withRouter(connect(mSTP, mDTP)(SessionForm));

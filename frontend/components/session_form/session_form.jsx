@@ -20,10 +20,13 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     if (this.formType === 'login'){
-      this.props.loginUser(user);
+      this.props.loginUser(user).then(() => (
+        this.props.history.push('/pins')
+      ));
     } else {
-      this.props.signupUser(user);
-    } 
+      this.props.signupUser(user).then(() => (
+        this.props.history.push('/pins')));
+    }
   }
 
   switcharoni(e){

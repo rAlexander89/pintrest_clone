@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 import { signup } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/session_actions';
+import { withRouter } from 'react-router-dom'
 
 
 const mSTP = state => {
@@ -27,4 +28,4 @@ const mDTP = dispatch => {
   };
 };
 
-export default connect(mSTP, mDTP)(SessionForm);
+export default withRouter(connect(mSTP, mDTP)(SessionForm));
