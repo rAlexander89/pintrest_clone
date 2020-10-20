@@ -28,28 +28,30 @@ pin_1 = Pin.create!(
     author_id: user1.id
 )
 
-# pin_2 = Pin.create!(
-#     title: 'Seed',
-#     description: 'Seeding!',
-#     author_id: user2.id
-# )
+pin_2 = Pin.create!(
+    title: 'Seed',
+    description: 'Seeding!',
+    author_id: user2.id
+)
 
-# pin_3 = Pin.create!(
-#     title: 'Humbrrd',
-#     description: 'frtfrftrftrtfrtfrtfrt',
-#     author_id: user1.id
-# )
+pin_3 = Pin.create!(
+    title: 'Humbrrd',
+    description: 'frtfrftrftrtfrtfrtfrt',
+    author_id: user1.id
+)
 
-# pin_4 = Pin.create!(
-#     title: 'swan',
-#     description: 'majestic <3',
-#     author_id: user2.id
-# )
+pin_4 = Pin.create!(
+    title: 'swan',
+    description: 'majestic <3',
+    author_id: user2.id
+)
 
 pin_1.photo.attach(io: File.open("./app/assets/images/echopark.jpg"), filename: "echopark.jpg")
 
-# pin_2.photo.attach(io: File.open("./app/assets/images/seed.jpg"), filename: "seed.jpg")
+pin_2.photo.attach(io: File.open("./app/assets/images/seed.jpg"), filename: "seed.jpg")
 
-# pin_3.photo.attach(io: File.open("./app/assets/images/hmb.jpg"), filename: "hmb.jpg")
+pin_3.photo.attach(io: File.open("./app/assets/images/hmb.jpg"), filename: "hmb.jpg")
 
-# pin_4.photo.attach(io: File.open("./app/assets/images/swan.jpg"), filename: "swan.jpg")
+pin_4.photo.attach(io: File.open("./app/assets/images/swan.jpg"), filename: "swan.jpg")
+
+p "Created #{Pin.count} pins"

@@ -2,21 +2,22 @@ class Api::PinsController < ApplicationController
 
     before_action :require_login, only: [:create]
 
-    def @pins = Pin.all
-        render ##
+    def index
+        @pins = Pin.all
+        render :index
     end
 
     def show
-        @pin = Pin.find(param[:id])
-        render #
+        @pin = Pin.find(params[:id])
+        render :show
     end
 
     def create
         @pin = Pin.new(pin_params)
         @pin.author_id = current_user.id
         
-        if @poem.save
-            render json: @pin
+        if @pin.save
+            render :show
         else
             render json: @user.errors.full_messages, status: 422
         end
@@ -24,15 +25,15 @@ class Api::PinsController < ApplicationController
 
     def update
         @pin = current_user.pins.find_by(id: params[:id])
-        if @pin && @poem.update(pin_params)
-            redirect_to ##
+        if @pin && @pin.update(pin_params)
+            render :show
         else
-            render json: ['update errrrororo'] status: 422
+            render json: ['update errrrororo'], status: 422
         end
     end
 
     def pin_params
-        params.require(:pin).permit(:title,pin)
+        params.require(:pin).permit(:title, :description, :author_id)
     end
 
 end

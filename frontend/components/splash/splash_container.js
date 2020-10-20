@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 // import Splash from './splash';
 import Splash from './splash.jsx';
 
-const mSTP = state => {
+const mSTP = ({session, entities: {users }}) => {
     return {
-        hello: 'hello'
+        currentUser: users[session.id]
     };
 };
 

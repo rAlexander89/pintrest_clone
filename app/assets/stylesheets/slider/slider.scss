@@ -25,57 +25,110 @@
   overflow: hidden;
 }
 .carousel .change_outer .change_inner {
-  // position: relative;
-  animation: rotate 12s ease-in-out infinite;
+  position: relative;
+  animation: rotate 25s ease-in-out infinite;
+}
+
+#dummy{
+  color: #C25D00;
+  animation: dummy 25s ease-in-out infinite;
+
 }
 
 #hallo{
   color: #C25D00;
+  animation: hallo 25s ease-in-out infinite;
+
 }
 
 #din{
   color: #C28B00;
+  animation: din 25s ease-in-out infinite;
 }
 
 
 #home{
-   color: #618C7B;
-  
+  color: #618C7B;
+  animation: home 25s ease-in-out infinite;
 }
 
 #look{
-   color: #0076D3;
+  color: #0076D3;
+  animation: look 25s ease-in-out infinite;
   
 }
 
 
-// @keyframes rotate {
-//   20%, 40%, 100% {
-//             transform: translateY(0);
-//   }
-//   60%,65% {
-//             transform: translateY(-61px);
-//   }
-//   80%,85% {
-//             transform: translateY(-132px);
-//   }
-//   95%,97% {
-//             transform: translateY(-190px);
-//   }
-// }
-
 @keyframes rotate {
-  20%, 25%, 100% {
+  0%, 100% {
             transform: translateY(0);
   }
-  45%,50% {
-            transform: translateY(-61px);
+  5%,20% {
+            transform: translateY(-66px);
   }
-  70%,75% {
-            transform: translateY(-132px);
+  25%,40% {
+            transform: translateY(-130px);
   }
-  95%,99% {
-            transform: translateY(-190px);
+  45%,60% {
+            transform: translateY(-192px);
+  }
+  65%,80% {
+            transform: translateY(-260px);
+  }
+  85%,99% {
+            transform: translateY(-360px);
   }
 }
 
+@keyframes dummy {
+    0%,100% {
+        opacity:0;
+    }
+}
+
+@keyframes hallo {
+    0%,20% {
+        opacity:1;
+    }
+
+    25%,100% {
+        opacity:0;
+    }
+}
+
+
+@keyframes din {
+    0%,40% {
+        opacity:1;
+    }
+
+    45%,100% {
+        opacity:0;
+    }
+}
+
+@keyframes home {
+    0%,60% {
+        opacity:1;
+    }
+
+    65%,100% {
+        opacity:0;
+    }
+}
+
+@keyframes look {
+    0%,80% {
+        opacity:1;
+    }
+
+    85%,100% {
+        opacity:0;
+    }
+}
+
+// @keyframes hallo {
+//     0%,100% {
+//         opacity:1;
+//     }
+// }
