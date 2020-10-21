@@ -11,7 +11,6 @@ import PinShowContainer from './pin/pin_show_container.js';
 import PinIndexContainer from './pin/pin_index_container.js';
 import CreatePinContainer from './pin/pin_create_container.js';
 import Footer from './splash/footer.jsx';
-// import fetchPosts from '../util/pin_api_util.js'
 
 
 

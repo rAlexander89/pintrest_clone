@@ -6,7 +6,6 @@ import PinShow from './pin_show';
 const mSTP = (state, ownProps) => {
     return {
         currentUser: state.entities.users[state.session.id],
-        // pin: state.entities.pins[ownProps.match.params.pinId]
         pin: state.entities.pins[ownProps.match.params.pinId]
     }
 }

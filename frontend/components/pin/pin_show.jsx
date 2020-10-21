@@ -3,7 +3,6 @@ import React from 'react';
 class PinShow extends React.Component {
     constructor(props) {
         super(props)
-        // pin = this.props.pin
     }
 
     componentDidMount() {
@@ -15,6 +14,9 @@ class PinShow extends React.Component {
         if (pin === undefined) return null;
         return (
             <div>
+                <p>{pin.description}</p>
+                <p>{pin.owner}</p>
+                <p>photo by {pin.title}</p>
                 <img className="pin-show-item" src={this.props.pin.photoUrl} />
             </div>
         )

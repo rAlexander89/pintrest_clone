@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUserUsername, logout, openModal}) => {
-// const Greeting = ({ currentUser, logout, openModal}) => {
+
     
     const sessionLinks = () => (
         <ul id="login-signup">

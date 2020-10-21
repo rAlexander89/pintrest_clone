@@ -17,8 +17,8 @@ class Api::PinsController < ApplicationController
         @pin.author_id = current_user.id
         
         if @pin.save
-            # render :show
-            render json: {message: 'wooo!'}
+            render :show
+            # render json: {message: 'wooo!'}
         else
             render json: @user.errors.full_messages, status: 422
         end
@@ -34,7 +34,7 @@ class Api::PinsController < ApplicationController
     end
 
     def pin_params
-        params.require(:pin).permit(:photo, :title, :description, :author_id)
+        params.require(:pin).permit(:photo, :title, :description, :owner, :author_id)
     end
 
 end
