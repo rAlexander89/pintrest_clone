@@ -32,7 +32,6 @@ class Modal extends React.Component {
     // }
 
     render() {
-        debugger
         if (!this.props.modal) return null;
 
         return (
@@ -54,7 +53,7 @@ class Modal extends React.Component {
     }
 }
 
-const mSTP = ({ ui }, ownProps) => {
+const mSTP = ({ ui }) => {
     return {
         modal: ui.modal,
     };

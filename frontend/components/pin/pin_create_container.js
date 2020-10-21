@@ -1,25 +1,18 @@
-
 import { connect } from 'react-redux';
-import { createPin, fetchPins } from '../../actions/pin_actions';
-import { withRouter } from 'react-router-dom';
-import CreatePin from './pin_create';
+import CreatePinForm from './pin_create_form';
+import { createPin} from '../../actions/pin_actions';
+import { clearErrors } from '../../actions/session_actions';
 
-const mSTP = (state) => ({
-    currentUser: state.entities.users[state.session.id],
-    pins: Object.values(state.entities.pins),
-    pin: {
-        title: '',
-        description: '',
-        author_id: this.props.currentUser.id,
-        photoUrl: null,
-    }
-});
+const mapStateToProps = ({ entities: { users }, errors, session }) => ({
+    owner: users[session.currentUserId],
+    errors: errors.pins
+})
 
-const mDTP = dispatch => ({
-    fetchPins: () => dispatch(fetchPins()),
-    createPin: (pin) => dispatch(createPin(pin)),
-});
+const mapDispatchToProps = dispatch => ({
+    fetchBoards: (userId) => dispatch(fetchBoards(userId)),
+    createPin: pin => dispatch(createPin(pin)),
+    clearErrors: () => dispatch(clearErrors()),
 
-export default withRouter(connect(mSTP,mDTP)(CreatePin));
+})
 
-
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePinForm);

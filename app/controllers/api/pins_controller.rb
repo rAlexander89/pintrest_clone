@@ -12,12 +12,13 @@ class Api::PinsController < ApplicationController
         render :show
     end
 
-    def create
+    def create 
         @pin = Pin.new(pin_params)
         @pin.author_id = current_user.id
         
         if @pin.save
-            render :show
+            # render :show
+            render json: {message: 'wooo!'}
         else
             render json: @user.errors.full_messages, status: 422
         end
@@ -33,7 +34,7 @@ class Api::PinsController < ApplicationController
     end
 
     def pin_params
-        params.require(:pin).permit(:title, :description, :author_id)
+        params.require(:pin).permit(:photo, :title, :description, :author_id)
     end
 
 end

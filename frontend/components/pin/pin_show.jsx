@@ -1,21 +1,21 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
-class PinShow extends React.Component{
-    constructor(props){
+class PinShow extends React.Component {
+    constructor(props) {
         super(props)
+        // pin = this.props.pin
     }
 
-    componentDidMont(){
+    componentDidMount() {
         this.props.fetchPin(this.props.match.params.pinId)
     }
 
-    render(){
-        let {pin} = this.props;
+    render() {
+        let { pin } = this.props;
         if (pin === undefined) return null;
-        return(
+        return (
             <div>
-                <img className="pin-show-item" src={pin.photoUrl} />
+                <img className="pin-show-item" src={this.props.pin.photoUrl} />
             </div>
         )
     }

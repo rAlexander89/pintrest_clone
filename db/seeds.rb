@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+require 'open-uri'
+
 User.destroy_all
 Pin.destroy_all
 
@@ -232,8 +235,8 @@ pin_35 = Pin.create!(
 )
 
 
+# pin_1.photo.attach(io: open("url - link to image in bucket : OpenUrl-.... "), filename: "echopark.jpg")
 pin_1.photo.attach(io: File.open("./app/assets/images/pins/echopark.jpg"), filename: "echopark.jpg")
-# pin_2.photo.attach(io: File.open("./app/assets/images/pins/seed.jpg"), filename: "seed.jpg")
 pin_3.photo.attach(io: File.open("./app/assets/images/pins/hmb.jpg"), filename: "hmb.jpg")
 pin_4.photo.attach(io: File.open("./app/assets/images/pins/swan.jpg"), filename: "swan.jpg")
 pin_5.photo.attach(io: File.open("./app/assets/images/pins/alley.jpg"), filename: "alley.jpg")

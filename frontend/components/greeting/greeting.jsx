@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Greeting = ({ currentUser, logout, openModal, closeModal }) => {
+const Greeting = ({ currentUserUsername, logout, openModal}) => {
+// const Greeting = ({ currentUser, logout, openModal}) => {
     
     const sessionLinks = () => (
         <ul id="login-signup">
+        {console.log('why you logging this if user is logged in?')}
+        {console.log(currentUserUsername)}
             <li><button id='loginbtn' onClick={() => openModal('login')}>Log in</button></li>
             <li><button id='signinbtn' onClick={() => openModal('signup')}>Sign up</button></li>
         </ul>
@@ -12,13 +15,13 @@ const Greeting = ({ currentUser, logout, openModal, closeModal }) => {
 
     const personalGreeting = () => (    
         <hgroup className="header-group">
-            <h2 className="header-name">Hi, {currentUser.username}!</h2>
+            <h2 className="header-name">Hi, {currentUserUsername}!</h2>
             <button className="header-button" onClick={logout}>Log Out</button>
-            <div onLoad={closeModal()}></div>
         </hgroup>
     );
 
-    return currentUser ? personalGreeting() : sessionLinks();
+    // return currentUser ? personalGreeting() : sessionLinks();
+    return currentUserUsername ? personalGreeting() : sessionLinks();
 };
 
 

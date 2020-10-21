@@ -27,6 +27,7 @@ const mDTP = dispatch => {
         signupUser: (user) => dispatch(signup(user)),
         loginUser: (user) => dispatch(login(user)),
         clearErrors: () => dispatch(clearErrors()),
+        closeModal: () => dispatch(closeModal())
     };
 };
 

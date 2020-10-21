@@ -65,12 +65,12 @@ import {
 
 const PinReducer = (state = {}, action) => {
     Object.freeze(state);
-
+    // console.log('pin reducer')
     switch (action.type) {
         case RECEIVE_PINS:
             return Object.assign({}, state, action.pins)
         case RECEIVE_PIN:
-            return { [action.pin.id]: action.pin }
+            return Object.assign({}, state, { [action.pin.id]: action.pin })
         case REMOVE_PIN:
             let newState = Object.assign({}, state);
             delete newState[action.pinId];

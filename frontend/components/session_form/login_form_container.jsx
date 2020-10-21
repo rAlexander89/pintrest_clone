@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 import { signup } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/session_actions';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import {closeModal} from '../../actions/modal_actions'
 
 
 const mSTP = state => {
@@ -25,6 +26,7 @@ const mDTP = dispatch => {
     loginUser: (user) => dispatch(login(user)),
     signupUser: (user) => dispatch(signup(user)),
     clearErrors: () => dispatch(clearErrors()),
+    closeModal: () => dispatch(closeModal())
   };
 };
 

@@ -59,7 +59,7 @@ class PinIndex extends React.Component {
 
 
     render() {
-        const { pins, openModal } = this.props;
+        const { pins } = this.props;
 
         return (
             <div className="index-container">
@@ -68,7 +68,6 @@ class PinIndex extends React.Component {
                         pin={pin}
                         key={pin.id}
                         photo={pin.photoUrl}
-                        // openModal={openModal}
                     />
                 ))}
             </div>

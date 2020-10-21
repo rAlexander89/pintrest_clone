@@ -19,22 +19,10 @@ class App extends React.Component{
     constructor(props){
         super(props);
         this.state = {pins: []};
-        this.fetchPosts = this.fetchPosts.bind(this);
 
     }
 
-    fetchPosts(){
-        $.ajax({
-            url: '/api/pins'
-        }).then(posts => {
-            this.setState({ posts })
-        })
-    }
 
-
-    componentDidMount(){
-        this.fetchPosts();
-    }
 
     render(){
         return (
@@ -54,7 +42,7 @@ class App extends React.Component{
                     {/* <Route exact path="/images" component={PinIndexContainer} /> */}
                     <Route exact path="/pins" component={PinIndexContainer} />
                     <Route exact path="/pins/:pinId" component={PinShowContainer} />
-                    <Route exact path="/pins/create" component={CreatePinContainer} />
+                    <Route exact path="/p/create" component={CreatePinContainer} />
                     </Switch>
                 </div>
                 <div>
