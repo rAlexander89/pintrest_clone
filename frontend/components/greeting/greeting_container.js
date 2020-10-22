@@ -9,7 +9,7 @@ import Greeting from './greeting';
 
 const mSTP = state => {
     return{
-        currentUserUsername: state.session.currentUserUsername
+        currentUser: state.entities.users[state.session.currentUserId],
     }
 }
 

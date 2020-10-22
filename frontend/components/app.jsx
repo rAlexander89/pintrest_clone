@@ -18,16 +18,16 @@ class App extends React.Component{
     constructor(props){
         super(props);
         this.state = {pins: []};
-
     }
-
 
 
     render(){
         return (
             <div>
                 <div className='header'>
-                    <img id='logo' src='https://i.imgur.com/IaouNpW.jpg' />
+                    <Link to='/'>
+                    <img id='logo' to='/' src='https://i.imgur.com/IaouNpW.jpg' />
+                    </Link>
                     <h1 id='nav-title'><Link to='/'>Pintrest</Link></h1>
                     <ul id='nav-list'>
                         <li><Modal /></li>

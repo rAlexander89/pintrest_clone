@@ -1,0 +1,87 @@
+.content-container{
+    width: 100%;
+    // max-height: 95vh;
+    margin-top: 10px;
+    // background: crimson;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box; 
+}
+
+.pin-show-container{
+    margin: auto;
+    max-width: 1100px;
+    // max-height: 95vh;
+    height: auto;
+    
+    // background: chartreuse;
+    padding: 10px;
+    align-items: center;
+   
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    // justify-content: center;
+    flex-flow: wrap;
+}
+
+.pin-show-item{
+    display: block;
+    margin: auto;
+    max-width: 900px;
+    box-sizing: border-box;
+    max-height: 95vh;
+    // padding-bottom: 20px;
+    // background: cornflowerblue;
+
+}
+
+.pin-show-item img {
+    max-width: 100%;
+    max-height: 600px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 8px 23px -3px rgba(0,0,0,0.63);
+    -moz-box-shadow: 0px 8px 23px -3px rgba(0,0,0,0.63);
+    box-shadow: 0px 8px 23px -3px rgba(0,0,0,0.63);
+    // max-height: 95vh;
+}
+.pin-show-det{
+
+    // float: left;
+    margin: 15px;
+    padding: 10px;
+    max-width: 400px;
+    overflow-wrap: break-word;
+    border-radius: 8px;
+    // background: chocolate;
+    box-shadow:  5px 5px 10px #dbdbdb, 
+    -5px -5px 10px #fbfbfb;
+    border-bottom: 5px groove rgba(221,221,221,0.19);
+
+
+}
+
+#pin-title{
+    font-size: 46px;
+    font-weight: 600px;
+    margin-bottom: 2px;
+}
+
+#pin-owner{
+    font-style: italic;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1200px){
+    .pin-show-item{
+        max-width: 60%;
+        // height:50%;
+    }
+    .pin-show-det{
+        max-width: 40%;
+    }
+}
+
