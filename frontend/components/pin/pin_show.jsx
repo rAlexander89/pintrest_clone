@@ -24,7 +24,7 @@ class PinShow extends React.Component {
                         <div className='pin-show-det'>
                             <ul>
                                 <li id='pin-title'>{pin.title}</li>
-                                <li id='pin-owner'>photo by {this.props.owner}</li>
+                                <li id='pin-owner'>photo by {this.props.owner.username}</li>
                                 <li id='pin-description'>{pin.description}</li>
                                 <li>sadkasodisjaoidsajdoisadosiudasoidasdoisaudaoiduaoiduasoiduasodiuasdoisaudoisaudaosiudasoipduaoiduasodiusapdoiuasiodusadoiasudoiasudaioduasoiduadusaodiuasodsaudosiaudoaudasoduasoidusaodiupoas</li>
                             </ul>

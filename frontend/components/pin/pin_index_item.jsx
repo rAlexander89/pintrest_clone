@@ -26,14 +26,9 @@ class PinIndexItem extends React.Component {
 
         return (
             <div>
-                {/* <Link to={`/pins/${pin.id}`}> */}
-                {/* <img className="idx-image" src={pin.photoUrl} onClick={() => openModal('pin')}/> */}
                 <Link to={`/pins/${pin.id}`}>
                 <img className="idx-image" src={pin.photoUrl} onClick={() => this.showPin(pin)}/>
-
                 </Link>
-                {/* <img className="idx-image" src={pin.photoUrl} onClick={(e) => this.showPin(e,pin)}/> */}
-                {/* </Link> */}
             </div>
         );
     }

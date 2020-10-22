@@ -4,9 +4,10 @@ export const RECEIVE_PIN = 'RECEIVE_PIN';
 export const RECEIVE_PINS = 'RECEIVE_PINS';
 export const REMOVE_PIN = 'REMOVE_PIN';
 
-const receivePin = pin => ({
+const receivePin = data => ({
     type: RECEIVE_PIN,
-    pin
+    pin: data.pin,
+    owner: data.owner
 });
 
 const receivePins = pins => ({

@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: boards
+# Table name: pin_boards
 #
 #  id          :bigint           not null, primary key
-#  description :string
-#  title       :string           not null
+#  description :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  author_id   :integer          not null
+#  board_id    :integer          not null
+#  pin_id      :integer          not null
 #
 require 'test_helper'
 
-class BoardTest < ActiveSupport::TestCase
+class PinBoardTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

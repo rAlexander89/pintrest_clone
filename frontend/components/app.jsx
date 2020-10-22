@@ -25,10 +25,12 @@ class App extends React.Component{
         return (
             <div>
                 <div className='header'>
-                    <Link to='/'>
-                    <img id='logo' to='/' src='https://i.imgur.com/IaouNpW.jpg' />
-                    </Link>
-                    <h1 id='nav-title'><Link to='/'>Pintrest</Link></h1>
+                    <div>
+                        <Link to='/'>
+                        <img id='logo' to='/' src='https://i.imgur.com/IaouNpW.jpg' />
+                        </Link>
+                        <h1 id='nav-title'><Link to='/'>Pintrest</Link></h1>
+                    </div>    
                     <ul id='nav-list'>
                         <li><Modal /></li>
                         <li><GreetingContainer /></li>

@@ -19,4 +19,12 @@ class Pin < ApplicationRecord
     belongs_to :author,
     foreign_key: :author_id,
     class_name: :User
+
+    has_many :board_pins,
+    foreign_key: :pin_id,
+    class_name: :BoardPin
+
+    # has_many :boards
+
+
 end

@@ -3,16 +3,21 @@ import { fetchPin } from '../../actions/pin_actions';
 
 import PinShow from './pin_show';
 
-const mSTP = (state, ownProps) => {
+const mSTP = ({ entities: {pins, users}, session}, ownProps) => {
+
+    let pin = pins[ownProps.match.params.pinId];
+    let owner_id = pin ? pin.author_id : undefined;
+
     return {
-        currentUser: state.entities.users[state.session.id],
-        pin: state.entities.pins[ownProps.match.params.pinId]
+        currentUser: users[session.id],
+        owner: users[owner_id],
+        pin
     }
 }
 
 const mDTP = dispatch => {
     return {
-        fetchPin: pinId => dispatch(fetchPin(pinId))
+        fetchPin: pinId => dispatch(fetchPin(pinId)),
         // openModal: modal => dispatch(openModal(modal)),
     }
 }
