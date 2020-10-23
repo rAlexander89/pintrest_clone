@@ -1,8 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
-// import { openModal } from '../../actions/modal_actions';
-// import { openModal } from '../../actions/modal_actions';
 import PinShowContainer from './pin_show_container'
 
 
@@ -13,8 +10,6 @@ class PinIndexItem extends React.Component {
     }
 
     showPin(pin) {
-        // e.preventDefault();
-        // openModal({modal: 'pin'}),
         return(
             console.log(pin.id),
             <PinShowContainer pin={pin}/>
