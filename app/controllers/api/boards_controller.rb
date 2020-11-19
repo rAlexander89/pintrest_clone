@@ -17,9 +17,11 @@ class Api::BoardsController < ApplicationController
     end
 
     def create
+        debugger
         @board = Board.create(board_params)
         @board.user_id = current_user.id
         if @board.save
+            debugger
             render :show
         else
             render json: @board.errors.full_messages, status: 422
