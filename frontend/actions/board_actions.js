@@ -33,11 +33,11 @@ export const receiveBoardErrors = errors => ({
 //             error => dispatch(receiveBoardErrors(error.responseJSON)))
 // }
 
-export const fetchBoard = (userId, boardId) => dispatch => {
-    return BoardAPIUtil.fetchBoard(userId, boardId)
-        .then(board => dispatch(receiveBoard(board)),
-            error => dispatch(receiveBoardErrors(error.responseJSON)))
-}
+// export const fetchBoard = (userId, boardId) => dispatch => {
+//     return BoardAPIUtil.fetchBoard(userId, boardId)
+//         .then(board => dispatch(receiveBoard(board)),
+//             error => dispatch(receiveBoardErrors(error.responseJSON)))
+// }
 
 export const createBoard = board => dispatch => {
     debugger

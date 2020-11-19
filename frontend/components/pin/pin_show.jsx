@@ -3,13 +3,10 @@ import React from 'react';
 class PinShow extends React.Component {
     constructor(props) {
         super(props)
-        // this.state = this.props.owner.username;
     }
 
     componentDidMount() {
         this.props.fetchPin(this.props.match.params.pinId)
-        // this.props.owner.username
-        // this.props.fetchUser(this.props.owner)
     }
 
     render() {

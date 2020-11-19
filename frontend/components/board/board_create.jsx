@@ -4,7 +4,7 @@ class BoardCreate extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            title: '',
             description: '',
             author_id: this.props.currentUserId,
         };
@@ -34,8 +34,8 @@ class BoardCreate extends React.Component {
                     <p>Title</p>
                     <input
                         type="text"
-                        value={this.state.name}
-                        onChange={this.handleChange("name")}
+                        value={this.state.title}
+                        onChange={this.handleChange("title")}
                         placeholder="Give your board a title."
                     />
                     <p>Description</p>
