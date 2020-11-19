@@ -14,6 +14,7 @@ class PinIndex extends React.Component {
 
 
     render() {
+        debugger
         const { pins } = this.props;
 
         return (

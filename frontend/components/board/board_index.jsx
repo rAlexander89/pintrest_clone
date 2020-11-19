@@ -8,23 +8,27 @@ class BoardIndex extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchBoards();
+        // this.props.fetchBoards();
     }
 
     render(){
         let { boards, currentUserId } = this.props;
-
+        console.log('we are now in the board_index')
+        debugger
         return(
-            <div className='board-index-container'>
-                {boards.map((board) => (
+            <p>howdy partner!</p>
+            // <div className='board-index-container'>
+                /* {boards.map((board) => (
                     <BoardIndexItem
                         board={board}
                         key={board.id}
                         currentUserId={currentUserId}
                     />
-                ))}
-            </div>
+                ))} */
+            // {/* </div> */}
         )
 
     }
 }
+
+export default BoardIndex;
