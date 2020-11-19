@@ -65,5 +65,9 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Pin
 
+    has_many :boards,
+    
+    class_name: :Board
+
   
 end

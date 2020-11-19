@@ -4,11 +4,12 @@ import { Route, Switch, Link } from 'react-router-dom';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-import Modal from './modal/modal';
+import ModalContainer from './modal/modal_container';
 import SplashContainer from './splash/splash_container.js';
 import PinShowContainer from './pin/pin_show_container.js';
 import PinIndexContainer from './pin/pin_index_container.js';
 import CreatePinContainer from './pin/pin_create_container.js';
+import BoardIndexContainer from './board/board_index_container';
 import Footer from './splash/footer.jsx';
 
 
@@ -55,7 +56,7 @@ class App extends React.Component{
                         <h1 id='nav-title'><Link to='/'>Pintrest</Link></h1>
                     </div>    
                     <ul id='nav-list'>
-                        <li><Modal /></li>
+                        <li><ModalContainer /></li>
                         <li><GreetingContainer /></li>
                     </ul>
                 </div>
@@ -67,6 +68,7 @@ class App extends React.Component{
                     <Route exact path="/pins" component={PinIndexContainer} />
                     <Route exact path="/pins/:pinId" component={PinShowContainer} />
                     <Route exact path="/p/create" component={CreatePinContainer} />
+                    <Route exact path='/users/:user_id/board' component={BoardIndexContainer}/>
                     </Switch>
                 </div>
                 <div>

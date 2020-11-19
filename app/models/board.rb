@@ -13,7 +13,10 @@ class Board < ApplicationRecord
 
     validates :user_id, :title, presence: true
     validates :title, uniqueness: {scope: :author_id}
-    belongs_to :user
+
+    belongs_to :user,
+    foreign_key: :author_id,
+    class_name: :User
     
     has_many :board_pins, 
     dependent: :destroy
@@ -21,7 +24,4 @@ class Board < ApplicationRecord
     has_many :pins, 
     through: :boards_pins,
     source: :pin
-
-
-
 end
