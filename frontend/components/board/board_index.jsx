@@ -1,5 +1,7 @@
 import React from 'react';
 import BoardIndexItem from './board_index_item';
+// import BoardIndexItem from './board_index_item';
+import BoardCreateContainer from './board_create_container'
 
 
 class BoardIndex extends React.Component{
@@ -16,17 +18,20 @@ class BoardIndex extends React.Component{
         console.log('we are now in the board_index')
         debugger
         return(
-            <p>howdy partner!</p>
-            // <div className='board-index-container'>
-                /* {boards.map((board) => (
+            <div>
+                <BoardCreateContainer/>
+                <p>howdy partner! This is where I'm gonna put down some cool boards, I'll tell you hwut!</p>
+            </div>
+              )
+              {/* <div className='board-index-container'>
+                {boards.map((board) => (
                     <BoardIndexItem
                         board={board}
                         key={board.id}
                         currentUserId={currentUserId}
-                    />
-                ))} */
-            // {/* </div> */}
-        )
+                    
+                ))} 
+            </div> */}
 
     }
 }
