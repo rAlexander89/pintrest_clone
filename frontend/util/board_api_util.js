@@ -1,17 +1,17 @@
-// export const fetchBoards = (userId) => {
-//     debugger
-//     return $.ajax({
-//         url: `/api/users/${userId}/board`,
-//         method: "GET"
-//     })
-// }
+export const fetchBoards = (userId) => {
+    debugger
+    return $.ajax({
+        url: `/api/users/${userId}/board`,
+        method: "GET"
+    })
+}
 
-// export const fetchBoard = (userId, boardId) => {
-//     return $.ajax({
-//         url: `/api/users/${userId}/board/${boardId}`,
-//         method: "GET"
-//     })
-// }
+export const fetchBoard = (userId, boardId) => {
+    return $.ajax({
+        url: `/api/users/${userId}/board/${boardId}`,
+        method: "GET"
+    })
+}
 
 export const createBoard = (board) => {
     debugger
@@ -23,12 +23,12 @@ export const createBoard = (board) => {
     })
 }
 
-// export const fetchBoardPins = () => {
-//     return $.ajax({
-//         url: '/api/board_pins',
-//         method: 'GET'
-//     })
-// }
+export const fetchBoardPins = () => {
+    return $.ajax({
+        url: '/api/board_pins',
+        method: 'GET'
+    })
+}
 
 
 
