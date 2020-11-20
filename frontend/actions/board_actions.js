@@ -31,8 +31,8 @@ export const fetchBoards = () => dispatch => {
         .then(boards => dispatch(receiveBoards(boards)))
 }
 
-export const fetchBoard = (userId, boardId) => dispatch => {
-    return BoardAPIUtil.fetchBoard(userId, boardId)
+export const fetchBoard = (boardId) => dispatch => {
+    return BoardAPIUtil.fetchBoard(boardId)
         .then(board => dispatch(receiveBoard(board)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }

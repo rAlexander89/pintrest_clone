@@ -13,8 +13,7 @@ class BoardIndexItem extends React.Component{
         return(
             <div className='board-index-item'>
                 <ul>
-                <Link to={`/users/${board.userId}/boards/${board.id}`}>
-                <li>{/*a photo from the board will go here*/}</li>
+                <Link to={`/boards/${board.id}`}>
                 <li><h id='board-card-title'>{board.name}</h></li>
                 <li><p id='board-card-description'>{board.description}</p></li>
                 </Link>
@@ -22,9 +21,6 @@ class BoardIndexItem extends React.Component{
             </div>
         )
     }
-
-
-
-
-
 }
+
+export default BoardIndexItem
