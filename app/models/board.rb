@@ -11,7 +11,8 @@
 #
 class Board < ApplicationRecord
 
-    validates :user_id, :title, presence: true
+    # validates :user_id, :title, presence: true
+    validates :author_id, :title, presence: true
     validates :title, uniqueness: {scope: :author_id}
 
     belongs_to :user,

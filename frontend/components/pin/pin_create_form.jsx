@@ -15,12 +15,9 @@ class CreatePinForm extends React.Component {
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
-        // this.hideBackground = this.hideBackground.bind(this);
-        // this.choosensave = this.choosensave.bind(this);
     }
 
     componentDidMount() {
-        // const { owner, clearErrors } = this.props;
         const { clearErrors } = this.props;
     }
 
@@ -51,9 +48,6 @@ class CreatePinForm extends React.Component {
         document.getElementById("image-preview").classList.toggle("image-load");
     }
 
-    // hideBackground() {
-    //     document.getElementById("image-background").remove();
-    // }
 
     handleFile(e) {
         e.preventDefault();
@@ -66,13 +60,10 @@ class CreatePinForm extends React.Component {
             });
             this.showImage();
         }
-        // this.hideBackground();
         if (file) fileReader.readAsDataURL(file);
     }
 
     render() {
-        console.log('Who is about to post:')
-        console.log(this.state.owner)
         const { title, description, photoUrl, working} = this.state;
         const preview = photoUrl ? <img id="image-preview" src={photoUrl} /> : null;
         return (

@@ -1,9 +1,10 @@
+require 'byebug'
 class Api::BoardsController < ApplicationController
 
 
 
     def index
-        @boards = Board.all.where(user_id: params[:user_id])
+        @boards = Board.all.where(author_id: params[:author_id])
         render '/api/boards/index'
     end
 
@@ -17,8 +18,9 @@ class Api::BoardsController < ApplicationController
     end
 
     def create
+        # debugger
         @board = Board.create(board_params)
-        @board.user_id = current_user.id
+        # @board.author_id = current_user.id
         if @board.save
             render :show
         else
@@ -28,7 +30,7 @@ class Api::BoardsController < ApplicationController
 
     def update
       @board = Board.find_by(id: params[:id])
-      if @board && @board.user_id == current_user.id 
+      if @board && @board.author_id == current_user.id 
         if @board.update(board_params)
           render :show
         else
@@ -39,7 +41,7 @@ class Api::BoardsController < ApplicationController
 
     def board_params
         # params.require(:board).permit(:name, :description, :date_start, :date_end)
-        params.require(:board).permit(:name, :description)
+        params.require(:board).permit(:title, :description, :author_id)
     end
 
 end
