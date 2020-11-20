@@ -15,7 +15,7 @@ const mDTP = dispatch => {
     debugger
     return{
         createBoard: board => dispatch(createBoard(board)),
-        // fetchBoards: () => dispatch(fetchBoards(userId))
+        fetchBoards: () => dispatch(fetchBoards())
     }
 }
 

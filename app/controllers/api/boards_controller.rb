@@ -4,8 +4,9 @@ class Api::BoardsController < ApplicationController
 
 
     def index
-        @boards = Board.all.where(author_id: params[:author_id])
-        render '/api/boards/index'
+        @boards = Board.all#.where(author_id: params[:author_id])
+        # render '/api/boards/index'
+        render :index
     end
 
     def show
@@ -28,16 +29,16 @@ class Api::BoardsController < ApplicationController
         end
     end
 
-    def update
-      @board = Board.find_by(id: params[:id])
-      if @board && @board.author_id == current_user.id 
-        if @board.update(board_params)
-          render :show
-        else
-          render json: @board.errors.full_messages, status: 422
-        end 
-      end
-    end
+    # def update
+    #   @board = Board.find_by(id: params[:id])
+    #   if @board && @board.author_id == current_user.id 
+    #     if @board.update(board_params)
+    #       render :show
+    #     else
+    #       render json: @board.errors.full_messages, status: 422
+    #     end 
+    #   end
+    # end
 
     def board_params
         # params.require(:board).permit(:name, :description, :date_start, :date_end)

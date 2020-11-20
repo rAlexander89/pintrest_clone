@@ -26,11 +26,9 @@ export const receiveBoardPins = boardPins => ({
     boardPins
 })
 
-export const fetchBoards = (userId) => dispatch => {
-    debugger
-    return BoardAPIUtil.fetchBoards(userId)
-        .then(boards => dispatch(receiveBoards(boards)),
-            error => dispatch(receiveBoardErrors(error.responseJSON)))
+export const fetchBoards = () => dispatch => {
+    return BoardAPIUtil.fetchBoards()
+        .then(boards => dispatch(receiveBoards(boards)))
 }
 
 export const fetchBoard = (userId, boardId) => dispatch => {

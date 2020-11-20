@@ -1,10 +1,17 @@
-export const fetchBoards = (userId) => {
-    debugger
+// export const fetchBoards = (userId) => {
+//     debugger
+//     return $.ajax({
+//         url: `/api/users/${userId}/board`,
+//         method: "GET"
+//     })
+// }
+
+export const fetchBoards = () => {
     return $.ajax({
-        url: `/api/users/${userId}/board`,
-        method: "GET"
+        method: 'GET',
+        url: '/api/boards/'
     })
-}
+};
 
 export const fetchBoard = (userId, boardId) => {
     return $.ajax({

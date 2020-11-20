@@ -9,9 +9,10 @@ class BoardIndex extends React.Component{
     }
 
     componentDidMount(){
-        // debugger
-        // this.props.fetchBoards(this.props.currentUser.id);
-        // debugger
+        // let userId = this.props.currentUser.id
+        debugger
+        this.props.fetchBoards();
+        debugger
     }
 
     render(){
