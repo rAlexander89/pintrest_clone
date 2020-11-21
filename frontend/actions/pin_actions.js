@@ -46,3 +46,5 @@ export const createPin = (pin) => dispatch => {
             return dispatch(receivePin(pin))
         })
 }
+
+// export const savePinToBoard

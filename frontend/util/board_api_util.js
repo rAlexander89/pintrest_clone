@@ -20,6 +20,12 @@ export const fetchBoard = (boardId) => {
     })
 }
 
+// export const fetchMyBoards = (author_id) => {
+//     return $.ajax({
+//         url: 
+//     })
+// }
+
 export const createBoard = (board) => {
     debugger
     return $.ajax({
@@ -37,5 +43,10 @@ export const fetchBoardPins = () => {
     })
 }
 
-
+export const fetchMyBoards = (userId) => {
+    return $.ajax({
+        url: '/api/' ,
+        methid: 'GET'
+    })
+}
 

@@ -3,13 +3,13 @@ import * as UserApiUtil from '../util/user_api_util';
 // '../util/user_api_util.js'
 
 export const RECEIVE_USER = 'RECEIVE_USER';
+export const SAVE_BOARD_TO_USER = 'SAVE_BOARD_TO_USER'
 
 
 const receiveUser = pinId => ({
     type: RECEIVE_PIN,
     pinId
 });
-
 
 
 

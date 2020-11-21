@@ -7,6 +7,7 @@ const mSTP = ({ entities: { boards, users }, session }, ownProps) => {
 
     let board = boards[ownProps.match.params.boardId];
     let owner_id = board ? board.author_id : undefined;
+    debugger
 
     return {
         currentUser: users[session.id],
