@@ -5,6 +5,7 @@ const boardsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_BOARDS:
+            debugger
             return action.boards;
             case RECEIVE_BOARD:
             debugger

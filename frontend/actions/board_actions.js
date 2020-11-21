@@ -26,8 +26,9 @@ export const receiveBoardPins = boardPins => ({
     boardPins
 })
 
-export const fetchBoards = () => dispatch => {
-    return BoardAPIUtil.fetchBoards()
+export const fetchBoards = (userId) => dispatch => {
+    debugger
+    return BoardAPIUtil.fetchBoards(userId)
         .then(boards => dispatch(receiveBoards(boards)))
 }
 

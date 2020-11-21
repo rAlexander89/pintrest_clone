@@ -14,13 +14,11 @@ class BoardShow extends React.Component {
         debugger
         let { board } = this.props;
         if (board === undefined) return null;
-        console.log('the owner is:');
 
         return (
             <div className="content-container">
                 <div className='board-show-container'>
                     <div className="board-show-item">
-                        {/* <img className="board-item" src={this.props.board.photoUrl} /> */}
                     </div>
                     <div className='board-show-det'>
                         <ul>

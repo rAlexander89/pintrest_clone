@@ -70,7 +70,7 @@ class App extends React.Component{
                     <Route exact path="/pins/:pinId" component={PinShowContainer} />
                     <Route exact path="/p/create" component={CreatePinContainer} />
                     {/* <Route exact path='/users/:user_id/boards' component={BoardIndexContainer}/> */}
-                    <Route exact path='/boards' component={BoardIndexContainer}/>
+                    <Route exact path='/users/:userId/boards' component={BoardIndexContainer}/>
                     <Route exact path='/boards/:boardId' component={BoardShowContainer}/>
                     </Switch>
                 </div>

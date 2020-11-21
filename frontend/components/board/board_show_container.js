@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchBoard } from '../../actions/board_actions';
+import { fetchBoardPins } from '../../util/board_api_util';
 
 import BoardShow from './board_show';
 

@@ -6,10 +6,11 @@
 //     })
 // }
 
-export const fetchBoards = () => {
+export const fetchBoards = (userId) => {
+    debugger
     return $.ajax({
         method: 'GET',
-        url: '/api/boards/'
+        url: `/api/users/${userId}/boards/`
     })
 };
 

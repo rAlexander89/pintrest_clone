@@ -54,13 +54,6 @@ class CreatePinForm extends React.Component {
         )
     }
 
-    // selectBoard(e){
-    //     document.getElementById('board-selected').innerHTML = e.currentTarget.innerHTML;
-    //     this.toggleMenu(e);
-    //     debugger
-    //     this.update('boardId')(e);
-    // }
-
 
     update(field) {
         return e => {
