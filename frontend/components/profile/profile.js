@@ -1,4 +1,0 @@
-
-const profile = () => {
-    const { user }
-}

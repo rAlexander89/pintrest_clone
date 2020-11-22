@@ -66,7 +66,6 @@ class User < ApplicationRecord
     class_name: :Pin
 
     has_many :boards,
-    
     class_name: :Board
 
   

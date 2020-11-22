@@ -10,6 +10,7 @@ class PinShow extends React.Component {
     }
 
     render() {
+        debugger
         let { pin } = this.props;
         if (pin === undefined) return null;
         if (this.props.owner === undefined) return null;

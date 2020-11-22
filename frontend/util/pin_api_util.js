@@ -13,6 +13,7 @@ export const fetchPin = pinId => {
 };
 
 export const createPin = pin => {
+    debugger
     return $.ajax({
         method: 'POST',
         url: '/api/pins',
@@ -37,7 +38,8 @@ export const deletePin = pinId => {
     })
 };
 
-export const saveToBoard = (board_pin) => {
+export const savePinToBoard = (board_pin) => {
+    debugger
     return $.ajax({
         url: '/api/board_pins',
         method: 'POST',

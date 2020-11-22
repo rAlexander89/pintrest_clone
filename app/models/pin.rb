@@ -25,6 +25,9 @@ class Pin < ApplicationRecord
     foreign_key: :pin_id,
     class_name: :BoardPin
 
+    has_many :boards,
+    through: :board_pins
+
     # has_many :boards
 
 
