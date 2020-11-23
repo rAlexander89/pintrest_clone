@@ -1,11 +1,3 @@
-// export const fetchBoards = (userId) => {
-//     debugger
-//     return $.ajax({
-//         url: `/api/users/${userId}/board`,
-//         method: "GET"
-//     })
-// }
-
 export const fetchBoards = (userId) => {
     debugger
     return $.ajax({
@@ -14,23 +6,17 @@ export const fetchBoards = (userId) => {
     })
 };
 
-export const fetchBoard = (boardId) => {
+export const fetchBoard = (userId, boardId) => {
     return $.ajax({
-        url: `/api/boards/${boardId}`,
+        url: `/api/users/${userId}/boards/${boardId}`,
         method: "GET"
     })
 }
 
-// export const fetchMyBoards = (author_id) => {
-//     return $.ajax({
-//         url: 
-//     })
-// }
 
 export const createBoard = (board) => {
     debugger
     return $.ajax({
-        // url: `/api/users/${board.author_id}/board`,
         url: `/api/users/${board.author_id}/boards`,
         method: "POST",
         data: { board }
@@ -43,11 +29,3 @@ export const fetchBoardPins = () => {
         method: 'GET'
     })
 }
-
-export const fetchMyBoards = (userId) => {
-    return $.ajax({
-        url: '/api/' ,
-        methid: 'GET'
-    })
-}
-

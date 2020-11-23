@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  author_id   :integer          not null
+#  board_id    :integer
 #
 class Pin < ApplicationRecord
     validates :title, presence: true

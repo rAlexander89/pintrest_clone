@@ -70,8 +70,12 @@ class CreatePinForm extends React.Component {
         formData.append('pin[photo]', photoFile);
         debugger
         this.props.createPin(formData)
-        .then(
-            this.props.history.push(`/pins`)
+            .then(
+                pin => this.props.saveToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }
+            )
+            .then(
+                this.props.history.push(`/pins`)
+            )
         )
     }
 
@@ -97,6 +101,7 @@ class CreatePinForm extends React.Component {
 
     render() {
         const { title, description, photoUrl, working } = this.state;
+        const { boards } = this.props;
         const preview = photoUrl ? <img id="image-preview" src={photoUrl} /> : null;
         return (
             <div className="pin-create-container">
@@ -114,6 +119,9 @@ class CreatePinForm extends React.Component {
                             value={title}
                             onChange={this.update("title")} />
                     </div>
+
+                    {this.boardSelection(boards)}
+
                     <div>
                         <input
                             type='textarea'
