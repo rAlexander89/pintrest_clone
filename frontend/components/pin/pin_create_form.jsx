@@ -9,6 +9,7 @@ class CreatePinForm extends React.Component {
             description: '',
             boardId: '',
             owner: this.props.user.username,
+            author_id: this.props.author_id,
             errors: this.props.errors,
             photoFile: null,
             photoUrl: null,
@@ -60,23 +61,31 @@ class CreatePinForm extends React.Component {
     handleSubmit(e) {
         debugger
         e.preventDefault();
-        // const { title, description, photoFile, owner, boardId } = this.state;
-        const { title, description, photoFile, boardId } = this.state;
+        const { title, description, photoFile, boardId, author_id, owner } = this.state;
         debugger
         const formData = new FormData();
         debugger
         formData.append('pin[title]', title);
+        formData.append('pin[author_id]', author_id)
+        formData.append('pin[owner]', owner)
         formData.append('pin[description]', description);
         formData.append('pin[photo]', photoFile);
+        formData.append('pin[board_id]', boardId);
+        console.log(formData)
+        
+        debugger
+        console.log('formData:')
+        console.log(formData)
         debugger
         this.props.createPin(formData)
+            // .then(
+            //     pin => this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }
+            // )
             .then(
-                pin => this.props.saveToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }
+                console.log('success')
+                // pin => this.props.history.push(`/pins/${pin.id}`)
             )
-            .then(
-                this.props.history.push(`/pins`)
-            )
-        )
+        // )
     }
 
 
@@ -120,7 +129,23 @@ class CreatePinForm extends React.Component {
                             onChange={this.update("title")} />
                     </div>
 
-                    {this.boardSelection(boards)}
+                    {/* {this.boardSelection(boards)} */}
+                    <div className='drop-down-wrapper' id='board-selected'>
+                        <div className='drop-down-header'>
+                            <div className='drop-down-title'>Select a Board</div>
+                        </div>
+                        <select onChange={this.update('boardId')} value={this.state.boardId} >
+                            {boards.map(board => (
+                                <option
+                                    key={board.id}
+                                    defaultValue={this.state.boardId = board.id}
+                                    value={board.id}
+                                >
+                                    {board.title}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
 
                     <div>
                         <input

@@ -47,6 +47,7 @@ export const updatePin = (pin) => dispatch => {
 }
 
 export const createPin = (pin) => dispatch => {
+    debugger
     return PinAPIUtil.createPin(pin)
         .then(pin => {
             return dispatch(receivePin(pin))

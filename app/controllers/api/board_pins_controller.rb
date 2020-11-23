@@ -2,11 +2,14 @@ class Api::BoardPinsController < ApplicationController
 
     def index
         @board_pins = BoardPin.all
-        render "/api/board_pins/index"
+        # render "/api/board_pins/index"
+        render :index
     end
 
     def create
-        @board_pin = BoardPin.create(board_pin_params)
+        debugger
+        # @board_pin = BoardPin.create(board_pin_params)
+        @board_pin = BoardPin.new(board_pin_params)
         if @board_pin.save
             render json: @board_pin.pin_id
         else
