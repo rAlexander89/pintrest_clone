@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  author_id   :integer          not null
+#  board_id    :integer
 #
 class Pin < ApplicationRecord
     validates :title, presence: true
@@ -24,6 +25,9 @@ class Pin < ApplicationRecord
     has_many :board_pins,
     foreign_key: :pin_id,
     class_name: :BoardPin
+
+    has_many :boards,
+    through: :board_pins
 
     # has_many :boards
 

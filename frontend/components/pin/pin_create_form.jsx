@@ -7,18 +7,47 @@ class CreatePinForm extends React.Component {
         this.state = {
             title: '',
             description: '',
+            boardId: '',
             owner: this.props.user.username,
             errors: this.props.errors,
             photoFile: null,
             photoUrl: null,
+            total: ''
         }
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
+        this.boardSelection = this.boardSelection.bind(this);
+        // this.selectBoard = this.selectBoard.bind(this);
     }
 
     componentDidMount() {
-        const { clearErrors } = this.props;
+        debugger
+        this.props.fetchBoards()
+        debugger
+    }
+
+    boardSelection(boards){
+        if (!boards) return null;
+        debugger
+        return(
+            <div className='drop-down-wrapper' id='board-selected'>
+                <div className='drop-down-header'>
+                    <div className='drop-down-title'>Select a Board</div>
+                </div>
+                <select onChange={this.update('boardId')} value={this.state.boardId} >
+                    {boards.map(board => (  
+                        <option 
+                            key={board.id}
+                            defaultValue={this.state.boardId = board.id}
+                            value={board.id}
+                        >
+                            {board.title}
+                        </option>
+                    ))}
+                </select>
+            </div>
+        )
     }
 
 
@@ -29,17 +58,24 @@ class CreatePinForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
-        // const { title, description, photoFile, owner } = this.state;
-        const { title, description, photoFile } = this.state;
+        // const { title, description, photoFile, owner, boardId } = this.state;
+        const { title, description, photoFile, boardId } = this.state;
+        debugger
         const formData = new FormData();
+        debugger
         formData.append('pin[title]', title);
         formData.append('pin[description]', description);
         formData.append('pin[photo]', photoFile);
-        // formData.append('pin[owner]', owner);
-        this.props.createPin(formData).then(
-            this.props.history.push(`/pins`)
-            
+        debugger
+        this.props.createPin(formData)
+            .then(
+                pin => this.props.saveToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }
+            )
+            .then(
+                this.props.history.push(`/pins`)
+            )
         )
     }
 
@@ -64,7 +100,8 @@ class CreatePinForm extends React.Component {
     }
 
     render() {
-        const { title, description, photoUrl, working} = this.state;
+        const { title, description, photoUrl, working } = this.state;
+        const { boards } = this.props;
         const preview = photoUrl ? <img id="image-preview" src={photoUrl} /> : null;
         return (
             <div className="pin-create-container">
@@ -72,7 +109,7 @@ class CreatePinForm extends React.Component {
                     {preview}
                     {console.log(working)}
                 </div>
-            {console.log(this.state)}
+                {console.log(this.state)}
                 <div className="pin-details">
                     <div className="pin-add-title">
                         <input
@@ -82,6 +119,9 @@ class CreatePinForm extends React.Component {
                             value={title}
                             onChange={this.update("title")} />
                     </div>
+
+                    {this.boardSelection(boards)}
+
                     <div>
                         <input
                             type='textarea'
@@ -89,17 +129,17 @@ class CreatePinForm extends React.Component {
                             rows="1"
                             placeholder="give us a blurb"
                             value={description}
-                            onChange={this.update("description")}/>
-                        
+                            onChange={this.update("description")} />
+
                     </div>
                     <div className="pin-top-buttons">
                         <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
                     </div>
                     <input type="file" name="file-upload" id="file-upload" onChange={this.handleFile} />
-                        <label htmlFor="file-upload">
-                            <div id="image-background">
-                            </div>
-                        </label>          
+                    <label htmlFor="file-upload">
+                        <div id="image-background">
+                        </div>
+                    </label>
                 </div>
             </div>
         )

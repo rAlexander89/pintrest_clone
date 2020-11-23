@@ -1,23 +1,28 @@
 
 import { connect } from 'react-redux';
 import CreatePinForm from './pin_create_form';
-import { createPin } from '../../actions/pin_actions';
+import { createPin, savePinToBoard } from '../../actions/pin_actions';
+import { fetchBoards } from '../../actions/board_actions'
 
 // const mSTP = ( { entities: { users } }, { errors, session } ) => ({
 
-const mSTP = ({ entities: { users }, session }) => {
+// const mSTP = ({ entities: { users, boards }, errors, session }) => {
+const mSTP = (state) => {
+    debugger
     return{
-        user: users[session.currentUserId]
+        user: state.entities.users[state.session.currentUserId],
+        boards: Object.values(state.entities.boards),
+        errors: state.errors.pin
     }
-
-    // owner: users[session.currentUserId],
-    // currentUserUsername: session.currentUserUsername,
-    // errors: errors.pins
 }
 
-const mDTP = dispatch => ({
-    createPin: pin => dispatch(createPin(pin))
-
-})
+const mDTP = dispatch => {
+    return{
+        createPin: pin => dispatch(createPin(pin)),
+        clearErrors: () => dispatch(clearErrors()),
+        savePinToBoard: boardPin => dispatch(savePinToBoard(boardPin)),
+        fetchBoards: () => dispatch(fetchBoards())
+    }
+}
 
 export default connect(mSTP, mDTP)(CreatePinForm);

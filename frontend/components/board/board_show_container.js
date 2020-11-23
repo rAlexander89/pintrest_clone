@@ -1,13 +1,30 @@
-import {connect} from 'react-redux';
-import { fetchBoard, fetchBoardPins } from '../../actions/board_actions';
-import { fetchPins } from '../../actions/pin_actions';
+import { connect } from 'react-redux';
+import { fetchBoard } from '../../actions/board_actions';
+import { fetchBoardPins } from '../../util/board_api_util';
+
 import BoardShow from './board_show';
 
+const mSTP = ({ entities: { boards, users }, session }, ownProps) => {
 
-const mSTP = ({entities: {boards, boardPins, pins}, ownProps}) => {
-    return{
-        board: boards[ownProps.match.params.boardId],
-        pins: 
+    let board = boards[ownProps.match.params.boardId];
+    let owner_id = board ? board.author_id : undefined;
+    debugger
+
+    return {
+        currentUser: users[session.id],
+        owner: users[owner_id],
+        board
     }
-
 }
+
+// const mDTP = dispatch => {
+const mDTP = (dispatch, {match: {params}}) => {
+    return {
+        fetchBoard: () => dispatch(fetchBoard(params.userId, params.boardId)),
+        fetchPins: () => dispatch(fetchPins()),
+        fetchBoardPins: () => dispatch(fetchBoardPins())
+    }
+}
+
+
+export default connect(mSTP, mDTP)(BoardShow)

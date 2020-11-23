@@ -1,5 +1,5 @@
 import React from 'react';
-// import BoardIndexItem from './board_index_item';
+import BoardIndexItem from './board_index_item';
 import BoardCreateContainer from './board_create_container'
 
 
@@ -9,9 +9,10 @@ class BoardIndex extends React.Component{
     }
 
     componentDidMount(){
-        // debugger
-        // this.props.fetchBoards(this.props.currentUser.id);
-        // debugger
+        let userId = this.props.currentUser.id
+        debugger
+        this.props.fetchBoards(userId);
+        debugger
     }
 
     render(){
@@ -23,13 +24,13 @@ class BoardIndex extends React.Component{
                 <BoardCreateContainer currentUserId={currentUser.id}/>
                 <p>howdy partner! This is where I'm gonna put down some cool boards, I'll tell you hwut!</p>
                 <div className='board-index-container'>
-                  {/* {boards.map((board) => (
+                  {boards.map((board) => ( 
                       <BoardIndexItem
                           board={board}
                           key={board.id}
-                          currentUserId={currentUserId}
-                      
-                  ))}  */}
+                          currentUserId={currentUser.id}
+                        />
+                  ))}
               </div> 
             </div>
               )

@@ -14,10 +14,6 @@ class Api::BoardPinsController < ApplicationController
         end
     end
 
-    def destroy
-
-    end
-
     def board_pin_params
         params.require(:board_pin).permit(:board_id, :pin_id)
     end

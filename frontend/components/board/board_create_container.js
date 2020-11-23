@@ -4,9 +4,10 @@ import { createBoard } from '../../actions/board_actions';
 import { clearErrors } from '../../actions/session_actions';
 import BoardCreate from './board_create';
 
-const mSTP = ({errors}) => {
+const mSTP = (state) => {
     return{
-        errors
+        // errors,
+         currentUser: state.entities.users[state.session.currentUserId]
     };
 };
 
