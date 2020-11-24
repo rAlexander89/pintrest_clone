@@ -12,7 +12,7 @@ export const fetchPin = pinId => {
     })
 };
 
-export const createPin = pin => {
+export const createPin = (pin) => {
     debugger
     return $.ajax({
         method: 'POST',

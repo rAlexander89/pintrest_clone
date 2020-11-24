@@ -4,7 +4,7 @@ import { fetchBoardPins } from '../../util/board_api_util';
 
 import BoardShow from './board_show';
 
-const mSTP = ({ entities: { boards, users }, session }, ownProps) => {
+const mSTP = ({ entities: { boards, users, pins }, session }, ownProps) => {
 
     let board = boards[ownProps.match.params.boardId];
     let owner_id = board ? board.author_id : undefined;
@@ -20,7 +20,8 @@ const mSTP = ({ entities: { boards, users }, session }, ownProps) => {
 // const mDTP = dispatch => {
 const mDTP = (dispatch, {match: {params}}) => {
     return {
-        fetchBoard: () => dispatch(fetchBoard(params.userId, params.boardId)),
+        // fetchBoard: () => dispatch(fetchBoard(params.userId, params.boardId)),
+        fetchBoard: () => dispatch(fetchBoard(params.boardId)),
         fetchPins: () => dispatch(fetchPins()),
         fetchBoardPins: () => dispatch(fetchBoardPins())
     }

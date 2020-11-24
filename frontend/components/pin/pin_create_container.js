@@ -11,6 +11,7 @@ const mSTP = (state) => {
     debugger
     return{
         user: state.entities.users[state.session.currentUserId],
+        author_id: state.entities.users[state.session.currentUserId].id,
         boards: Object.values(state.entities.boards),
         errors: state.errors.pin
     }

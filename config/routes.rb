@@ -10,7 +10,7 @@ root to: 'static_pages#root'
     resources :pins, only: [:index, :show, :create, :update, :destroy]
     # resources :boards, only: [:index, :show]
     resources :boards, only: [ :show]
-    resources :board_pins, only: [:index, :create]
+    resources :board_pins, only: [:index, :create, :show]
   end
 end
 
