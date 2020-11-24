@@ -1,6 +1,6 @@
 import { RECEIVE_BOARD_PINS } from '../actions/board_actions'
 
-const boardPinReducer = ( state={}, action ) => {
+const boardPinsReducer = ( state={}, action ) => {
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_BOARD_PINS:
@@ -11,4 +11,4 @@ const boardPinReducer = ( state={}, action ) => {
     }
 }
 
-export default boardPinReducer
+export default boardPinsReducer

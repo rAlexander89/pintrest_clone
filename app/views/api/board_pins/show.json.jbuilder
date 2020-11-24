@@ -1,0 +1,1 @@
+json.partial! "board_pin", board_pin: @board_pin

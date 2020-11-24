@@ -78,14 +78,14 @@ class CreatePinForm extends React.Component {
         console.log(formData)
         debugger
         this.props.createPin(formData)
-            // .then(
-            //     pin => this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }
-            // )
             .then(
-                console.log('success')
-                // pin => this.props.history.push(`/pins/${pin.id}`)
+                pin => this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }
             )
-        // )
+            .then(
+                // pin => this.props.history.push(`/pins/${pin.id}`)
+                pin => this.props.history.push(`/pins/${pin.id}`)
+            ).catch(console.log('this shit failed'))
+        )
     }
 
 

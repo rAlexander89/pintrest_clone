@@ -20,7 +20,8 @@ const mSTP = ({ entities: { boards, users, pins }, session }, ownProps) => {
 // const mDTP = dispatch => {
 const mDTP = (dispatch, {match: {params}}) => {
     return {
-        fetchBoard: () => dispatch(fetchBoard(params.userId, params.boardId)),
+        // fetchBoard: () => dispatch(fetchBoard(params.userId, params.boardId)),
+        fetchBoard: () => dispatch(fetchBoard(params.boardId)),
         fetchPins: () => dispatch(fetchPins()),
         fetchBoardPins: () => dispatch(fetchBoardPins())
     }
