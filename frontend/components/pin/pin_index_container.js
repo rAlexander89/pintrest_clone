@@ -10,7 +10,7 @@ const mSTP = (state) => {
     return{
         currentUser: state.entities.users[state.session.currentUserId],
         pins: Object.values(state.entities.pins),
-        modal: state.ui.modal
+        // modal: state.ui.modal
 
     }
 };
@@ -18,7 +18,7 @@ const mSTP = (state) => {
 const mDTP = dispatch => {
     return{
         fetchPins: () => dispatch(fetchPins()),
-        openModal: modal => dispatch(openModal(modal))
+        // openModal: modal => dispatch(openModal(modal))
     }
 
 };

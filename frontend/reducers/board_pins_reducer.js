@@ -1,11 +1,10 @@
 import { RECEIVE_BOARD_PINS } from '../actions/board_actions'
 
 const boardPinsReducer = ( state={}, action ) => {
-    debugger
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_BOARD_PINS:
-            debugger
+    
             return action.boardPins;
         default: 
         return state;
