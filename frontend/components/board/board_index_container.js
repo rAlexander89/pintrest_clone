@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { fetchBoards, createBoard } from '../../actions/board_actions';
 import BoardIndex from './board_index';
 
-// const mSTP = ({ entities: boards }, {session: currentUserId }) => {
 const mSTP = (state) => {
     return{
         boards: Object.values(state.entities.boards),
