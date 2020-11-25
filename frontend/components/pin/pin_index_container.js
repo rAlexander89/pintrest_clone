@@ -7,7 +7,6 @@ import PinIndex from './pin_index';
 
 
 const mSTP = (state) => {
-    debugger
     return{
         currentUser: state.entities.users[state.session.currentUserId],
         pins: Object.values(state.entities.pins),

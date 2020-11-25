@@ -32,7 +32,6 @@ class Api::BoardsController < ApplicationController
     end
 
     def create
-        # debugger
         @board = Board.create(board_params)
         # @board.author_id = current_user.id
         if @board.save
