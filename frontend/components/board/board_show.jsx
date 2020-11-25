@@ -1,4 +1,5 @@
 import React from 'react';
+import PinIndexItem from '../pin/pin_index_item';
 
 class BoardShow extends React.Component {
     constructor(props) {
@@ -9,16 +10,16 @@ class BoardShow extends React.Component {
         this.props.fetchPins()
         this.props.fetchBoardPins()
         this.props.fetchBoard(this.props.match.params.boardId)
-        // let {boardPins, pins } = this.props;
     }
 
     render(){
         let { board, pins } = this.props;
         if (board === undefined) return null;
+        if (pins === null) return null;
         console.log('howdy')
         console.log(pins)
         console.log('partner')
-
+        debugger
         return(
             <div className="content-container">
                 <div className='board-show-container'>
@@ -31,6 +32,13 @@ class BoardShow extends React.Component {
                             <li id='board-description'>{board.description}</li>
                         </ul>
                     <div className='board-show-items'>
+                        {pins.map( pin => (
+                            <PinIndexItem 
+                                pin={pin}
+                                key={pin.id}
+                                photo={pin.photoUrl}
+                            />
+                        ))}
                     </div>
                     </div>
                 </div>
