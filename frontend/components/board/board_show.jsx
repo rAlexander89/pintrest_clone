@@ -6,16 +6,17 @@ class BoardShow extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         this.props.fetchBoard(this.props.match.params.boardId)
-        // this.props.fetchBoardPins()
+        console.log('howdy')
+        this.props.fetchBoardPins()
+        console.log('hello')
+        console.log('')
+        console.log(this.props.boardPins)
     }
 
     render() {
-        debugger
         let { board } = this.props;
         if (board === undefined) return null;
-        console.log()
 
         return (
             <div className="content-container">

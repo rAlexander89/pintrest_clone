@@ -13,9 +13,7 @@ class BoardCreate extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         this.props.createBoard(this.state)
-        debugger
     }
 
     handleChange(field) {

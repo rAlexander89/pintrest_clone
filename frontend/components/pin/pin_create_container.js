@@ -8,7 +8,6 @@ import { fetchBoards } from '../../actions/board_actions'
 
 // const mSTP = ({ entities: { users, boards }, errors, session }) => {
 const mSTP = (state) => {
-    debugger
     return{
         user: state.entities.users[state.session.currentUserId],
         author_id: state.entities.users[state.session.currentUserId].id,

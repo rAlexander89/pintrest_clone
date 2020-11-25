@@ -2,7 +2,6 @@ class Api::BoardPinsController < ApplicationController
 
     def index
         @board_pins = BoardPin.all
-        # render "/api/board_pins/index"
         render :index
     end
 

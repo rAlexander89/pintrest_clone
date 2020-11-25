@@ -23,20 +23,17 @@ class CreatePinForm extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         this.props.fetchBoards()
-        debugger
     }
 
     boardSelection(boards){
         if (!boards) return null;
-        debugger
         return(
             <div className='drop-down-wrapper' id='board-selected'>
                 <div className='drop-down-header'>
                     <div className='drop-down-title'>Select a Board</div>
                 </div>
-                <select onChange={this.update('boardId')} value={this.state.boardId} >
+                <select onChange={this.update('boardId')} value={this.state.boardId}>
                     {boards.map(board => (  
                         <option 
                             key={board.id}
@@ -51,7 +48,6 @@ class CreatePinForm extends React.Component {
         )
     }
 
-
     update(field) {
         return e => {
             this.setState({ [field]: e.currentTarget.value })
@@ -59,30 +55,20 @@ class CreatePinForm extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const { title, description, photoFile, boardId, author_id, owner } = this.state;
-        debugger
         const formData = new FormData();
-        debugger
         formData.append('pin[title]', title);
-        formData.append('pin[author_id]', author_id)
-        formData.append('pin[owner]', owner)
+        formData.append('pin[author_id]', author_id);
+        formData.append('pin[owner]', owner);
         formData.append('pin[description]', description);
         formData.append('pin[photo]', photoFile);
         formData.append('pin[board_id]', boardId);
-        console.log(formData)
-        
-        debugger
-        console.log('formData:')
-        console.log(formData)
-        debugger
         this.props.createPin(formData)
             .then(
                 pin => this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }
             )
             .then(
-                // pin => this.props.history.push(`/pins/${pin.id}`)
                 pin => this.props.history.push(`/pins/${pin.id}`)
             ).catch(console.log('this shit failed'))
         )

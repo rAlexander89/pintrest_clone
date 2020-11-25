@@ -26,23 +26,19 @@ export const receiveBoardErrors = errors => ({
     errors
 })
 
-export const receiveBoardPins = boardPins => ({
-    type: RECEIVE_BOARD_PINS,
-    boardPins
-})
+export const receiveBoardPins = boardPins => {
+    return{
+        type: RECEIVE_BOARD_PINS,
+        boardPins
+    }
+}
 
 export const fetchBoards = (userId) => dispatch => {
-    debugger
     return BoardAPIUtil.fetchBoards(userId)
         .then(boards => dispatch(receiveBoards(boards)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }
 
-// export const fetchBoard = (userId, boardId) => dispatch => {
-//     return BoardAPIUtil.fetchBoard(userId, boardId)
-//         .then(board => dispatch(receiveBoard(board)),
-//             error => dispatch(receiveBoardErrors(error.responseJSON)))
-// }
 
 export const fetchBoard = (boardId) => dispatch => {
     return BoardAPIUtil.fetchBoard(boardId)
@@ -51,13 +47,13 @@ export const fetchBoard = (boardId) => dispatch => {
 }
 
 export const createBoard = board => dispatch => {
-    debugger
     return BoardAPIUtil.createBoard(board)
         .then(board => dispatch(receiveBoard(board)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }
 
 export const fetchBoardPins = () => dispatch => {
+    console.log('we are now in the fetchBoardPins board_actions')
     return BoardAPIUtil.fetchBoardPins()
         .then(boardPins => dispatch(receiveBoardPins(boardPins)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))

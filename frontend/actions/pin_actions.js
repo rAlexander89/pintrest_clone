@@ -6,7 +6,6 @@ export const REMOVE_PIN = 'REMOVE_PIN';
 export const RECEIVE_BOARD_PIN = 'RECEIVE_BOARD_PIN';
 
 const receivePin = data => {
-    debugger
     return{
         type: RECEIVE_PIN,
         pin: data.pin,
@@ -15,7 +14,6 @@ const receivePin = data => {
 }
 
 const receiveBoardPin = data => {
-    debugger
     return {
         type: RECEIVE_BOARD_PIN,
         data
@@ -35,7 +33,6 @@ const removePin = pinId => {
 };
 
 export const fetchPin = pinId => dispatch => {
-    debugger
     return PinAPIUtil.fetchPin(pinId)
         .then(pin => dispatch(receivePin(pin)))
 }
@@ -56,7 +53,6 @@ export const deletePin = (pinId) => dispatch => {
 // }
 
 export const createPin = (pin) => dispatch => {
-    debugger
     return PinAPIUtil.createPin(pin)
         .then(pin => {
             return dispatch(receivePin(pin))
@@ -64,10 +60,9 @@ export const createPin = (pin) => dispatch => {
 }
 
 export const savePinToBoard = (boardPin) => dispatch => {
-    debugger
     return PinAPIUtil.savePinToBoard(boardPin) 
         .then(thang => {
-            debugger
+    
             return dispatch(receiveBoardPin(thang))
         })
         // .then(pinId => dispatch(fetchPin(pinId)))
