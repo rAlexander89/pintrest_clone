@@ -6,19 +6,20 @@ class BoardShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchBoard(this.props.match.params.boardId)
-        console.log('howdy')
+        this.props.fetchPins()
         this.props.fetchBoardPins()
-        console.log('hello')
-        console.log('')
-        console.log(this.props.boardPins)
+        this.props.fetchBoard(this.props.match.params.boardId)
+        // let {boardPins, pins } = this.props;
     }
 
-    render() {
-        let { board } = this.props;
+    render(){
+        let { board, pins } = this.props;
         if (board === undefined) return null;
+        console.log('howdy')
+        console.log(pins)
+        console.log('partner')
 
-        return (
+        return(
             <div className="content-container">
                 <div className='board-show-container'>
                     <div className="board-show-item">
@@ -30,7 +31,6 @@ class BoardShow extends React.Component {
                             <li id='board-description'>{board.description}</li>
                         </ul>
                     <div className='board-show-items'>
-                                                
                     </div>
                     </div>
                 </div>

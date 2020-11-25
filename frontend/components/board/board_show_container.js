@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchBoard, fetchBoardPins } from '../../actions/board_actions';
+import { fetchPins } from '../../actions/pin_actions'
 import { selectBoardPins } from '../../reducers/selector';
 
 import BoardShow from './board_show';
@@ -15,9 +16,8 @@ const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors },
         currentUser: users[session.id],
         owner: users[owner_id],
         board,
-        board_Id: ownProps.match.params.boardId,
-        pins,
-        boardPins
+        boardPins,
+        pins: selectBoardPins(boardPins, pins, ownProps.match.params.boardId),
         // pins: selectBoardPins(boardPins, pins, parseInt(ownProps.match.params.boardId))
         // pins: selectBoardPins(boardPins, pins, board.id)
     }
@@ -30,7 +30,7 @@ const mDTP = (dispatch, {match: {params}}) => {
         fetchBoard: () => dispatch(fetchBoard(params.boardId)),
         fetchPins: () => dispatch(fetchPins()),
         fetchBoardPins: () => dispatch(fetchBoardPins()),
-        selectBoardPins: (boardPins, pins, boardId) => dispatch(selectBoardPins(boardPins, pins, boardId))
+        // selectBoardPins: (boardPins, pins, boardId) => dispatch(selectBoardPins(boardPins, pins, boardId))
     }
 }
 
