@@ -32,6 +32,21 @@ class Api::PinsController < ApplicationController
         end
     end
 
+    def destroy
+        @pin = Pin.find_by(id: params[:id])
+        if @pin && @pin.user_id == current_user.id
+            if @pin.destroy
+                render json: @pin.id
+            else 
+                render json: @pin.errors.full_messages, status: 422
+            end
+        else
+            render json: @pin.errors.full_messages, status: 422
+        end
+    end
+
+
+
     def pin_params
         # params.require(:pin).permit(:photo, :title, :description, :owner, :author_id, :board_id)
         params.require(:pin).permit(:photo, :title, :description, :owner, :author_id, :board_id)

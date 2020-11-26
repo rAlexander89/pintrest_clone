@@ -11,11 +11,12 @@ class BoardIndex extends React.Component{
     componentDidMount(){
         let userId = this.props.currentUser.id
         this.props.fetchBoards(userId);
+
     }
 
     render(){
         let { boards, currentUser } = this.props;
-        console.log('we are now in the board_index')
+        debugger
         return(
             <div>
                 <BoardCreateContainer currentUserId={currentUser.id}/>
