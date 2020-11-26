@@ -47,10 +47,10 @@ export const deletePin = (pinId) => dispatch => {
         .then(pin => dispatch(removePin(pin.id)))
 }
 
-// export const updatePin = (pin) => dispatch => {
-//     return PinAPIUtil.updatePin(pin)
-//         .then(pin => dispatch(receivePin(pin)))
-// }
+export const updatePin = (pin) => dispatch => {
+    return PinAPIUtil.updatePin(pin)
+        .then(pin => dispatch(receivePin(pin)))
+}
 
 export const createPin = (pin) => dispatch => {
     return PinAPIUtil.createPin(pin)
