@@ -18,10 +18,12 @@ class PinShow extends React.Component {
 
     render() {
         let { pin, boards } = this.props;
+        debugger
         if (pin === undefined) return null;
-        if (boards === undefined) return null;
-        if (this.props.owner === undefined) return null;
         let board = boards[pin.board_id]
+        if (board === undefined) return null;
+
+        debugger
 
         return (
             <div className="content-container">
@@ -32,8 +34,8 @@ class PinShow extends React.Component {
                         <div className='pin-show-det'>
                             <ul>
                                 <li id='pin-title'><InlineField editType='pin' item={pin} objKey={'title'} field={pin.title}/></li>
-                                <li id='pin-owner'>photo by <Link to={`users/${this.props.owner.id}`}>{this.props.owner.username}</Link></li>
-                                <li id='pin-owner'>board title <Link to={`boards/${board.id}`}>{board.title}</Link></li>
+                                <li id='pin-owner'>photo by <Link to={`/users/${this.props.owner.id}`}>{this.props.owner.username}</Link></li>
+                                <li id='pin-owner'>board title <Link to={`/boards/${board.id}`}>{board.title}</Link></li>
                                 <li id='pin-description'><InlineField editType='pin' item={pin} objKey={'description'} field={pin.description}/></li>
                             </ul>
                         </div>
