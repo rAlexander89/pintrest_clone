@@ -15,7 +15,6 @@ class PinIndex extends React.Component {
 
     render() {
         const { pins } = this.props;
-        debugger
 
         return (
             <div className="index-container">

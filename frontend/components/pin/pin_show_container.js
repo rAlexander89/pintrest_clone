@@ -8,7 +8,7 @@ const mSTP = ({ entities: { pins, users, boards }, session }, ownProps) => {
 
     let pin = pins[ownProps.match.params.pinId];
     let owner_id = pin ? pin.author_id : undefined;
-    debugger
+
     
     return {
         currentUser: users[session.id],

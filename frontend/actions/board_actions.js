@@ -40,14 +40,27 @@ export const fetchBoards = (userId) => dispatch => {
 }
 
 
-export const fetchBoard = (boardId) => dispatch => {
-    return BoardAPIUtil.fetchBoard(boardId)
+// export const fetchBoard = (boardId) => dispatch => {
+//     return BoardAPIUtil.fetchBoard(boardId)
+//         .then(board => dispatch(receiveBoard(board)),
+//             error => dispatch(receiveBoardErrors(error.responseJSON)))
+// }
+
+export const fetchBoard = (board) => dispatch => {
+    return BoardAPIUtil.fetchBoard(board)
         .then(board => dispatch(receiveBoard(board)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }
 
 export const createBoard = board => dispatch => {
     return BoardAPIUtil.createBoard(board)
+        .then(board => dispatch(receiveBoard(board)),
+            error => dispatch(receiveBoardErrors(error.responseJSON)))
+}
+
+
+export const updateBoard = board => dispatch => {
+    return BoardAPIUtil.updateBoard(board)
         .then(board => dispatch(receiveBoard(board)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }

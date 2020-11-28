@@ -7,20 +7,23 @@ import BoardShow from './board_show';
 
 const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors }, ownProps) => {
 
+    let board_data = ownProps.match.params;
     let board = boards[ownProps.match.params.boardId];
-    let owner_id = board ? board.author_id : undefined;
+    let owner_id = board ? board_data.userId : undefined;
+
 
     return {
         currentUser: users[session.id],
         owner: users[owner_id],
         board,
+        board_data,
         boardPins,
-        pins: selectBoardPins(boardPins, pins, ownProps.match.params.boardId),
+        pins: selectBoardPins(boardPins, pins, board_data.boardId)
     }
 }
-const mDTP = (dispatch, {match: {params}}) => {
+const mDTP = (dispatch) => {
     return {
-        fetchBoard: () => dispatch(fetchBoard(params.boardId)),
+        fetchBoard: board => dispatch(fetchBoard(board)),
         fetchPins: () => dispatch(fetchPins()),
         fetchBoardPins: () => dispatch(fetchBoardPins())
     }

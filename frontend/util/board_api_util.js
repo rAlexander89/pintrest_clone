@@ -5,9 +5,10 @@ export const fetchBoards = (userId) => {
     })
 };
 
-export const fetchBoard = (boardId) => {
+
+export const fetchBoard = (board) => {
     return $.ajax({
-        url: `/api/boards/${boardId}`,
+        url: `/api/users/${board.userId}/boards/${board.boardId}`,
         method: "GET"
     })
 }
@@ -16,6 +17,14 @@ export const createBoard = (board) => {
     return $.ajax({
         url: `/api/users/${board.author_id}/boards`,
         method: "POST",
+        data: { board }
+    })
+}
+
+export const updateBoard = (board) => {
+    return $.ajax({
+        url: `/api/users/${board.author_id}/boards/${board.id}`,
+        method: "PATCH",
         data: { board }
     })
 }

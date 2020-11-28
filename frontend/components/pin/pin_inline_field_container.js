@@ -9,7 +9,6 @@ import { updateBoard } from '../../actions/board_actions'
 
 // const mSTP = ({ entities: { users, boards }, errors, session }) => {
 const mSTP = (state) => {
-    debugger
     return {
         // currentUser: state.entities.users[state.session.currentUserId].id,
         currentUserId: state.session.currentUserId

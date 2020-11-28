@@ -6,7 +6,6 @@ import { updateBoard } from '../../actions/board_actions'
 
 
 const mSTP = (state) => {
-    debugger
     return {
         currentUserId: state.session.currentUserId
     }

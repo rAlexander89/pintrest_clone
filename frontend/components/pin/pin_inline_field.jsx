@@ -17,7 +17,6 @@ class InlineField extends React.Component{
     }
 
     update(field) {
-        debugger
         return e => {
             this.setState({ [field]: e.currentTarget.value })
         }
@@ -27,7 +26,6 @@ class InlineField extends React.Component{
     handleSubmit(e){
         let { editType, item, objKey} = this.props
         let { newData } = this.state
-        debugger
         switch(editType){
             case 'pin':
                 return this.updatingAPin(item,objKey, newData);
@@ -75,7 +73,6 @@ class InlineField extends React.Component{
     }
 
     renderDefaultView() {
-        debugger
         let currentUserId = this.props.currentUserId
         let author_id = this.props.item.author_id
 

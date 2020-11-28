@@ -11,12 +11,11 @@ class BoardIndex extends React.Component{
     componentDidMount(){
         let userId = this.props.currentUser.id
         this.props.fetchBoards(userId);
-
     }
 
     render(){
         let { boards, currentUser } = this.props;
-        debugger
+
         return(
             <div>
                 <BoardCreateContainer currentUserId={currentUser.id}/>
@@ -29,9 +28,9 @@ class BoardIndex extends React.Component{
                           currentUserId={currentUser.id}
                         />
                   ))}
-              </div> 
+              </div>
             </div>
-              )
+        )
     }
 }
 
