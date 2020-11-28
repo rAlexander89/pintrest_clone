@@ -60,6 +60,7 @@ export const createBoard = board => dispatch => {
 
 
 export const updateBoard = board => dispatch => {
+    debugger
     return BoardAPIUtil.updateBoard(board)
         .then(board => dispatch(receiveBoard(board)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))

@@ -30,6 +30,7 @@ class InlineDisplay extends React.Component{
             case 'pin':
                 return this.updatingAPin(item,objKey, newData);
                 case 'board':
+                    debugger
                     return this.updatingABoard(item,objKey, newData);
             case 'profile':
                 return;

@@ -1,8 +1,6 @@
 require 'byebug'
 class Api::BoardsController < ApplicationController
 
-
-    
     def index
         @boards = Board.all
         render :index
@@ -19,9 +17,21 @@ class Api::BoardsController < ApplicationController
 
     def create
         @board = Board.create(board_params)
-        # @board.author_id = current_user.id
         if @board.save
-            render "/api/boards/show"
+            render :show
+        else
+            render json: @board.errors.full_messages, status: 422
+        end
+    end
+
+     def update
+        @board = Board.find_by(id: params[:id])
+        if @board && @board.author_id == current_user.id
+            if @board.update(board_params)
+                render :show
+            else
+                render json: @board.errors.full_messages, status: 422
+            end
         else
             render json: @board.errors.full_messages, status: 422
         end
@@ -29,7 +39,6 @@ class Api::BoardsController < ApplicationController
 
 
     def board_params
-        # params.require(:board).permit(:name, :description, :date_start, :date_end)
         params.require(:board).permit(:title, :description, :author_id)
     end
 
