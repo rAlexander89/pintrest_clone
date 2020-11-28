@@ -1,5 +1,6 @@
 import React from 'react';
 import PinIndexItem from '../pin/pin_index_item';
+import InlineDisplay from '../inline_display/inline_display_container'
 
 class BoardShow extends React.Component {
     constructor(props) {
@@ -9,16 +10,14 @@ class BoardShow extends React.Component {
     componentDidMount() {
         this.props.fetchPins()
         this.props.fetchBoardPins()
-        this.props.fetchBoard(this.props.match.params.boardId)
+        this.props.fetchBoard(this.props.board_data)
     }
 
     render(){
         let { board, pins } = this.props;
         if (board === undefined) return null;
         if (pins === null) return null;
-        console.log('howdy')
-        console.log(pins)
-        console.log('partner')
+        let pins_arr = Object.values(pins)
         debugger
         return(
             <div className="content-container">
@@ -27,12 +26,13 @@ class BoardShow extends React.Component {
                     </div>
                     <div className='board-show-det'>
                         <ul>
-                            <li id='board-title'>{board.title}</li>
+                            <li id='board-title'><InlineDisplay editType='board' item={board} objKey={'title'} field={board.title} /></li>
                             <li id='board-owner'>board by {this.props.owner.username}</li>
-                            <li id='board-description'>{board.description}</li>
+                            <li id='board-description'><InlineDisplay editType='board' item={board} objKey={'description'} field={board.description} /></li>
                         </ul>
                     <div className='board-show-items'>
-                        {pins.map( pin => (
+                        {/* {pins.map( pin => ( */}
+                        {pins_arr.map( pin => (
                             <PinIndexItem 
                                 pin={pin}
                                 key={pin.id}

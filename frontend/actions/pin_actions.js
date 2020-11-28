@@ -48,7 +48,6 @@ export const deletePin = (pinId) => dispatch => {
 }
 
 export const updatePin = (pin) => dispatch => {
-    debugger
     return PinAPIUtil.updatePin(pin)
         .then(pin => dispatch(receivePin(pin)))
 }

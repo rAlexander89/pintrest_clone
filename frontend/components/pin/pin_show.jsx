@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 
 
 class PinShow extends React.Component {
-    constructor(props) {
+    constructor(props){
         super(props)
     }
 
 
-    componentDidMount() {
+    componentDidMount(){
         this.props.fetchBoards()
         this.props.fetchPin(this.props.match.params.pinId)
         debugger
     }
 
 
-    render() {
+    render(){
         let { pin, boards } = this.props;
         debugger
         if (pin === undefined) return null;
@@ -25,7 +25,7 @@ class PinShow extends React.Component {
 
         debugger
 
-        return (
+        return(
             <div className="content-container">
                 <div className='pin-show-container'>
                     <div className="pin-show-item">

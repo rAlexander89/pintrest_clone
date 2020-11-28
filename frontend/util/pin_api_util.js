@@ -23,7 +23,6 @@ export const createPin = (pin) => {
 };
 
 export const updatePin = pin => {
-    debugger
     return $.ajax({
         method: 'PATCH',
         url: `/api/pins/${pin.id}`,
