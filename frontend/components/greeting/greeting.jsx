@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout, openModal}) => {
 
@@ -13,11 +14,12 @@ const Greeting = ({ currentUser, logout, openModal}) => {
 
     const personalGreeting = () => (    
         <div>
-            {console.log(currentUser.username)}
+            {console.log(currentUser.id)}
             <ul id="login-signup">
                 <li>Hi, {currentUser.username}!</li>
-                <li>Boards</li>
-                <li>Pins</li>
+                <li><Link to='/boards/'>Boards</Link></li>
+                <li><Link to='/pins/'>Pins</Link></li>
+                <li><Link to={`/users/${currentUser.id}`}>My Profile</Link></li>
                 <li><button id="logoutbtn" onClick={logout}>Log Out</button></li>
             </ul>
         </div>

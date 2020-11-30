@@ -1,9 +1,17 @@
-export const fetchBoards = (userId) => {
+// export const fetchBoards = (userId) => {
+//     return $.ajax({
+//         method: 'GET',
+//         url: `/api/users/${userId}/boards/`
+//     })
+// };
+
+export const fetchBoards = () => {
     return $.ajax({
-        method: 'GET',
-        url: `/api/users/${userId}/boards/`
+        url: '/api/boards',
+        method: 'GET'
     })
 };
+
 
 
 export const fetchBoard = (board) => {
@@ -25,7 +33,6 @@ export const updateBoard = (board) => {
     debugger
     return $.ajax({
         url: `/api/users/${board.author_id}/boards/${board.id}`,
-        // url: ` /api/users/:user_id/boards/:id`,
         method: "PATCH",
         data: { board }
     })

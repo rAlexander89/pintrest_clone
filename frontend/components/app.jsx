@@ -11,6 +11,7 @@ import PinIndexContainer from './pin/pin_index_container.js';
 import CreatePinContainer from './pin/pin_create_container.js';
 import BoardIndexContainer from './board/board_index_container';
 import BoardShowContainer from './board/board_show_container';
+import AllUserBoardsContainer from './board/all_user_boards_container';
 import Footer from './splash/footer.jsx';
 
 
@@ -70,6 +71,7 @@ class App extends React.Component{
                     <Route exact path="/p/create" component={CreatePinContainer} />
                     <Route exact path='/users/:userId/boards' component={BoardIndexContainer}/>
                     <Route exact path='/users/:userId/boards/:boardId' component={BoardShowContainer}/>
+                    <Route exact path='/boards/' component={BoardIndexContainer}/>
                     {/* <Route exact path='/boards/:boardId' component={BoardShowContainer}/> */}
                     </Switch>
                 </div>

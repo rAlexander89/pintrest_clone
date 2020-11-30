@@ -35,7 +35,7 @@ class PinShow extends React.Component {
                             <ul>
                                 <li id='pin-title'><InlineDisplay editType='pin' item={pin} objKey={'title'} field={pin.title}/></li>
                                 <li id='pin-owner'>photo by <Link to={`/users/${this.props.owner.id}`}>{this.props.owner.username}</Link></li>
-                                <li id='pin-owner'>board title <Link to={`/boards/${board.id}`}>{board.title}</Link></li>
+                                <li id='pin-owner'>board title <Link to={`/users/${this.props.pin.author_id}/boards/${board.id}`}>{board.title}</Link></li>
                                 <li id='pin-description'><InlineDisplay editType='pin' item={pin} objKey={'description'} field={pin.description}/></li>
                             </ul>
                         </div>

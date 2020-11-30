@@ -33,18 +33,39 @@ export const receiveBoardPins = boardPins => {
     }
 }
 
-export const fetchBoards = (userId) => dispatch => {
-    return BoardAPIUtil.fetchBoards(userId)
+// export const fetchBoards = (userId) => dispatch => {
+//     return BoardAPIUtil.fetchBoards(userId)
+//         .then(boards => dispatch(receiveBoards(boards)),
+//             error => dispatch(receiveBoardErrors(error.responseJSON)))
+// }
+
+export const fetchBoards = () => dispatch => {
+    return BoardAPIUtil.fetchBoards()
         .then(boards => dispatch(receiveBoards(boards)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }
 
 
-// export const fetchBoard = (boardId) => dispatch => {
-//     return BoardAPIUtil.fetchBoard(boardId)
-//         .then(board => dispatch(receiveBoard(board)),
-//             error => dispatch(receiveBoardErrors(error.responseJSON)))
-// }
+
+export const fetchAllBoards = (userIds) => dispatch => {
+    let allBoards = {};
+    let boardObjects = {}
+    userIds.forEach(userId => {
+        BoardAPIUtil.fetchBoards(userId)
+            // .then(boards => Object.assign(boardObjects, boards)),
+            .then(boards => {
+                console.log('found some boards')
+                console.log(boards)
+            debugger
+                Object.assign(boardObjects, boards)
+            }),
+                error => dispatch(receiveBoardErrors(error.responseJSON))
+                Object.assign(allBoards, boardObjects)
+    })
+    debugger
+    return allBoards
+}
+
 
 export const fetchBoard = (board) => dispatch => {
     return BoardAPIUtil.fetchBoard(board)
