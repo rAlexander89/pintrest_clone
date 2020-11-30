@@ -21,7 +21,21 @@ export const selectUserIds = (users) => {
     })
 
     return userIds
-   
+}
+
+export const selectUserBoards = (userId, boards) => {
+    debugger
+    if ( Object.values(boards).length === 0 ) return null
+    let userBoards = []
+    Object.values(boards).forEach(board => {
+
+          if (board.author_id == userId) {
+              userBoards.push(board)
+          }
+    })
+
+    debugger
+    return userBoards
 
 }
 
