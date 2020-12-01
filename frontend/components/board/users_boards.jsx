@@ -12,14 +12,15 @@ class UsersBoardsIndex extends React.Component {
     this.props.fetchBoards()
     }
 
+
+
     render() {
         let { currentUser, userId, userBoards } = this.props;
+        if ( userBoards === null ) return null
         debugger
-        if ( userBoards === undefined ) return null
 
         return (
             <div>
-                <BoardCreateContainer currentUserId={currentUser.id} />
                 <p>howdy partner! This is where I'm gonna put down some cool boards, I'll tell you hwut!</p>
                 <div className='board-index-container'>
                     {userBoards.map((userBoard) => (
