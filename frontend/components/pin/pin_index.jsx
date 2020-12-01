@@ -17,14 +17,17 @@ class PinIndex extends React.Component {
         const { pins } = this.props;
 
         return (
-            <div className="index-container">
-                {pins.map((pin) => (
-                    <PinIndexItem
-                        pin={pin}
-                        key={pin.id}
-                        photo={pin.photoUrl}
-                    />
-                ))}
+            <div>
+                <h1 id='header'>Latest Pins</h1>
+                <div className="index-container">
+                    {pins.reverse().map((pin) => (
+                        <PinIndexItem
+                            pin={pin}
+                            key={pin.id}
+                            photo={pin.photoUrl}
+                        />
+                    ))}
+                </div>
             </div>
         );
     }

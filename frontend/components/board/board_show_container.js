@@ -6,6 +6,7 @@ import { selectBoardPins } from '../../reducers/selector';
 import BoardShow from './board_show';
 
 const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors }, ownProps) => {
+    debugger
 
     let board_data = ownProps.match.params;
     let board = boards[ownProps.match.params.boardId];
@@ -25,7 +26,8 @@ const mDTP = (dispatch) => {
     return {
         fetchBoard: board => dispatch(fetchBoard(board)),
         fetchPins: () => dispatch(fetchPins()),
-        fetchBoardPins: () => dispatch(fetchBoardPins())
+        fetchBoardPins: () => dispatch(fetchBoardPins()),
+        fetchUsers: () => dispatch(fetchUsers())
     }
 }
 

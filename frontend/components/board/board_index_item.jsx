@@ -7,10 +7,6 @@ class BoardIndexItem extends React.Component{
         super(props)
     }
 
-    componentDidMount(){
-        
-    }
-
     render(){
         let { board } = this.props;
 
@@ -18,7 +14,7 @@ class BoardIndexItem extends React.Component{
             <div className='board-index-item'>
                 <ul>
                 <Link to={`/users/${board.author_id}/boards/${board.id}`}>
-                <li><h1 id='board-card-title'>{board.name}</h1></li>
+                <li><h1 id='board-card-title'>{board.title}</h1></li>
                 <li><p id='board-card-description'>{board.description}</p></li>
                 </Link>
                 </ul>

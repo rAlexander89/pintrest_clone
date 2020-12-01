@@ -1,3 +1,44 @@
 // Place all the styles related to the boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#header{
+    font-size: 32px;
+    margin-left: 15px;
+}
+
+.board-index-container{
+    background: yellow;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-display-boards{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.board-index-item{
+    max-width: 250px;
+    max-height: 200px;
+    margin: 15px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#board-card-title{
+    font-size: 25px;
+    padding: 4px;
+}
+
+#board-card-description{
+    font-size: 16px;
+    padding: 4px;
+    width: 100%;
+    white-space: wrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
