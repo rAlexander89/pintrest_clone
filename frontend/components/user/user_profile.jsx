@@ -3,7 +3,7 @@ import InlineDisplay from '../inline_display/inline_display_container'
 import BoardCreateContainer from '../board/board_create_container'
 import PinIndexItem from '../pin/pin_index_item'
 import BoardIndexItem from '../board/board_index_item'
-import UserBoardContainer from '../user/user_profile_container'
+
 
 class UserProfile extends React.Component{
     constructor(props){

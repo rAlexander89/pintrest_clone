@@ -1,4 +1,3 @@
-import { fetchAllBoards } from '../actions/board_actions'
 
 export const selectBoardPins = (boardPins, pins, boardId) => {
     if (Object.values(boardPins).length === 0) return null;
