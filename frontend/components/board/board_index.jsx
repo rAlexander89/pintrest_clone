@@ -1,5 +1,6 @@
-import React from 'react';
-import BoardIndexItem from './board_index_item';
+import React from 'react'
+// import BoardIndexItem from './board_index_item'
+import BoardIndexItem from './board_index_item'
 import BoardCreateContainer from './board_create_container'
 
 
@@ -10,7 +11,7 @@ class BoardIndex extends React.Component{
 
     componentDidMount(){
         let userId = this.props.currentUser.id
-        // this.props.fetchBoards(userId);
+        this.props.fetchBoards(userId);
         this.props.fetchBoards();
     }
 

@@ -1,9 +1,4 @@
-// export const fetchBoards = (userId) => {
-//     return $.ajax({
-//         method: 'GET',
-//         url: `/api/users/${userId}/boards/`
-//     })
-// };
+
 
 export const fetchBoards = () => {
     return $.ajax({
@@ -11,8 +6,6 @@ export const fetchBoards = () => {
         method: 'GET'
     })
 };
-
-
 
 export const fetchBoard = (board) => {
     return $.ajax({
@@ -30,7 +23,6 @@ export const createBoard = (board) => {
 }
 
 export const updateBoard = (board) => {
-    debugger
     return $.ajax({
         url: `/api/users/${board.author_id}/boards/${board.id}`,
         method: "PATCH",

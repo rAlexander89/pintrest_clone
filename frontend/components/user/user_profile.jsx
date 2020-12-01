@@ -15,6 +15,7 @@ class UserProfile extends React.Component{
     componentDidMount(){
         this.props.fetchPins()
         this.props.fetchBoards()
+        // this.props.fetchUsers()
     }
 
     fetchUserPins(pins){
@@ -27,9 +28,10 @@ class UserProfile extends React.Component{
 
         return(
             <div>
+                <h1 id='header'>Latest Pins</h1>
                 < div className = "index-container" >
                 {
-                    userPins.map((pin) => (
+                    userPins.reverse().map((pin) => (
                         <PinIndexItem
                             pin={pin}
                             key={pin.id}
@@ -52,15 +54,19 @@ class UserProfile extends React.Component{
     }
 
     displayUserBoards(userBoards, userId){
-        debugger
         return(
-            userBoards.map((userBoard) => (
-                        <BoardIndexItem
-                            board={userBoard}
-                            key={userBoard.id}
-                            currentUserId={userId}
-                        />
-            ))
+            <div>
+                <h1 id='header'>Latest Boards:</h1>
+                <div className='profile-display-boards'>
+                    {userBoards.reverse().map((userBoard) => (
+                                <BoardIndexItem
+                                    board={userBoard}
+                                    key={userBoard.id}
+                                    currentUserId={userId}
+                                />
+                    ))}
+                </div>
+            </div>
         )
     }
 
@@ -68,7 +74,6 @@ class UserProfile extends React.Component{
         let { currentUser, userId, pins, userBoards } = this.props
         if (this.props.pins.length === 0) return null
         if (userBoards === null) return null
-        debugger
         return(
             <div>
                 <div>

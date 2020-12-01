@@ -12,18 +12,15 @@ class PinShow extends React.Component {
     componentDidMount(){
         this.props.fetchBoards()
         this.props.fetchPin(this.props.match.params.pinId)
-        debugger
     }
 
 
     render(){
         let { pin, boards } = this.props;
-        debugger
         if (pin === undefined) return null;
         let board = boards[pin.board_id]
         if (board === undefined) return null;
 
-        debugger
 
         return(
             <div className="content-container">

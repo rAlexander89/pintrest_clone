@@ -3,9 +3,11 @@ import { fetchBoards, createBoard } from '../../actions/board_actions';
 import BoardIndex from './board_index';
 
 const mSTP = (state) => {
+
     return{
         boards: Object.values(state.entities.boards),
         currentUser: state.entities.users[state.session.currentUserId]
+        
     }
 }
 
