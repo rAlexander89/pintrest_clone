@@ -24,7 +24,6 @@ export const selectUserIds = (users) => {
 }
 
 export const selectUserBoards = (userId, boards) => {
-    debugger
     if ( Object.values(boards).length === 0 ) return null
     let userBoards = []
     Object.values(boards).forEach(board => {
@@ -33,8 +32,6 @@ export const selectUserBoards = (userId, boards) => {
               userBoards.push(board)
           }
     })
-
-    debugger
     return userBoards
 
 }
