@@ -3,11 +3,9 @@ import { fetchBoards, createBoard } from '../../actions/board_actions';
 import { selectUserBoards } from '../../reducers/selector';
 import UsersBoardsIndex from './users_boards';
 
-// const mSTP = (state) => {
+
 const mSTP = ({ entities: { users, boards }, session }, ownProps) => {
-// const mSTP = ({ entities: { users, boards }, session }, ownProps) => {
-    debugger
-    // let userBoards;
+
     let userId = ownProps.match.params.userId 
     return {
         boards: Object.values(boards),

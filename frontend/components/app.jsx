@@ -13,7 +13,6 @@ import BoardIndexContainer from './board/board_index_container';
 import BoardShowContainer from './board/board_show_container';
 import UsersBoardsContainer from './board/users_boards_container';
 import UserShowContainer from './user/user_profile_container';
-import AllUserBoardsContainer from './board/all_user_boards_container';
 import Footer from './splash/footer.jsx';
 
 

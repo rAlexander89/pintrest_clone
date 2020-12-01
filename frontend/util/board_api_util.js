@@ -30,7 +30,6 @@ export const createBoard = (board) => {
 }
 
 export const updateBoard = (board) => {
-    debugger
     return $.ajax({
         url: `/api/users/${board.author_id}/boards/${board.id}`,
         method: "PATCH",

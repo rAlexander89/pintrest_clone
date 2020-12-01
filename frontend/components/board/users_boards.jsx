@@ -17,7 +17,6 @@ class UsersBoardsIndex extends React.Component {
     render() {
         let { currentUser, userId, userBoards } = this.props;
         if ( userBoards === null ) return null
-        debugger
 
         return (
             <div>

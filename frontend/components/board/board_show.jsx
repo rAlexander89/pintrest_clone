@@ -18,7 +18,6 @@ class BoardShow extends React.Component {
         if (board === undefined) return null;
         if (pins === null) return null;
         let pins_arr = Object.values(pins)
-        debugger
         return(
             <div className="content-container">
                 <div className='board-show-container'>

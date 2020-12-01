@@ -52,7 +52,6 @@ class UserProfile extends React.Component{
     }
 
     displayUserBoards(userBoards, userId){
-        debugger
         return(
             userBoards.map((userBoard) => (
                         <BoardIndexItem
@@ -68,7 +67,6 @@ class UserProfile extends React.Component{
         let { currentUser, userId, pins, userBoards } = this.props
         if (this.props.pins.length === 0) return null
         if (userBoards === null) return null
-        debugger
         return(
             <div>
                 <div>
