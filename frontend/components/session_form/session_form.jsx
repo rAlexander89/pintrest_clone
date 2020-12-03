@@ -1,4 +1,5 @@
 import React from 'react';
+import SessionGreeting from '../splash/session_greeting'
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class SessionForm extends React.Component {
     this.switcharoni = this.switcharoni.bind(this);
     this.formType = this.props.formType;
     this.switchForm = this.props.switchForm;
+    this.demoUserLogin = this.demoUserLogin.bind(this);
   }
 
   update(field) {
@@ -30,6 +32,17 @@ class SessionForm extends React.Component {
         this.props.closeModal();
       })
       }
+  }
+
+  demoUserLogin() {
+    let demoUser = {
+      username: 'username',
+      password: 'password'
+    };
+    this.props.loginUser(demoUser).then(() => {
+        this.props.history.push("/pins")
+      }
+    )
   }
 
   switcharoni(e){
@@ -98,20 +111,7 @@ class SessionForm extends React.Component {
               <h1 id='form-greeting'>Welcome to Pintrest</h1>
             </li>
             <li>
-                <div className='carousel-div'>
-                  <p>Get your next</p>
-                  <div className="carousel">
-                    <div className="change_outer">
-                      <div className="change_inner">
-                        <div id='dummy'>dummy</div>
-                        <div id='hallo'>Halloween idea</div>
-                        <div id='din'>weeknight dinner idea</div>
-                        <div id='home'>home decore idea</div>
-                        <div id='look'>new look outfit</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <SessionGreeting/>
             </li>
             <li>
               <p id='sub-greeting'>Please {this.formType}</p>
@@ -140,6 +140,8 @@ class SessionForm extends React.Component {
                 onChange={this.update('password')}
               />
             </label>
+            <br />
+              <p onClick={this.demoUserLogin}>Or try our Demo User.</p>
             <br />
             <input type="submit" id='button' value={this.formType} />
           </div>
