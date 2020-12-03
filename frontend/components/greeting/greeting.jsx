@@ -22,7 +22,7 @@ const Greeting = ({ currentUser, logout, openModal}) => {
                 <li><Link to={`/users/${currentUser.id}`}>My Profile</Link></li>
                 <li><Link to='/p/create'><button id='make-pin'>Make a pin</button></Link></li>
                 <li><button id='make-board'>Make a board</button></li>
-                <li><button id="logoutbtn" onClick={logout}>Log Out</button></li>
+                <li><Link to='/'><button id="logoutbtn" onClick={logout}>Log Out</button></Link></li>
             </ul>
         </div>
     );
