@@ -16,12 +16,15 @@ a{
 .footer{
     height: 3vh;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 10px;
     font-size: 11px;
     // font-weight: 500px;
     font-weight: bold;
 }
 
+input{
+    border: none;
+}
 // textarea,input{
 //     min-width: 350px;
 //     max-width: 450px;

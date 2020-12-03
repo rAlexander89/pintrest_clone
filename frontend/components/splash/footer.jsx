@@ -6,7 +6,7 @@ class Footer extends React.Component{
 
     render(){
         return (
-            <div className='footer'>© Pinterest 2020</div>
+            <div className='footer'>© Pinterest 2021</div>
         )
 
     }
