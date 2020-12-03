@@ -46,6 +46,7 @@ export const fetchBoard = (board) => dispatch => {
 }
 
 export const createBoard = board => dispatch => {
+    debugger
     return BoardAPIUtil.createBoard(board)
         .then(board => dispatch(receiveBoard(board)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))

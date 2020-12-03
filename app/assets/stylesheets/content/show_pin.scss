@@ -6,12 +6,11 @@
     box-sizing: border-box; 
 }
 
-.pin-show-container, .pin-create-container{
+.pin-show-container, .pin-create-container,.board-create-container{
     margin: auto;
     max-width: 1100px;
     height: auto;
     padding: 10px;
-    // align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -63,14 +62,19 @@
     animation-fill-mode: forwards;
 }
 
-#pin-title{
+#pin-title, #board-title{
     font-size: 46px;
     font-weight: 600px;
     margin-bottom: 2px;
 }
 
+.submit-buttons{
+    display: flex;
+    flex-direction: row;
+}
 
-#pin-owner{
+
+#pin-owner, #board-owner{
     font-style: italic;
     letter-spacing: 2px;
     margin-bottom: 5px;

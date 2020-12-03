@@ -15,6 +15,7 @@ export const fetchBoard = (board) => {
 }
 
 export const createBoard = (board) => {
+    debugger
     return $.ajax({
         url: `/api/users/${board.author_id}/boards`,
         method: "POST",
