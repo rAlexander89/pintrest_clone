@@ -74,28 +74,6 @@ class CreatePinForm extends React.Component {
 
     }
 
-    // boardSelection(boards){
-    //     if (!boards) return null;
-    //         return(
-    //             <div className='drop-down-wrapper' id='board-selected'>
-    //                 <div className='drop-down-header'>
-    //                     <div className='drop-down-title'>Select a Board</div>
-    //                 </div>
-    //                 <select onChange={this.update('boardId')} value={this.state.boardId}>
-    //                     {boards.map(board => (  
-    //                         <option 
-    //                             key={board.id}
-    //                             defaultValue={this.state.boardId = board.id}
-    //                             value={board.id}
-    //                         >
-    //                             {board.title}
-    //                         </option>
-    //                     ))}
-    //                 </select>
-    //             </div>
-    //         )
-    // }
-
     update(field) {
         return e => {
             this.setState({ [field]: e.currentTarget.value })
@@ -112,23 +90,23 @@ class CreatePinForm extends React.Component {
                     No Board Selected!
                 </div>
             )
-        }
-
-        const formData = new FormData();
-        formData.append('pin[title]', title);
-        formData.append('pin[author_id]', author_id);
-        formData.append('pin[owner]', owner);
-        formData.append('pin[description]', description);
-        formData.append('pin[photo]', photoFile);
-        formData.append('pin[board_id]', boardId);
-        this.props.createPin(formData)
-            .then(
-                pin => this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }
+        } else {
+            const formData = new FormData();
+            formData.append('pin[title]', title);
+            formData.append('pin[author_id]', author_id);
+            formData.append('pin[owner]', owner);
+            formData.append('pin[description]', description);
+            formData.append('pin[photo]', photoFile);
+            formData.append('pin[board_id]', boardId);
+            this.props.createPin(formData)
+                .then(
+                    pin => this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }
+                )
+                .then(
+                    pin => this.props.history.push(`/pins/${pin.id}`)
+                ).catch(console.log('this shit failed'))
             )
-            .then(
-                pin => this.props.history.push(`/pins/${pin.id}`)
-            ).catch(console.log('this shit failed'))
-        )
+        }
     }
 
 
@@ -182,17 +160,19 @@ class CreatePinForm extends React.Component {
                                 placeholder="give us a blurb about your pin"
                                 value={description}
                                 onChange={this.update("description")}
-                                 />
+                                />
     
                         </div>
-                        <div className="pin-top-buttons">
-                            <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
-                        </div>
-                        <input type="file" name="file-upload" id="file-upload" onChange={this.handleFile} />
-                        <label htmlFor="file-upload">
-                            <div id="image-background">
+                        <div className='submit-buttons'>
+                            <div className="pin-top-buttons">
+                                <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
                             </div>
-                        </label>
+                            <div>
+                                <input type="file" name="file-upload" id="file-upload" onChange={this.handleFile} />
+                                <label htmlFor="file-upload">
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )

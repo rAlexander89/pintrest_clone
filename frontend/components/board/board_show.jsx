@@ -12,10 +12,35 @@ class BoardShow extends React.Component {
         this.props.fetchBoardPins()
         this.props.fetchBoard(this.props.board_data)
         this.props.fetchUsers()
+        this.thisBoardsPins = this.thisBoardsPins.bind(this) 
+    }
+
+    thisBoardsPins(pins_arr){
+        if (pins_arr.length === 0){
+            return(
+                <div>
+                    This board doesn't have any pins in this board yet!
+                </div>
+            )
+        } else {
+            return(
+                <div className="index-container">
+                    {
+                        pins_arr.map(pin => (
+                            <PinIndexItem
+                                pin={pin}
+                                key={pin.id}
+                                photo={pin.photoUrl}
+                            />
+                        ))
+                    }
+                </div>
+            )
+        }
     }
 
     render(){
-        let { board, pins, owner } = this.props;
+        let { board, pins, owner, currentUser } = this.props;
         if (owner === null) return null;
         if (board === undefined) return null;
         if (pins === null) return null;
@@ -24,8 +49,6 @@ class BoardShow extends React.Component {
         return(
             <div className="content-container">
                 <div className='board-show-container'>
-                    <div className="board-show-item">
-                    </div>
                     <div className='board-show-det'>
                         <ul>
                             <li id='board-title'><InlineDisplay editType='board' item={board} objKey={'title'} field={board.title} /></li>
@@ -33,14 +56,7 @@ class BoardShow extends React.Component {
                             <li id='board-description'><InlineDisplay editType='board' item={board} objKey={'description'} field={board.description} /></li>
                         </ul>
                     <div className='board-show-items'>
-                        {/* {pins.map( pin => ( */}
-                        {pins_arr.map( pin => (
-                            <PinIndexItem 
-                                pin={pin}
-                                key={pin.id}
-                                photo={pin.photoUrl}
-                            />
-                        ))}
+                            {this.thisBoardsPins(pins_arr)}
                     </div>
                     </div>
                 </div>
