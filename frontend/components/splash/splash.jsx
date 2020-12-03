@@ -1,5 +1,7 @@
     import React from 'react';
 import PinIndexItem from '../pin/pin_index_item';
+import LoginFormContainer from '../session_form/login_form_container';
+import SignupFormContainer from '../session_form/signup_form_container';
 
 
 class Splash extends React.Component {
@@ -14,37 +16,27 @@ class Splash extends React.Component {
 
     render(){
         let { pins } = this.props
-        // if (pins === undefined ) return null
+        if (pins === undefined ) return null
 
 
         return(
-        <div className='splash'>
-
-
-            <div className='carousel-div'>
-                <p>Get your next</p>
-                <div className="carousel">
-                    <div className="change_outer">
-                        <div className="change_inner">
-                            <div id='dummy'>dummy</div>
-                            <div id='hallo'>Halloween idea</div>
-                            <div id='din'>weeknight dinner idea</div>
-                            <div id='home'>home decore idea</div>
-                            <div id='look'>new look outfit</div>
-                        </div>
-                    </div>
+            <div>
+            <div className='splash'>
+                <div>
+                        <LoginFormContainer/>
                 </div>
+
             </div>
 
-            <div className="splash-container">
+            {/* <div className="background">
                 {pins.reverse().map((pin) => (
                     <PinIndexItem
                         pin={pin}
                         key={pin.id}
                         photo={pin.photoUrl}
                     />
-                ))}
-            </div>
+                ))} */
+            /* </div> */}
         </div>
         )
     }

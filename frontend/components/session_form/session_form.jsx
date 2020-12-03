@@ -98,6 +98,22 @@ class SessionForm extends React.Component {
               <h1 id='form-greeting'>Welcome to Pintrest</h1>
             </li>
             <li>
+                <div className='carousel-div'>
+                  <p>Get your next</p>
+                  <div className="carousel">
+                    <div className="change_outer">
+                      <div className="change_inner">
+                        <div id='dummy'>dummy</div>
+                        <div id='hallo'>Halloween idea</div>
+                        <div id='din'>weeknight dinner idea</div>
+                        <div id='home'>home decore idea</div>
+                        <div id='look'>new look outfit</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </li>
+            <li>
               <p id='sub-greeting'>Please {this.formType}</p>
             </li>
           </ul>
@@ -128,10 +144,10 @@ class SessionForm extends React.Component {
             <input type="submit" id='button' value={this.formType} />
           </div>
         </form>
-      </div>
         <div className="switch-tab">
           <p onClick={this.switcharoni} id='toggle'> or {this.switchForm}</p>
         </div>
+      </div>
     </div>
       
     );
