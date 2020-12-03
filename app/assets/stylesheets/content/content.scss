@@ -1,5 +1,19 @@
 .splash{
     // background: rgb(230,0,35);
     // background: linear-gradient(360deg, rgba(230,0,35,1) 0%, rgba(0,226,255,1) 35%, rgba(230,0,35,1) 100%);
-    height: 200vh;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+}
+
+.splash-container{
+    // position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    overflow-y: auto;
+}
+
+.splash-container img {
+    width: 25%;
 }

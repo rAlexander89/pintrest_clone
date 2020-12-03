@@ -25,7 +25,7 @@ const mDTP = dispatch => ({
     fetchPins: () => dispatch(fetchPins()),
     clearErrors: () => dispatch(clearErrors),
     fetchBoards: () => dispatch(fetchBoards()),
-    // fetchUsers: () => dispatch(fetchUsers())
+    fetchUsers: () => dispatch(fetchUsers())
 })
 
 export default connect(mSTP, mDTP)(UserProfile);

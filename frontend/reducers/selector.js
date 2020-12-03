@@ -23,7 +23,7 @@ export const selectUserIds = (users) => {
 }
 
 export const selectUserBoards = (userId, boards) => {
-    if ( Object.values(boards).length === 0 ) return null
+    if (boards === undefined ) return null
     let userBoards = []
     Object.values(boards).forEach(board => {
 

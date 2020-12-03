@@ -40,6 +40,10 @@
     -5px -5px 10px #fbfbfb;
     border-bottom: 5px groove rgba(221, 221, 221, 0.219);
     box-shadow: inset -7px -7px 31px #fff6d17c;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
+
 }
 .pin-show-det {
     margin: 15px;
@@ -54,6 +58,9 @@
     -5px -5px 10px #fbfbfb;
     border-bottom: 5px groove rgba(221, 221, 221, 0.219);
     box-shadow: inset -7px -7px 31px #fff6d17c;
+    animation: fadeInAnimation ease 4s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
 }
 
 #pin-title{
@@ -76,4 +83,22 @@
     .pin-show-det{
         max-width: 40%;
     }
+}
+
+.no-board-warning{
+    color: red;
+    width: 300px;
+}
+
+#warning-link{
+    text-decoration: underline;
+}
+@keyframes fadeInAnimation {
+    0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+
 }

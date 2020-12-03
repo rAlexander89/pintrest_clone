@@ -6,7 +6,6 @@ import {
 
 const PinReducer = (state = {}, action) => {
     Object.freeze(state);
-    // console.log('pin reducer')
     switch (action.type) {
         case RECEIVE_PINS:
             return Object.assign({}, state, action.pins)

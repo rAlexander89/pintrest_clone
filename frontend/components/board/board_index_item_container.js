@@ -5,7 +5,6 @@ import { fetchUser } from '../../actions/user_action'
 import BoardIndexItem from './board_index_item'
 
 const mSTP = ({ entities: { users, boards }, session }, ownProps) => {
-    debugger
     return{
     
     }

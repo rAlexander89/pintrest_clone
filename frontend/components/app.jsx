@@ -9,6 +9,7 @@ import SplashContainer from './splash/splash_container.js';
 import PinShowContainer from './pin/pin_show_container.js';
 import PinIndexContainer from './pin/pin_index_container.js';
 import CreatePinContainer from './pin/pin_create_container.js';
+import CreateBoardContainer from './board/board_create_container';
 import BoardIndexContainer from './board/board_index_container';
 import BoardShowContainer from './board/board_show_container';
 import UsersBoardsContainer from './board/users_boards_container';
@@ -63,13 +64,14 @@ class App extends React.Component{
                         <li><GreetingContainer /></li>
                     </ul>
                 </div>
-                <div>
+                <div className='body'>
                     {/* <PinIndex pin={this.state.pins} /> */}
                     <Switch>
                     <Route exact path='/' component={SplashContainer}/>
                     <Route exact path="/pins" component={PinIndexContainer} />
                     <Route exact path="/pins/:pinId" component={PinShowContainer} />
                     <Route exact path="/p/create" component={CreatePinContainer} />
+                    <Route exact path="/b/create" component={CreateBoardContainer} />
                     <Route exact path='/users/:userId/boards' component={UsersBoardsContainer}/>
                     <Route exact path='/users/:userId/boards/:boardId' component={BoardShowContainer}/>
                     <Route exact path='/users/:userId' component={UserShowContainer}/>

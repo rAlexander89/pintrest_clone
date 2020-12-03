@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import { fetchBoard, fetchBoardPins } from '../../actions/board_actions';
 import { fetchPins } from '../../actions/pin_actions'
+import { fetchUsers } from '../../actions/user_action'
 import { selectBoardPins } from '../../reducers/selector';
 
 import BoardShow from './board_show';
 
 const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors }, ownProps) => {
-    debugger
+
 
     let board_data = ownProps.match.params;
     let board = boards[ownProps.match.params.boardId];

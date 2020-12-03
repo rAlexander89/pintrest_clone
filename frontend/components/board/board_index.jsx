@@ -20,10 +20,9 @@ class BoardIndex extends React.Component{
 
         return(
             <div>
-                <BoardCreateContainer currentUserId={currentUser.id}/>
-                <p>howdy partner! This is where I'm gonna put down some cool boards, I'll tell you hwut!</p>
+                <p><h1 id='header'>The Latest Boards</h1></p>
                 <div className='board-index-container'>
-                  {boards.map((board) => ( 
+                  {boards.reverse().map((board) => ( 
                       <BoardIndexItem
                           board={board}
                           key={board.id}
