@@ -14,6 +14,7 @@
 class Pin < ApplicationRecord
     validates :title, presence: true
     validates :description, presence: true
+    validates :board_id, presence: true
 
 
     has_one_attached :photo

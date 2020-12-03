@@ -22,6 +22,7 @@ class PinShow extends React.Component {
         if (board === undefined) return null;
 
 
+
         return(
             <div className="content-container">
                 <div className='pin-show-container'>

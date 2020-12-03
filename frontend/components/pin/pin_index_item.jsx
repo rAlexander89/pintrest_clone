@@ -11,7 +11,6 @@ class PinIndexItem extends React.Component {
 
     showPin(pin) {
         return(
-            console.log(pin.id),
             <PinShowContainer pin={pin}/>
         )
     }

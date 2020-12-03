@@ -48,7 +48,7 @@ render() {
     }
 ```
 
-In the component called PinIndexItem, you can see the relevant information about an image being passed into that container.   And through there, we see  how PinIndexItem uses that information that was passed in to render the image to the user:
+In the component called PinIndexItem, you can see the relevant information about an image being passed into that container. And through there, we see  how PinIndexItem uses that information that was passed in to render the image to the user:
 
 From PinIndexItem to showPin(pin):
 
@@ -71,7 +71,6 @@ Further, here is a piece of code there, ‘this.showPin’ that passes long info
 ```javascript
 showPin(pin) {
         return(
-            console.log(pin.id),
             <PinShowContainer pin={pin}/>
         )
 }

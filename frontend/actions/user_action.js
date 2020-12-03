@@ -28,7 +28,7 @@ export const fetchUser = pinId => dispatch => {
         .then(pin => dispatch(receiveUser(pin)))
 }
 
-export const fetchAllUsers = () => dispatch => {
-    return UserApiUtil.fetchAllUsers()
+export const fetchUsers = () => dispatch => {
+    return UserApiUtil.fetchUsers()
         .then(users => dispatch(receiveAllUsers(users)))
 }

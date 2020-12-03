@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class CreatePinForm extends React.Component {
     constructor(props) {
@@ -12,41 +12,89 @@ class CreatePinForm extends React.Component {
             author_id: this.props.author_id,
             errors: this.props.errors,
             photoFile: null,
-            photoUrl: null,
-            total: ''
+            photoUrl: null
         }
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
-        this.boardSelection = this.boardSelection.bind(this);
-        // this.selectBoard = this.selectBoard.bind(this);
+        // this.boardSelection = this.boardSelection.bind(this);
+        this.selectUserBoards = this.selectUserBoards.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchBoards()
     }
 
-    boardSelection(boards){
-        if (!boards) return null;
-        return(
-            <div className='drop-down-wrapper' id='board-selected'>
-                <div className='drop-down-header'>
-                    <div className='drop-down-title'>Select a Board</div>
+
+    selectUserBoards(userId, boards){
+        if (boards === undefined) return null
+        let userBoards = []
+        Object.values(boards).forEach(board => {
+            if (board.author_id == userId) {
+                userBoards.push(board)
+            }
+        })
+
+        if (userBoards.length === 0 ){
+            return(
+                <div className='no-board-warning'>
+                    <br/>
+                    You don't have any boards. You must make one before saving a pin. <br/>
+                    <Link to='/b/create' id='warning-link'>Click here</Link> to make a board.
                 </div>
-                <select onChange={this.update('boardId')} value={this.state.boardId}>
-                    {boards.map(board => (  
-                        <option 
+            )
+        } else {
+            return(
+                <div className='drop-down-wrapper' id='board-selected'>
+                    <div className='drop-down-header'>
+                        <div className='drop-down-title'>Select a Board</div>
+                    </div>
+                <select onChange = { this.update('boardId') } 
+                // value = { this.state.boardId } 
+                >
+                    <option selected disabled hidden>
+                        Select an Option
+                    </option>
+                {
+                    userBoards.reverse().map(board => (
+                        <option
                             key={board.id}
                             defaultValue={this.state.boardId = board.id}
                             value={board.id}
                         >
                             {board.title}
                         </option>
-                    ))}
-                </select>
-            </div>
-        )
+                    ))
+                }
+                </select >
+                </div>
+            )
+        }
+
+
     }
+
+    // boardSelection(boards){
+    //     if (!boards) return null;
+    //         return(
+    //             <div className='drop-down-wrapper' id='board-selected'>
+    //                 <div className='drop-down-header'>
+    //                     <div className='drop-down-title'>Select a Board</div>
+    //                 </div>
+    //                 <select onChange={this.update('boardId')} value={this.state.boardId}>
+    //                     {boards.map(board => (  
+    //                         <option 
+    //                             key={board.id}
+    //                             defaultValue={this.state.boardId = board.id}
+    //                             value={board.id}
+    //                         >
+    //                             {board.title}
+    //                         </option>
+    //                     ))}
+    //                 </select>
+    //             </div>
+    //         )
+    // }
 
     update(field) {
         return e => {
@@ -57,6 +105,15 @@ class CreatePinForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const { title, description, photoFile, boardId, author_id, owner } = this.state;
+
+        if ( boardId === '' ){
+            return(
+                <div className='no-board-warning'>
+                    No Board Selected!
+                </div>
+            )
+        }
+
         const formData = new FormData();
         formData.append('pin[title]', title);
         formData.append('pin[author_id]', author_id);
@@ -95,65 +152,50 @@ class CreatePinForm extends React.Component {
     }
 
     render() {
-        const { title, description, photoUrl, working } = this.state;
+        const { title, description, photoUrl, working, author_id } = this.state;
         const { boards } = this.props;
         const preview = photoUrl ? <img id="image-preview" src={photoUrl} /> : null;
-        return (
-            <div className="pin-create-container">
-                <div className="image-preview">
-                    {preview}
-                    {console.log(working)}
-                </div>
-                {console.log(this.state)}
-                <div className="pin-details">
-                    <div className="pin-add-title">
-                        <input
-                            id='pin-title'
-                            type="text"
-                            placeholder="title"
-                            value={title}
-                            onChange={this.update("title")} />
+        
+            return (
+                <div className="pin-create-container">
+                    <div className="image-preview">
+                        {preview}
                     </div>
-
-                    {/* {this.boardSelection(boards)} */}
-                    <div className='drop-down-wrapper' id='board-selected'>
-                        <div className='drop-down-header'>
-                            <div className='drop-down-title'>Select a Board</div>
+                    <div className="pin-details">
+                        <div className="pin-add-title">
+                            <input
+                                id='pin-title'
+                                type="text"
+                                placeholder="pin title"
+                                value={title}
+                                onChange={this.update("title")}
+                                />
                         </div>
-                        <select onChange={this.update('boardId')} value={this.state.boardId} >
-                            {boards.map(board => (
-                                <option
-                                    key={board.id}
-                                    defaultValue={this.state.boardId = board.id}
-                                    value={board.id}
-                                >
-                                    {board.title}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-
-                    <div>
-                        <input
-                            type='textarea'
-                            contentEditable="true"
-                            rows="1"
-                            placeholder="give us a blurb"
-                            value={description}
-                            onChange={this.update("description")} />
-
-                    </div>
-                    <div className="pin-top-buttons">
-                        <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
-                    </div>
-                    <input type="file" name="file-upload" id="file-upload" onChange={this.handleFile} />
-                    <label htmlFor="file-upload">
-                        <div id="image-background">
+    
+                        
+    
+                            {this.selectUserBoards(author_id, boards)}
+                        <br/>
+    
+                        <div>
+                            <textarea
+                                placeholder="give us a blurb about your pin"
+                                value={description}
+                                onChange={this.update("description")}
+                                 />
+    
                         </div>
-                    </label>
+                        <div className="pin-top-buttons">
+                            <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
+                        </div>
+                        <input type="file" name="file-upload" id="file-upload" onChange={this.handleFile} />
+                        <label htmlFor="file-upload">
+                            <div id="image-background">
+                            </div>
+                        </label>
+                    </div>
                 </div>
-            </div>
-        )
+            )
     }
 }
 

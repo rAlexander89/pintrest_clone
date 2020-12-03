@@ -34,7 +34,6 @@ class SessionForm extends React.Component {
 
   switcharoni(e){
     e.preventDefault();
-    // console.log('hello')
     let sType = this.formType;
     let fType = this.switchForm;
     this.formType = this.switchForm;
