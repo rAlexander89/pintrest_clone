@@ -65,7 +65,6 @@ class App extends React.Component{
                     </ul>
                 </div>
                 <div className='body'>
-                    {/* <PinIndex pin={this.state.pins} /> */}
                     <Switch>
                     <Route exact path='/' component={SplashContainer}/>
                     <Route exact path="/pins" component={PinIndexContainer} />
@@ -76,7 +75,6 @@ class App extends React.Component{
                     <Route exact path='/users/:userId/boards/:boardId' component={BoardShowContainer}/>
                     <Route exact path='/users/:userId' component={UserShowContainer}/>
                     <Route exact path='/boards/' component={BoardIndexContainer}/>
-                    {/* <Route exact path='/boards/:boardId' component={BoardShowContainer}/> */}
                     </Switch>
                 </div>
                 <div>
