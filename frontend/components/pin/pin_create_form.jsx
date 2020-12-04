@@ -85,11 +85,11 @@ class CreatePinForm extends React.Component {
         let { errors } = this.props
         debugger
         // if (errors.length > 0){
-            return(
-                <div className='errors'>
-                    {errors}                    
-                </div>
-            ) 
+            // return(
+            //     <div className='errors'>
+            //         {errors}                    
+            //     </div>
+            // ) 
         // }
     }
 

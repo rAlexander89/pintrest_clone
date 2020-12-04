@@ -34,6 +34,7 @@ class PinShow extends React.Component {
         if (pin === undefined) return null;
         let board = boards[pin.board_id]
         if (board === undefined) return null;
+        debugger
 
         return(
             <div className="content-container">

@@ -101,10 +101,13 @@ export const removePin = pinId => ({
     pinId
 })
 
-export const receivePinErrors = errors => ({
-    type: RECEIVE_PIN_ERRORS,
-    errors
-})
+export const receivePinErrors = errors => {
+    debugger
+    return{
+        type: RECEIVE_PIN_ERRORS,
+        errors
+    }
+}
 
 export const fetchPins = () => dispatch => {
     return PinAPIUtil.fetchPins()
