@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchBoard, fetchBoardPins } from '../../actions/board_actions';
+import { fetchBoard, fetchBoardPins, deleteBoard } from '../../actions/board_actions';
 import { fetchPins } from '../../actions/pin_actions'
 import { fetchUsers } from '../../actions/user_action'
 import { selectBoardPins } from '../../reducers/selector';
@@ -15,7 +15,7 @@ const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors },
 
 
     return {
-        currentUser: users[session.id],
+        currentUser: users[session.currentUserId],
         owner: users[owner_id],
         board,
         board_data,
@@ -26,6 +26,7 @@ const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors },
 const mDTP = (dispatch) => {
     return {
         fetchBoard: board => dispatch(fetchBoard(board)),
+        deleteBoard: (userId, boardId) => dispatch(deleteBoard(userId, boardId)),
         fetchPins: () => dispatch(fetchPins()),
         fetchBoardPins: () => dispatch(fetchBoardPins()),
         fetchUsers: () => dispatch(fetchUsers())

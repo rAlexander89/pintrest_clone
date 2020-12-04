@@ -1,5 +1,3 @@
-
-
 export const fetchBoards = () => {
     return $.ajax({
         url: '/api/boards',
@@ -15,7 +13,6 @@ export const fetchBoard = (board) => {
 }
 
 export const createBoard = (board) => {
-    debugger
     return $.ajax({
         url: `/api/users/${board.author_id}/boards`,
         method: "POST",
@@ -28,6 +25,13 @@ export const updateBoard = (board) => {
         url: `/api/users/${board.author_id}/boards/${board.id}`,
         method: "PATCH",
         data: { board }
+    })
+}
+
+export const deleteBoard = (userId, boardId) => {
+    return $.ajax({
+        url: `/api/users/${userId}/boards/${boardId}`,
+        method: "DELETE"
     })
 }
 

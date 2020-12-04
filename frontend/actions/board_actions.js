@@ -46,16 +46,20 @@ export const fetchBoard = (board) => dispatch => {
 }
 
 export const createBoard = board => dispatch => {
-    debugger
     return BoardAPIUtil.createBoard(board)
         .then(board => dispatch(receiveBoard(board)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }
 
-
 export const updateBoard = board => dispatch => {
     return BoardAPIUtil.updateBoard(board)
         .then(board => dispatch(receiveBoard(board)),
+            error => dispatch(receiveBoardErrors(error.responseJSON)))
+}
+
+export const deleteBoard = (userId, boardId) => dispatch => {
+    return BoardAPIUtil.deleteBoard(userId, boardId)
+        .then(boardId => dispatch(removeBoard(boardId)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }
 
