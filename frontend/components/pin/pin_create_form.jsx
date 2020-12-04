@@ -18,10 +18,12 @@ class CreatePinForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.selectUserBoards = this.selectUserBoards.bind(this);
+        this.displayErrors = this.displayErrors.bind(this)
     }
 
     componentDidMount() {
         this.props.fetchBoards()
+        this.props.clearErrors()
     }
 
 
@@ -77,6 +79,18 @@ class CreatePinForm extends React.Component {
         return e => {
             this.setState({ [field]: e.currentTarget.value })
         }
+    }
+
+    displayErrors(){
+        let { errors } = this.props
+        debugger
+        // if (errors.length > 0){
+            return(
+                <div className='errors'>
+                    {errors}                    
+                </div>
+            ) 
+        // }
     }
 
     handleSubmit(e) {
@@ -148,9 +162,7 @@ class CreatePinForm extends React.Component {
                                 onChange={this.update("title")}
                                 />
                         </div>
-    
-                        
-    
+                            {this.displayErrors()}
                             {this.selectUserBoards(author_id, boards)}
                         <br/>
     

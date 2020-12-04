@@ -1,8 +1,9 @@
 
 import { connect } from 'react-redux';
 import CreatePinForm from './pin_create_form';
+import { clearErrors } from '../../actions/session_actions';
 import { createPin } from '../../actions/pin_actions';
-import { fetchBoards } from '../../actions/board_actions'
+import { fetchBoards } from '../../actions/board_actions';
 
 const mSTP = (state) => {
 
