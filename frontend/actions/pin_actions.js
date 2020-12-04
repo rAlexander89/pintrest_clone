@@ -82,10 +82,6 @@ export const receivePins = pins => ({
     pins
 })
 
-// export const receivePin = pin => ({
-//     type: RECEIVE_PIN,
-//     pin
-// })
 
 const receivePin = data => {
     return{

@@ -59,8 +59,6 @@ class CreatePinForm extends React.Component {
                     userBoards.reverse().map(board => (
                         <option
                             key={board.id}
-                            // defaultValue={this.state.boardId = board.id}
-                            // defaultValue={board.id}
                             value={board.id}
                         >
                             {board.title}
@@ -113,12 +111,12 @@ class CreatePinForm extends React.Component {
             formData.append('pin[board_id]', boardId);
             this.props.createPin(formData)
                 .then(
-                    pin => this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }
+                    pin => {if (pin){
+                        this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id })
+                        this.props.history.push(`/pins/${pin.pin.id}`)
+                    }} 
                 )
-                .then(
-                    pin => this.props.history.push(`/pins/${pin.id}`)
-                ).catch(console.log('this shit failed'))
-            )
+                .catch(console.log('this shit failed'))
         }
     }
 
