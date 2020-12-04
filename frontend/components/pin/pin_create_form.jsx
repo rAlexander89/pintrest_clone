@@ -7,7 +7,7 @@ class CreatePinForm extends React.Component {
         this.state = {
             title: '',
             description: '',
-            boardId: '',
+            boardId: null,
             owner: this.props.user.username,
             author_id: this.props.author_id,
             errors: this.props.errors,
@@ -18,7 +18,7 @@ class CreatePinForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.selectUserBoards = this.selectUserBoards.bind(this);
-        this.displayErrors = this.displayErrors.bind(this)
+        // this.displayErrors = this.displayErrors.bind(this)
     }
 
     componentDidMount() {
@@ -50,17 +50,17 @@ class CreatePinForm extends React.Component {
                     <div className='drop-down-header'>
                         <div className='drop-down-title'>Select a Board</div>
                     </div>
-                <select onChange = { this.update('boardId') } 
-                // value = { this.state.boardId } 
+                <select onChange = { this.update('boardId') }
                 >
-                    <option selected disabled hidden>
+                    <option defaultValue ='' selected disabled hidden>
                         Select an Option
                     </option>
                 {
                     userBoards.reverse().map(board => (
                         <option
                             key={board.id}
-                            defaultValue={this.state.boardId = board.id}
+                            // defaultValue={this.state.boardId = board.id}
+                            // defaultValue={board.id}
                             value={board.id}
                         >
                             {board.title}
@@ -76,14 +76,14 @@ class CreatePinForm extends React.Component {
     }
 
     update(field) {
+        debugger
         return e => {
             this.setState({ [field]: e.currentTarget.value })
         }
     }
 
-    displayErrors(){
-        let { errors } = this.props
-        debugger
+    // displayErrors(){
+        // let { errors } = this.props
         // if (errors.length > 0){
             // return(
             //     <div className='errors'>
@@ -91,13 +91,13 @@ class CreatePinForm extends React.Component {
             //     </div>
             // ) 
         // }
-    }
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
         const { title, description, photoFile, boardId, author_id, owner } = this.state;
 
-        if ( boardId === '' ){
+        if ( boardId === null ){
             return(
                 <div className='no-board-warning'>
                     No Board Selected!
@@ -146,7 +146,7 @@ class CreatePinForm extends React.Component {
         const { title, description, photoUrl, working, author_id } = this.state;
         const { boards } = this.props;
         const preview = photoUrl ? <img id="image-preview" src={photoUrl} /> : null;
-        
+        debugger
             return (
                 <div className="pin-create-container">
                     <div className="image-preview">
@@ -162,7 +162,7 @@ class CreatePinForm extends React.Component {
                                 onChange={this.update("title")}
                                 />
                         </div>
-                            {this.displayErrors()}
+                            {/* {this.displayErrors()} */}
                             {this.selectUserBoards(author_id, boards)}
                         <br/>
     
