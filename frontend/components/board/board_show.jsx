@@ -15,6 +15,19 @@ class BoardShow extends React.Component {
         this.thisBoardsPins = this.thisBoardsPins.bind(this) 
     }
 
+    displayBoardDelete(owner, currentUser, board){
+        if ( owner === currentUser ){
+            return (
+                <div onClick={() => this.props.deleteBoard(owner.id, board.id)
+                    .then(this.props.history.push(`/users/${owner.id}`))}>
+                    Delete Board
+                </div>
+            )
+
+        }
+
+    }
+
     thisBoardsPins(pins_arr){
         if (pins_arr.length === 0){
             return(
@@ -53,6 +66,7 @@ class BoardShow extends React.Component {
                         <ul>
                             <li id='board-title'><InlineDisplay editType='board' item={board} objKey={'title'} field={board.title} /></li>
                             <li id='board-owner'>board by {this.props.owner.username}</li>
+                            <li>{this.displayBoardDelete(owner, currentUser,board)}</li>
                             <li id='board-description'><InlineDisplay editType='board' item={board} objKey={'description'} field={board.description} /></li>
                         </ul>
                     <div className='board-show-items'>
