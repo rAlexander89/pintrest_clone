@@ -17,7 +17,6 @@ class CreatePinForm extends React.Component {
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
-        // this.boardSelection = this.boardSelection.bind(this);
         this.selectUserBoards = this.selectUserBoards.bind(this);
     }
 
