@@ -20,7 +20,7 @@ class BoardIndex extends React.Component{
 
         return(
             <div>
-                <p><h1 id='header'>The Latest Boards</h1></p>
+                <p id='header'>The Latest Boards</p>
                 <div className='board-index-container'>
                   {boards.reverse().map((board) => ( 
                       <BoardIndexItem
