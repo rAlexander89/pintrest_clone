@@ -1,4 +1,4 @@
-require 'byebug'
+
 class Api::BoardsController < ApplicationController
 
     def index
