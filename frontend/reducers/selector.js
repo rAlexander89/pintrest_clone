@@ -5,9 +5,12 @@ export const selectBoardPins = (boardPins, pins, boardId) => {
     let pinsOnBoard = [];
     Object.values(boardPins).forEach(boardPin => {
         if (boardPin.board_id === parseInt(boardId)){
-            pinsOnBoard.push(pins[boardPin.pin_id])
+            if (!!pins[boardPin.pin_id]){
+                pinsOnBoard.push(pins[boardPin.pin_id])
+            }
         }
     })
+
     return pinsOnBoard
 }
 

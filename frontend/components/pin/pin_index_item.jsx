@@ -17,7 +17,6 @@ class PinIndexItem extends React.Component {
 
     render() {
         const { pin } = this.props;
-
         return (
             <div>
                 <Link to={`/pins/${pin.id}`}>
