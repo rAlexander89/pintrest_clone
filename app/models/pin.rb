@@ -4,16 +4,17 @@
 #
 #  id          :bigint           not null, primary key
 #  description :string           not null
-#  owner       :string
+#  owner       :string           not null
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  author_id   :integer          not null
-#  board_id    :integer
+#  board_id    :integer          not null
 #
 class Pin < ApplicationRecord
-    validates :title, presence: true
+    validates :title, presence: true, uniqueness: {scope: :author_id}
     validates :description, presence: true
+    validates :owner, presence: true
     validates :board_id, presence: true
 
 
@@ -24,6 +25,7 @@ class Pin < ApplicationRecord
     class_name: :User
 
     has_many :board_pins,
+    dependent: :destroy,
     foreign_key: :pin_id,
     class_name: :BoardPin
 

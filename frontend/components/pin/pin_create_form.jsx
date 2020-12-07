@@ -7,18 +7,18 @@ class CreatePinForm extends React.Component {
         this.state = {
             title: '',
             description: '',
-            boardId: null,
+            boardId: '',
             owner: this.props.user.username,
             author_id: this.props.author_id,
-            errors: this.props.errors,
-            photoFile: null,
-            photoUrl: null
+            photoFile: '',
+            photoUrl: ''
         }
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.selectUserBoards = this.selectUserBoards.bind(this);
-        // this.displayErrors = this.displayErrors.bind(this)
+        this.displayErrors = this.displayErrors.bind(this);
+        this.saveButton = this.saveButton.bind(this);
     }
 
     componentDidMount() {
@@ -50,74 +50,82 @@ class CreatePinForm extends React.Component {
                     <div className='drop-down-header'>
                         <div className='drop-down-title'>Select a Board</div>
                     </div>
-                <select onChange = { this.update('boardId') }
-                >
+                <select onChange = { this.update('boardId') }>
                     <option defaultValue ='' selected disabled hidden>
                         Select an Option
                     </option>
                 {
                     userBoards.reverse().map(board => (
                         <option
-                            key={board.id}
-                            value={board.id}
+                        key={board.id}
+                        value={board.id}
                         >
                             {board.title}
                         </option>
                     ))
                 }
                 </select >
+                {this.displayErrors('board')}
                 </div>
             )
         }
-
-
     }
 
     update(field) {
-        debugger
+        
         return e => {
             this.setState({ [field]: e.currentTarget.value })
         }
     }
 
-    // displayErrors(){
-        // let { errors } = this.props
-        // if (errors.length > 0){
-            // return(
-            //     <div className='errors'>
-            //         {errors}                    
-            //     </div>
-            // ) 
-        // }
-    // }
+    displayErrors(value){
+       let errors  = this.props.errors
+        if (errors === undefined) return null
+
+       switch(value){
+           case 'title':
+               return(
+                   <div className='errors'>
+                       {errors[0]}
+                   </div>
+               )
+           case 'desc':
+               return (
+                   <div className='errors'>
+                       {errors[1]}
+                   </div>
+               )
+           case 'board':
+               return (
+                   <div className='errors'>
+                       {errors[2]}
+                   </div>
+               )
+            default:
+                return null;
+       }
+    }
+       
 
     handleSubmit(e) {
         e.preventDefault();
         const { title, description, photoFile, boardId, author_id, owner } = this.state;
 
-        if ( boardId === null ){
-            return(
-                <div className='no-board-warning'>
-                    No Board Selected!
-                </div>
+        const formData = new FormData();
+        formData.append('pin[title]', title);
+        formData.append('pin[author_id]', author_id);
+        formData.append('pin[owner]', owner);
+        formData.append('pin[description]', description);
+        formData.append('pin[photo]', photoFile);
+        formData.append('pin[board_id]', boardId);
+        this.props.createPin(formData)
+            .then(
+                pin => {if (pin){
+                    this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id })
+                    this.props.clearErrors()
+                    this.props.history.push(`/pins/${pin.pin.id}`)
+                }} 
             )
-        } else {
-            const formData = new FormData();
-            formData.append('pin[title]', title);
-            formData.append('pin[author_id]', author_id);
-            formData.append('pin[owner]', owner);
-            formData.append('pin[description]', description);
-            formData.append('pin[photo]', photoFile);
-            formData.append('pin[board_id]', boardId);
-            this.props.createPin(formData)
-                .then(
-                    pin => {if (pin){
-                        this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id })
-                        this.props.history.push(`/pins/${pin.pin.id}`)
-                    }} 
-                )
-                .catch(console.log('this shit failed'))
-        }
     }
 
 
@@ -140,11 +148,25 @@ class CreatePinForm extends React.Component {
         if (file) fileReader.readAsDataURL(file);
     }
 
+    saveButton(){
+        let { photoFile } = this.state
+        if (typeof photoFile == 'string' ){
+            return null 
+        } else {
+            return(
+                <div className="pin-top-buttons">
+                    <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
+                </div>
+
+            )
+        }
+    }
+
     render() {
         const { title, description, photoUrl, working, author_id } = this.state;
         const { boards } = this.props;
         const preview = photoUrl ? <img id="image-preview" src={photoUrl} /> : null;
-        debugger
+        
             return (
                 <div className="pin-create-container">
                     <div className="image-preview">
@@ -159,8 +181,10 @@ class CreatePinForm extends React.Component {
                                 value={title}
                                 onChange={this.update("title")}
                                 />
+                                {this.displayErrors('title')}
                         </div>
-                            {/* {this.displayErrors()} */}
+                        <br/>
+                            
                             {this.selectUserBoards(author_id, boards)}
                         <br/>
     
@@ -170,16 +194,18 @@ class CreatePinForm extends React.Component {
                                 value={description}
                                 onChange={this.update("description")}
                                 />
-    
+                            {this.displayErrors('desc')}
                         </div>
+                            <input type="file" name="file-upload" id="file-upload" onChange={this.handleFile} />
+                            <label htmlFor="file-upload">
+                            </label>
+                            <br/>
+                            <br/>
+                        
                         <div className='submit-buttons'>
-                            <div className="pin-top-buttons">
-                                <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
-                            </div>
-                            <div>
-                                <input type="file" name="file-upload" id="file-upload" onChange={this.handleFile} />
-                                <label htmlFor="file-upload">
-                                </label>
+                            {this.saveButton()}
+                        <div>
+
                             </div>
                         </div>
                     </div>

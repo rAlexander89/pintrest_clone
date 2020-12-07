@@ -73,6 +73,7 @@ class UserProfile extends React.Component{
 
     displayUserBoards(userBoards, currentUser, userId, owner){
         
+        
 
         if (userBoards.length === 0){
             if ( currentUser == owner){
@@ -109,9 +110,11 @@ class UserProfile extends React.Component{
     }
 
     render(){
+        
         let { currentUser, userId, pins, userBoards, owner } = this.props
-        if (this.props.pins.length === 0) return null
+        if (!pins) return null
         if (owner === undefined) return null
+
         
         return(
             <div>

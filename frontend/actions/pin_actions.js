@@ -98,7 +98,6 @@ export const removePin = pinId => ({
 })
 
 export const receivePinErrors = errors => {
-    debugger
     return{
         type: RECEIVE_PIN_ERRORS,
         errors

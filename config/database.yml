@@ -14,6 +14,10 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
+
+
+# commenting out db shit from here
+
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -24,6 +28,9 @@ default: &default
 development:
   <<: *default
   database: pintrest_development
+
+
+#to here
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

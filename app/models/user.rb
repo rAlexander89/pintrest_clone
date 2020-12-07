@@ -63,9 +63,11 @@ class User < ApplicationRecord
 
     has_many :pins,
     foreign_key: :author_id,
+    dependent: :destroy,
     class_name: :Pin
 
     has_many :boards,
+    dependent: :destroy,
     class_name: :Board
 
   
