@@ -32,7 +32,6 @@ class Pin < ApplicationRecord
     has_many :boards,
     through: :board_pins
 
-    # has_many :boards
 
 
 end

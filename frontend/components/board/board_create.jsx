@@ -10,14 +10,17 @@ class BoardCreate extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this)
         this.update = this.update.bind(this)
+        this.displayErrors = this.displayErrors.bind(this)
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createBoard(this.state)
-            .then(board => this.props.history.push(
-                `/boards`
-            ))
+        this.props.createBoard(this.state).then(
+            this.props.clearErrors()
+        )
+        .then(board => this.props.history.push(
+            `/boards`
+        ))
     }
     
 
@@ -30,6 +33,28 @@ class BoardCreate extends React.Component {
     update(field) {
         return e => {
             this.setState({ [field]: e.currentTarget.value })
+        }
+    }
+
+    displayErrors(value) {
+        let errors = this.props.errors
+        if (errors === undefined) return null
+
+        switch (value) {
+            case 'title':
+                return (
+                    <div className='errors'>
+                        {errors[0]}
+                    </div>
+                )
+            case 'desc':
+                return (
+                    <div className='errors'>
+                        {errors[1]}
+                    </div>
+                )
+            default:
+                return null;
         }
     }
 
@@ -47,15 +72,15 @@ class BoardCreate extends React.Component {
                                 placeholder="board title"
                                 value={this.state.title}
                                 onChange={this.update("title")} />
+                            {this.displayErrors('title')}
                         </div>
 
                         <div>
                             <textarea
-                                rows="1"
                                 placeholder="give us a blurb about your board"
                                 value={this.state.description}
                                 onChange={this.update("description")} />
-
+                            {this.displayErrors('desc')}
                         </div>
                         <div className="pin-top-buttons">
                             <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>

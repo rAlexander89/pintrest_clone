@@ -21,10 +21,7 @@ class Api::BoardPinsController < ApplicationController
             else 
                 render json: @board_pin.errors.full_messages, status: 422
             end
-        else
-            render json: @board_pin.errors.full_messages, status: 422
         end
-        
     end
 
     def board_pin_params

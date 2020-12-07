@@ -1,5 +1,6 @@
 
 export const selectBoardPins = (boardPins, pins, boardId) => {
+    debugger
     if (Object.values(boardPins).length === 0) return null;
     if (Object.values(pins).length === 0) return null;
     let pinsOnBoard = [];
@@ -10,6 +11,7 @@ export const selectBoardPins = (boardPins, pins, boardId) => {
             }
         }
     })
+    debugger
     return pinsOnBoard
 }
 

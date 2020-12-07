@@ -119,13 +119,9 @@ class CreatePinForm extends React.Component {
         formData.append('pin[photo]', photoFile);
         formData.append('pin[board_id]', boardId);
         this.props.createPin(formData)
-            .then(
-                pin => {if (pin){
-                    this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id })
-                    this.props.clearErrors()
-                    this.props.history.push(`/pins/${pin.pin.id}`)
-                }} 
-            )
+            .then( pin =>  this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }))
+                // .then(this.props.clearErrors())
+            // .then(this.props.history.push(`/pins/${pin.pin.id}`)) 
     }
 
 

@@ -53,11 +53,11 @@ class BoardShow extends React.Component {
     }
 
     render(){
-        let { board, pins, owner, currentUser } = this.props;
+        let { board, thisBoardsPins, owner, currentUser } = this.props;
         if (owner === null) return null;
         if (board === undefined) return null;
-        if (pins === null) return null;
-        let pins_arr = Object.values(pins)
+        if (thisBoardsPins === null) return null;
+        let pins_arr = Object.values(thisBoardsPins)
 
         return(
             <div className="content-container">
