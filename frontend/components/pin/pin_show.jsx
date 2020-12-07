@@ -21,7 +21,6 @@ class PinShow extends React.Component {
                 <div onClick={() => this.props.deletePin(pin.id)
                     .then(this.props.history.push(`/users/${owner.id}`))}>
                     Delete Pin
-                    {/* <Link to=></Link> */}
                 </div>
             )
         }

@@ -20,11 +20,11 @@ class Api::BoardsController < ApplicationController
         if @board.save
             render :show
         else
-            render json: @board.errors.full_messages, status: 422
+                render json: @board.errors.full_messages, status: 422
         end
     end
 
-     def update
+    def update
         @board = Board.find_by(id: params[:id])
         if @board && @board.author_id == current_user.id
             if @board.update(board_params)

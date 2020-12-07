@@ -12,7 +12,7 @@ const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors },
     let board_data = ownProps.match.params;
     let board = boards[ownProps.match.params.boardId];
     let owner_id = board ? board_data.userId : undefined;
-
+    let all_pins = pins
 
     return {
         currentUser: users[session.currentUserId],
@@ -20,7 +20,8 @@ const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors },
         board,
         board_data,
         boardPins,
-        pins: selectBoardPins(boardPins, pins, board_data.boardId)
+        pins: pins,
+        thisBoardsPins: selectBoardPins(boardPins, all_pins, board_data.boardId)
     }
 }
 const mDTP = (dispatch) => {

@@ -38,6 +38,7 @@ export const deletePin = pinId => {
 };
 
 export const savePinToBoard = (board_pin) => {
+    debugger
     return $.ajax({
         url: '/api/board_pins',
         method: 'POST',

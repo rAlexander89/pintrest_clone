@@ -14,18 +14,15 @@ class Api::BoardPinsController < ApplicationController
         end
     end
 
-    def destroy
-        @board_pin = BoardPin.find_by(id: params[:id])
-            if @board_pin.destroy
-                render json: @board_pin.id
-            else 
-                render json: @board_pin.errors.full_messages, status: 422
-            end
-        else
-            render json: @board_pin.errors.full_messages, status: 422
-        end
-        
-    end
+    # def destroy
+    #     @board_pin = BoardPin.find_by(id: params[:id])
+    #         if @board_pin.destroy
+    #             render json: @board_pin.id
+    #         else 
+    #             render json: @board_pin.errors.full_messages, status: 422
+    #         end
+    #     end
+    # end
 
     def board_pin_params
         params.require(:board_pin).permit(:board_id, :pin_id)

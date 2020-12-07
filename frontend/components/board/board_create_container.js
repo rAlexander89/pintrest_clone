@@ -6,13 +6,15 @@ import BoardCreate from './board_create';
 
 const mSTP = (state) => {
     return{
-         currentUser: state.entities.users[state.session.currentUserId]
+        currentUser: state.entities.users[state.session.currentUserId],
+        errors: state.errors.boards
     };
 };
 
 const mDTP = dispatch => {
     return{
-        createBoard: board => dispatch(createBoard(board))
+        createBoard: board => dispatch(createBoard(board)),
+        clearErrors: () => dispatch(clearErrors())
     }
 }
 
