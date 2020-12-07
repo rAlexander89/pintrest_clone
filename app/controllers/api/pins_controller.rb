@@ -1,4 +1,3 @@
-require 'byebug'
 class Api::PinsController < ApplicationController
 
     before_action :require_login, only: [:create]
@@ -16,11 +15,10 @@ class Api::PinsController < ApplicationController
     def create 
         @pin = Pin.new(pin_params)
         @pin.author_id = current_user.id
-        if @pin.save!
+        if @pin.save
             render :show
-            # render json: {message: 'wooo!'}
         else
-                render json: @user.errors.full_messages, status: 422
+            render json: @pin.errors.full_messages, status: 422
         end
     end
 

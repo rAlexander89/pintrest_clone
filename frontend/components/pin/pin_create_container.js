@@ -7,13 +7,11 @@ import { fetchBoards } from '../../actions/board_actions';
 import { savePinToBoard } from '../../actions/pin_actions'
 
 const mSTP = (state) => {
-
-
     return{
         user: state.entities.users[state.session.currentUserId],
         author_id: state.entities.users[state.session.currentUserId].id,
         boards: Object.values(state.entities.boards),
-        errors: state.errors.pin
+        errors: state.errors.pins
     }
 }
 

@@ -4,12 +4,12 @@
 #
 #  id          :bigint           not null, primary key
 #  description :string           not null
-#  owner       :string
+#  owner       :string           not null
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  author_id   :integer          not null
-#  board_id    :integer
+#  board_id    :integer          not null
 #
 
 # This model initially had no columns defined. If you add columns to the
