@@ -29,7 +29,8 @@ class BoardShow extends React.Component {
     }
 
     thisBoardsPins(pins_arr){
-        if (pins_arr.length === 0){
+        debugger
+        if (pins_arr === undefined){
             return(
                 <div>
                     This board doesn't have any pins in this board yet!
@@ -54,10 +55,16 @@ class BoardShow extends React.Component {
 
     render(){
         let { board, thisBoardsPins, owner, currentUser } = this.props;
+        let pins_arr;
         if (owner === null) return null;
         if (board === undefined) return null;
-        if (thisBoardsPins === null) return null;
-        let pins_arr = Object.values(thisBoardsPins)
+        debugger
+        if (thisBoardsPins === null){
+            let pins_arr = []
+        } else {
+            let pins_arr = Object.values(thisBoardsPins)
+        }
+        
 
         return(
             <div className="content-container">

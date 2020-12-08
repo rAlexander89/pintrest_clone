@@ -135,7 +135,6 @@ export const deletePin = pinId => dispatch => {
 }
 
 export const savePinToBoard = (boardPin) => dispatch => {
-    debugger
     return PinAPIUtil.savePinToBoard(boardPin)
         .then(pinId => dispatch(fetchPin(pinId)),
             error => dispatch(receivePinErrors(error.responseJSON)))

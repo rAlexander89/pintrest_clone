@@ -19,6 +19,7 @@ class CreatePinForm extends React.Component {
         this.selectUserBoards = this.selectUserBoards.bind(this);
         this.displayErrors = this.displayErrors.bind(this);
         this.saveButton = this.saveButton.bind(this);
+        this.pbCreateAndRedirect = this.pbCreateAndRedirect.bind(this);
     }
 
     componentDidMount() {
@@ -107,21 +108,27 @@ class CreatePinForm extends React.Component {
     }
        
 
+    pbCreateAndRedirect(pin, boardId){
+        this.props.clearErrors()
+        this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id })
+        this.props.history.push(`/pins/${pin.pin.id}`)
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const { title, description, photoFile, boardId, author_id, owner } = this.state;
-
         const formData = new FormData();
+
         formData.append('pin[title]', title);
         formData.append('pin[author_id]', author_id);
         formData.append('pin[owner]', owner);
         formData.append('pin[description]', description);
         formData.append('pin[photo]', photoFile);
         formData.append('pin[board_id]', boardId);
+        
         this.props.createPin(formData)
-            .then( pin =>  this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id }))
-                // .then(this.props.clearErrors())
-            // .then(this.props.history.push(`/pins/${pin.pin.id}`)) 
+            .then(pin => this.pbCreateAndRedirect(pin, boardId))
+        
     }
 
 

@@ -1,7 +1,7 @@
 
 .header{
-    height: 115px;
-    background: white;
+    // height: 115px;
+    margin-bottom: 30px;
     padding: 30px;
     box-sizing: border-box;
     align-items: center;
@@ -9,7 +9,6 @@
     top: 0; 
     width: 100%; 
     // z-index: 15px;
-
 }
 
 .body{
@@ -18,14 +17,11 @@
     overflow-y: auto;
 }
 
-
 #logo{
     float: left;
     margin-top: -8px;
     margin-right: 5px;
 }
-
-
 
 #nav-list{
     float: right;
