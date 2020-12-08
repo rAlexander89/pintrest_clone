@@ -23,13 +23,11 @@ class SessionForm extends React.Component {
     const user = Object.assign({}, this.state);
     if (this.formType === 'login'){
       this.props.loginUser(user).then(() => {
-        this.props.history.push('/pins');
-        this.props.closeModal();
-      });
+          this.props.history.push("/pins")
+      })
     } else {
-      this.props.signupUser(user).then(() => {
-        this.props.history.push('/pins');
-        this.props.closeModal();
+      this.props.loginUser(user).then(() => {
+          this.props.history.push("/pins")
       })
       }
   }
@@ -39,10 +37,10 @@ class SessionForm extends React.Component {
       username: 'username',
       password: 'password'
     };
+
     this.props.loginUser(demoUser).then(() => {
         this.props.history.push("/pins")
-      }
-    )
+    })
   }
 
   switcharoni(e){
@@ -53,7 +51,6 @@ class SessionForm extends React.Component {
     this.switchForm= sType;
     this.forceUpdate();
   }
-
 
   renderEmail() {
     if (this.formType === 'signup') {
@@ -94,9 +91,6 @@ class SessionForm extends React.Component {
       )
     }
   }
-
-
-
 
   render() {
     return (
@@ -151,7 +145,6 @@ class SessionForm extends React.Component {
         </div>
       </div>
     </div>
-      
     );
   }
 }
