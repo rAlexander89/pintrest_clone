@@ -45,11 +45,14 @@ class App extends React.Component{
                 </div>
             )
         }
-
     }
 
 
     render(){
+
+        // let loggedIn = state.entities.users[state.session.currentUserId]
+        // debugger
+
         return (
             <div>
                 <div className='header'>
@@ -66,15 +69,35 @@ class App extends React.Component{
                 </div>
                 <div className='body'>
                     <Switch>
-                    <Route exact path='/' component={SplashContainer}/>
-                    <Route exact path="/pins" component={PinIndexContainer} />
-                    <Route exact path="/pins/:pinId" component={PinShowContainer} />
-                    <Route exact path="/p/create" component={CreatePinContainer} />
-                    <Route exact path="/b/create" component={CreateBoardContainer} />
-                    <Route exact path='/users/:userId/boards' component={UsersBoardsContainer}/>
-                    <Route exact path='/users/:userId/boards/:boardId' component={BoardShowContainer}/>
-                    <Route exact path='/users/:userId' component={UserShowContainer}/>
-                    <Route exact path='/boards/' component={BoardIndexContainer}/>
+                        {/* <AuthRoute exact path='/' component={SplashContainer}/>
+                        <Route exact path="/pins" component={PinIndexContainer} />
+                        <Route exact path="/pins/:pinId" component={PinShowContainer} />
+                        <Route exact path="/p/create" component={CreatePinContainer} />
+                        <Route exact path="/b/create" component={CreateBoardContainer} />
+                        <Route exact path='/users/:userId/boards' component={UsersBoardsContainer}/>
+                        <Route exact path='/users/:userId/boards/:boardId' component={BoardShowContainer}/>
+                        <Route exact path='/users/:userId' component={UserShowContainer}/>
+                        <Route exact path='/boards/' component={BoardIndexContainer}/> */}
+
+                        {/* <AuthRoute exact path='/' component={SplashContainer} />
+                        <Route path="/pins" component={PinIndexContainer} />
+                        <Route path="/pins/:pinId" component={PinShowContainer} />
+                        <Route path="/p/create" component={CreatePinContainer} />
+                        <Route path="/b/create" component={CreateBoardContainer} />
+                        <Route path='/users/:userId/boards' component={UsersBoardsContainer} />
+                        <Route path='/users/:userId/boards/:boardId' component={BoardShowContainer} />
+                        <Route path='/users/:userId' component={UserShowContainer} />
+                        <Route path='/boards/' component={BoardIndexContainer} /> */}
+
+                        <AuthRoute exact path='/' component={SplashContainer} />
+                        <ProtectedRoute exact path="/pins" component={PinIndexContainer} />
+                        <ProtectedRoute exact path="/pins/:pinId" component={PinShowContainer} />
+                        <ProtectedRoute exact path="/p/create" component={CreatePinContainer} />
+                        <ProtectedRoute exact path="/b/create" component={CreateBoardContainer} />
+                        <ProtectedRoute exact path='/users/:userId/boards' component={UsersBoardsContainer} />
+                        <ProtectedRoute exact path='/users/:userId/boards/:boardId' component={BoardShowContainer} />
+                        <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
+                        <ProtectedRoute exact path='/boards/' component={BoardIndexContainer} />
                     </Switch>
                 </div>
                 <div>
