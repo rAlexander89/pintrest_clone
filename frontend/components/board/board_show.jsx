@@ -9,7 +9,7 @@ class BoardShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchPins()
-        this.props.fetchBoardPins()
+        // this.props.fetchBoardPins()
         this.props.fetchBoard(this.props.board_data)
         this.props.fetchUsers()
         this.thisBoardsPins = this.thisBoardsPins.bind(this) 
@@ -17,19 +17,18 @@ class BoardShow extends React.Component {
 
     displayBoardDelete(owner, currentUser, board){
         if ( owner === currentUser ){
+        let ownerId = owner.id
             return (
-                <div onClick={() => this.props.deleteBoard(owner.id, board.id)
-                    .then(this.props.history.push(`/users/${owner.id}`))}>
+                <div onClick={() => this.props.deleteBoard(owner.id, board.id)}>
                     Delete Board
                 </div>
             )
 
+        this.props.history.push(`/users/${owner.id}`)
         }
-
     }
 
     thisBoardsPins(pins_arr){
-        debugger
         if (pins_arr === undefined){
             return(
                 <div>
@@ -58,7 +57,6 @@ class BoardShow extends React.Component {
         let pins_arr;
         if (owner === null) return null;
         if (board === undefined) return null;
-        debugger
         if (thisBoardsPins === null){
             let pins_arr = []
         } else {

@@ -45,8 +45,6 @@ class Api::BoardsController < ApplicationController
             else
                 render json: @board.errors.full_messages, status: 422
             end
-        else
-            render json: @board.errors.full_messages, status: 422
         end
     end
 
