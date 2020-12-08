@@ -19,7 +19,6 @@ class CreatePinForm extends React.Component {
         this.selectUserBoards = this.selectUserBoards.bind(this);
         this.displayErrors = this.displayErrors.bind(this);
         this.saveButton = this.saveButton.bind(this);
-        this.pbCreateAndRedirect = this.pbCreateAndRedirect.bind(this);
     }
 
     componentDidMount() {
@@ -106,13 +105,7 @@ class CreatePinForm extends React.Component {
                 return null;
        }
     }
-       
 
-    pbCreateAndRedirect(pin, boardId){
-        this.props.clearErrors()
-        this.props.savePinToBoard({ board_id: parseInt(boardId), pin_id: pin.pin.id })
-        this.props.history.push(`/pins/${pin.pin.id}`)
-    }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -127,8 +120,8 @@ class CreatePinForm extends React.Component {
         formData.append('pin[board_id]', boardId);
         
         this.props.createPin(formData)
-            .then(pin => this.pbCreateAndRedirect(pin, boardId))
-        
+            .then( pin => this.props.history.push(`/pins/${pin.pin.id}`))
+            .then(() => this.props.clearErrors())
     }
 
 
@@ -160,7 +153,6 @@ class CreatePinForm extends React.Component {
                 <div className="pin-top-buttons">
                     <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
                 </div>
-
             )
         }
     }
@@ -169,6 +161,7 @@ class CreatePinForm extends React.Component {
         const { title, description, photoUrl, working, author_id } = this.state;
         const { boards } = this.props;
         const preview = photoUrl ? <img id="image-preview" src={photoUrl} /> : null;
+        debugger
         
             return (
                 <div className="pin-create-container">
@@ -204,11 +197,9 @@ class CreatePinForm extends React.Component {
                             </label>
                             <br/>
                             <br/>
-                        
                         <div className='submit-buttons'>
                             {this.saveButton()}
                         <div>
-
                             </div>
                         </div>
                     </div>

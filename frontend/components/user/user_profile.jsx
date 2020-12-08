@@ -10,7 +10,6 @@ class UserProfile extends React.Component{
     constructor(props){
         super(props)
         this.fetchUserPins = this.fetchUserPins.bind(this)
-        // this.displayUserBoards = this.displayUserBoards.bind(this)
     }
 
     componentDidMount(){
@@ -63,14 +62,6 @@ class UserProfile extends React.Component{
         }
     }
 
-    // displayBoardCreate(userId, currentUser){
-    //     if (userId == currentUser.id){
-    //         return(
-    //             <BoardCreateContainer currentUserId={currentUser.id} />
-    //         )
-    //     }
-    // }
-
     displayUserBoards(userBoards, currentUser, userId, owner){
         
         
@@ -119,7 +110,6 @@ class UserProfile extends React.Component{
         return(
             <div>
                 <div>
-                    {/* {this.displayBoardCreate(userId, currentUser)} */}
                     {this.displayUserBoards(userBoards, currentUser, userId, owner)}
                     {this.fetchUserPins(pins, owner, currentUser)}
                 </div>

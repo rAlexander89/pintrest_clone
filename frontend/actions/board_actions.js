@@ -34,12 +34,14 @@ export const receiveBoardPins = boardPins => {
 }
 
 export const fetchBoards = () => dispatch => {
+    debugger
     return BoardAPIUtil.fetchBoards()
         .then(boards => dispatch(receiveBoards(boards)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }
 
 export const fetchBoard = (board) => dispatch => {
+    debugger
     return BoardAPIUtil.fetchBoard(board)
         .then(board => dispatch(receiveBoard(board)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))

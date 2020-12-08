@@ -9,10 +9,9 @@ class BoardShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchPins()
-        // this.props.fetchBoardPins()
         this.props.fetchBoard(this.props.board_data)
         this.props.fetchUsers()
-        this.thisBoardsPins = this.thisBoardsPins.bind(this) 
+        this.iteratePins = this.iteratePins.bind(this) 
     }
 
     displayBoardDelete(owner, currentUser, board){
@@ -28,8 +27,9 @@ class BoardShow extends React.Component {
         }
     }
 
-    thisBoardsPins(pins_arr){
-        if (pins_arr === undefined){
+    iteratePins(thisBoardsPins){
+        debugger
+        if (thisBoardsPins === null){
             return(
                 <div>
                     This board doesn't have any pins in this board yet!
@@ -39,7 +39,7 @@ class BoardShow extends React.Component {
                 return(
                 <div className="index-container">
                     {
-                        pins_arr.map(pin => (
+                        thisBoardsPins.map(pin => (
                             <PinIndexItem
                                 pin={pin}
                                 key={pin.id}
@@ -54,14 +54,8 @@ class BoardShow extends React.Component {
 
     render(){
         let { board, thisBoardsPins, owner, currentUser } = this.props;
-        let pins_arr;
         if (owner === null) return null;
         if (board === undefined) return null;
-        if (thisBoardsPins === null){
-            let pins_arr = []
-        } else {
-            let pins_arr = Object.values(thisBoardsPins)
-        }
         
 
         return(
@@ -75,7 +69,8 @@ class BoardShow extends React.Component {
                             <li id='board-description'><InlineDisplay editType='board' item={board} objKey={'description'} field={board.description} /></li>
                         </ul>
                     <div className='board-show-items'>
-                            {this.thisBoardsPins(pins_arr)}
+                            {/* {this.thisBoardsPins(pins_arr)} */}
+                            {this.iteratePins(thisBoardsPins)}
                     </div>
                     </div>
                 </div>
