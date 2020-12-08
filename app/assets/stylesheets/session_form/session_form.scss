@@ -15,12 +15,12 @@
 
 ul#login-signup{
     list-style: none;
-    margin-right:30px;
+    margin-right:25px;
 }
 
 ul#login-signup li{
     display: inline;
-    margin-left: 40px;
+    margin-left: 25px;
     margin-right: 5px;
 }
 
@@ -37,7 +37,7 @@ ul#login-signup li{
 }
 
 #clear-errors{
-    background:yellow;
+    // background:yellow;
 }
 
 ul#errors > li {
@@ -61,7 +61,7 @@ ul#errors > li {
 
 #button{
     height: 45px;
-    width: 286px;
+    width: 250px;
     border-radius: 8px;
     color: white;
     background: #e60023;
@@ -91,7 +91,7 @@ ul#errors > li {
 
 #signinbtn, #make-pin, #make-board{
     height: 45px;
-    width: 200px;
+    width: 175px;
     border-radius: 8px;
     color: white;
     background: #e60023;

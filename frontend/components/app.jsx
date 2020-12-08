@@ -28,41 +28,34 @@ class App extends React.Component{
     redirect(){
         if (state.entities.users[state.session.currentUserId]){
             return(
-                <div>
+                <div className='logo-items'>
                     <Link to='/pins'>
                         <img id='logo' src='https://i.imgur.com/IaouNpW.jpg' />
                     </Link>
                     <h1 id='nav-title'><Link to='/pins'>Pintrest</Link></h1>
                 </div>
             )
-        } else {
-            return(
-                <div>
-                    <Link to='/'>
-                        <img id='logo' src='https://i.imgur.com/IaouNpW.jpg' />
-                        </Link>
-                <h1 id='nav-title'><Link to='/'>Pintrest</Link></h1>
-                </div>
-            )
-        }
+        } 
     }
 
 
     render(){
 
         return (
-            <div>
+            <div className='single-page'>
                 <div className='header'>
-                    <div>
+                    <div className='nav-logo'>
                         <Link to='/'>
                         <img id='logo' to='/' src='https://i.imgur.com/IaouNpW.jpg' />
                         </Link>
                         <h1 id='nav-title'><Link to='/'>Pintrest</Link></h1>
-                    </div>    
-                    <ul id='nav-list'>
-                        <li><ModalContainer /></li>
-                        <li><GreetingContainer /></li>
-                    </ul>
+                    </div>  
+                    <div className='nav-links'>
+                        <ul id='nav-list'>
+                            <li><ModalContainer /></li>
+                            <li><GreetingContainer /></li>
+                        </ul>
+                    </div>  
                 </div>
                 <div className='body'>
                     <Switch>

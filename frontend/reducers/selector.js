@@ -1,15 +1,20 @@
 
-export const selectBoardPins = (boardPins, pins, boardId) => {
-    if (Object.values(boardPins).length === 0) return null;
+// export const selectBoardPins = (boardPins, pins, boardId) => {
+export const selectBoardPins = (pins, boardId) => {
+    // if (Object.values(boardPins).length === 0) return null;
     if (Object.values(pins).length === 0) return null;
     let pinsOnBoard = [];
-    Object.values(boardPins).forEach(boardPin => {
-        if (boardPin.board_id === parseInt(boardId)){
-            if (!!pins[boardPin.pin_id]){
-                pinsOnBoard.push(pins[boardPin.pin_id])
+    // Object.values(boardPins).forEach(boardPin => {
+    Object.values(pins).forEach(pin => {
+        debugger
+        if (pin.board_id === parseInt(boardId)){
+            // if (!!pins[pin.pin_id]){
+                // pinsOnBoard.push(pins[pin.pin_id])
+                pinsOnBoard.push(pin)
             }
-        }
+        // }
     })
+    debugger
     return pinsOnBoard
 }
 

@@ -6,7 +6,8 @@ import { selectBoardPins } from '../../reducers/selector';
 
 import BoardShow from './board_show';
 
-const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors }, ownProps) => {
+// const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors }, ownProps) => {
+const mSTP = ({ entities: { boards, pins, users }, session, errors }, ownProps) => {
 
 
     let board_data = ownProps.match.params;
@@ -19,9 +20,10 @@ const mSTP = ({ entities: { boards, pins, boardPins, users }, session, errors },
         owner: users[owner_id],
         board,
         board_data,
-        boardPins,
+        // boardPins,
         pins: pins,
-        thisBoardsPins: selectBoardPins(boardPins, all_pins, board_data.boardId)
+        // thisBoardsPins: selectBoardPins(boardPins, all_pins, board_data.boardId)
+        thisBoardsPins: selectBoardPins(all_pins, board_data.boardId)
     }
 }
 const mDTP = (dispatch) => {
@@ -29,7 +31,7 @@ const mDTP = (dispatch) => {
         fetchBoard: board => dispatch(fetchBoard(board)),
         deleteBoard: (userId, boardId) => dispatch(deleteBoard(userId, boardId)),
         fetchPins: () => dispatch(fetchPins()),
-        fetchBoardPins: () => dispatch(fetchBoardPins()),
+        // fetchBoardPins: () => dispatch(fetchBoardPins()),
         fetchUsers: () => dispatch(fetchUsers())
     }
 }
