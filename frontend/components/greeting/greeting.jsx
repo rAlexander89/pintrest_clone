@@ -3,16 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout, openModal}) => {
 
-    
-    // const sessionLinks = () => (
-    //     <ul id="login-signup">
-    //         <li><button id='loginbtn' onClick={() => openModal('login')}>Log in</button></li>
-    //         <li><button id='signinbtn' onClick={() => openModal('signup')}>Sign up</button></li>
-    //     </ul>
-    // );
-    // <div>
 
-    // </div>
     const personalGreeting = () => (    
         <div>
             <ul id="login-signup">
@@ -27,7 +18,6 @@ const Greeting = ({ currentUser, logout, openModal}) => {
         </div>
     );
 
-    // return currentUser ? personalGreeting() : sessionLinks();
     return currentUser ? personalGreeting() : null;
 };
 

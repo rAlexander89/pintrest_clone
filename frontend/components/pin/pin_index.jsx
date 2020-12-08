@@ -1,7 +1,6 @@
 
 import React from 'react';
 import PinIndexItem from './pin_index_item';
-import CreatePinForm from './pin_create_form';
 
 class PinIndex extends React.Component {
     constructor(props) {

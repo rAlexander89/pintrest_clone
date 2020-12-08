@@ -5,9 +5,17 @@ export const fetchBoards = () => {
     })
 };
 
+// export const fetchBoard = (board) => {
+//     return $.ajax({
+//         url: `/api/users/${board.userId}/boards/${board.boardId}`,
+//         method: "GET"
+//     })
+// }
+
 export const fetchBoard = (board) => {
+    debugger
     return $.ajax({
-        url: `/api/users/${board.userId}/boards/${board.boardId}`,
+        url: `/api/users/${board.author_id}/boards/${board.board_id}`,
         method: "GET"
     })
 }

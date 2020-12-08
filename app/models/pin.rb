@@ -24,16 +24,7 @@ class Pin < ApplicationRecord
     foreign_key: :author_id,
     class_name: :User
 
-    # has_many :board_pins,
-    # dependent: :destroy,
-    # foreign_key: :pin_id,
-    # class_name: :BoardPin
-
-    # has_many :boards,
-    # through: :board_pins
-
-    has_many :boards,
-    foreign_key: :author_id,
+    has_one :board,
     class_name: :Board
 
 
