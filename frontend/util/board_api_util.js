@@ -13,7 +13,6 @@ export const fetchBoards = () => {
 // }
 
 export const fetchBoard = (board) => {
-    debugger
     return $.ajax({
         url: `/api/users/${board.author_id}/boards/${board.board_id}`,
         method: "GET"

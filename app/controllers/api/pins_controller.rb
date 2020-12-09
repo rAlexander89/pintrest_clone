@@ -27,7 +27,7 @@ class Api::PinsController < ApplicationController
         if @pin && @pin.update(pin_params)
             render :show
         else
-            render json: ['update errrrororo'], status: 422
+            render json: @pin.errors.full_messages, status: 422
         end
     end
 

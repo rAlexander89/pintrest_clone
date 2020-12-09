@@ -10,17 +10,16 @@ class Api::SessionsController < ApplicationController
             login!(@user)
             render 'api/users/show.json.jbuilder'
         else
-            render json: ['error! incorrect login info!'], status: 401
+            render json: ['Incorrect login info!'], status: 401
         end
     end
 
     def destroy
         if logged_in?
             logout!
-            render json: ['congratulations ur loged out dawg']
+            render json: ['You have been logged out.']
         else
-            render json: ['error log out  no user stuff pls log in'], status: 404
+            render json: ['Error Logging out.'], status: 404
         end
-
     end
 end

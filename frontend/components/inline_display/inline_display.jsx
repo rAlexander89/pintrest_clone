@@ -62,7 +62,7 @@ class InlineDisplay extends React.Component{
 
     renderEditView() {
         return <div>
-            <input
+            <input className='inline-edit'
                 type='text'
                 defaultValue={`${this.props.field}`}
                 onChange={this.update('newData')}

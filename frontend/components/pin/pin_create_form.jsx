@@ -161,7 +161,6 @@ class CreatePinForm extends React.Component {
         const { title, description, photoUrl, working, author_id } = this.state;
         const { boards } = this.props;
         const preview = photoUrl ? <img id="image-preview" src={photoUrl} /> : null;
-        debugger
         
             return (
                 <div className="pin-create-container">

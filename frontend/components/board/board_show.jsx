@@ -28,7 +28,6 @@ class BoardShow extends React.Component {
     }
 
     iteratePins(thisBoardsPins){
-        debugger
         if (thisBoardsPins === null){
             return(
                 <div>
