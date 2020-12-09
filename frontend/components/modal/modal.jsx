@@ -1,8 +1,9 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import LoginFormContainer from '../session_form/login_form_container';
-import SignupFormContainer from '../session_form/signup_form_container';
+// import LoginFormContainer from '../session_form/session_form_container';
+import SessionFormContainer from '../session_form/session_form_container';
+// import SignupFormContainer from '../session_form/signup_form_container';
 import PinShowContainer from '../pin/pin_show';
 import { render } from 'react-dom';
 import { withRouter } from 'react-router-dom';
@@ -24,11 +25,11 @@ class Modal extends React.Component {
             <div className="modal-background">
                 <div className="modal-child" onClick={e => e.stopPropagation()}>
                     <div className='modal-tab'>
-                        <div onClick={this.props.closeModal} className='close-tab'>close</div>
+                        {/* <div onClick={this.props.closeModal} className='close-tab'>close</div> */}
                     </div>
-                    {this.props.modal === 'pin' ? < PinShowContainer /> :
-                        (this.props.modal === 'login' ? < LoginFormContainer /> :
-                            <SignupFormContainer />)}
+                    {/* {this.props.modal === 'pin' ? < PinShowContainer /> :
+                        (this.props.modal === 'login' ? < SessionFormContainer /> :
+                            <SignupFormContainer />)} */}
 
 
                 </div>

@@ -12,10 +12,7 @@ const mSTP = state => {
   return {
     formType: 'login',
     switchForm: 'signup',
-    loginInfo: {
-      username: '',
-      password: ''
-    },
+
     errors: state.errors.session
   };
 };

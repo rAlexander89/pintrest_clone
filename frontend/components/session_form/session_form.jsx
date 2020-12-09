@@ -4,7 +4,11 @@ import SessionGreeting from '../splash/session_greeting'
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.loginInfo;
+    this.state = {
+        email: '',
+        username: '',
+        password: ''
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.switcharoni = this.switcharoni.bind(this);
     this.formType = this.props.formType;
@@ -20,13 +24,16 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
+
+    let user = Object.assign({}, this.state);
+
     if (this.formType === 'login'){
+      delete user.email
       this.props.loginUser(user).then(() => {
           this.props.history.push("/pins")
       })
     } else {
-      this.props.loginUser(user).then(() => {
+      this.props.signupUser(user).then(() => {
           this.props.history.push("/pins")
       })
       }
@@ -49,6 +56,7 @@ class SessionForm extends React.Component {
     let fType = this.switchForm;
     this.formType = this.switchForm;
     this.switchForm= sType;
+    this.setState()
     this.forceUpdate();
   }
 
@@ -130,7 +138,7 @@ class SessionForm extends React.Component {
               <input type="password"
                 placeholder='Password'
                 id='placeholder'
-                value={this.state.password}
+                value={this.state.passwod}
                 onChange={this.update('password')}
               />
             </label>

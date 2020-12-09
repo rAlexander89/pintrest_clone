@@ -1,6 +1,7 @@
 import React from 'react';
 
-import LoginFormContainer from '../session_form/login_form_container';
+// import LoginFormContainer from '../session_form/login_form_container';
+import SessionFormContainer from '../session_form/session_form_container';
 
 
 
@@ -14,7 +15,7 @@ class Splash extends React.Component {
                 <div>
                     <div className='splash'>
                         <div>
-                            <LoginFormContainer/>
+                            <SessionFormContainer/>
                         </div>
                     </div>
                 </div>
