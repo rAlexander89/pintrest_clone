@@ -58,6 +58,7 @@ class SessionForm extends React.Component {
     this.switchForm= sType;
     this.setState()
     this.forceUpdate();
+    this.props.clearErrors();
   }
 
   renderEmail() {
