@@ -82,7 +82,7 @@ class SessionForm extends React.Component {
   renderErrors(){
     return(
       <div>
-        <ul id='errors'>
+        <ul className='errors'>
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`}>
               {error}
@@ -93,14 +93,7 @@ class SessionForm extends React.Component {
     );
   }
   
-  clearErrors(){
-    if (this.props.errors.length > 0){
-      return(
-        <div id='clear-errors' onClick={this.props.clearErrors}>clear errors</div>
-      )
-    }
-  }
-
+  
   render() {
     return (
     <div>
@@ -123,7 +116,6 @@ class SessionForm extends React.Component {
           <br />
           <div>
           {this.renderErrors()}
-          {this.clearErrors()}
             <br />
             {this.renderEmail()}
             <label>
