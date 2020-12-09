@@ -16,8 +16,6 @@ import UsersBoardsContainer from './board/users_boards_container';
 import UserShowContainer from './user/user_profile_container';
 import Footer from './splash/footer.jsx';
 
-
-
 class App extends React.Component{
     constructor(props){
         super(props);
@@ -37,7 +35,6 @@ class App extends React.Component{
             )
         } 
     }
-
 
     render(){
 
@@ -77,7 +74,5 @@ class App extends React.Component{
         );
     }
 };
-
-
 
 export default App;

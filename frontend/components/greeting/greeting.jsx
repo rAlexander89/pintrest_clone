@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout, openModal}) => {
 
-
     const personalGreeting = () => (    
         <div>
             <ul id="login-signup">

@@ -11,7 +11,6 @@ class PinIndex extends React.Component {
         this.props.fetchPins()
     }
 
-
     render() {
         const { pins } = this.props;
 

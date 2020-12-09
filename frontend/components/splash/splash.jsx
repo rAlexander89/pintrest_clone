@@ -1,6 +1,4 @@
 import React from 'react';
-
-// import LoginFormContainer from '../session_form/login_form_container';
 import SessionFormContainer from '../session_form/session_form_container';
 
 

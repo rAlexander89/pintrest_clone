@@ -27,15 +27,11 @@ class PinShow extends React.Component {
 
     }
 
-
     render(){
         let { pin, boards, currentUser, owner } = this.props;
         if (pin === undefined) return null;
-        debugger
         let board = boards[pin.board_id]
         if (board === undefined) return null;
-        debugger
-
 
         return(
             <div className="content-container">

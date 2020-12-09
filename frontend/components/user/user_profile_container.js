@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import UserProfile from './user_profile'
 import { clearErrors } from '../../actions/session_actions'
 import { fetchUser, fetchUsers } from '../../actions/user_action'
-import { selectUserPins, selectUserBoards } from '../../reducers/selector'
+import { selectUserBoards } from '../../reducers/selector'
 import { fetchPins } from '../../actions/pin_actions'
 import { fetchBoards } from '../../actions/board_actions'
 

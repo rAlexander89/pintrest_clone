@@ -1,10 +1,7 @@
 import React from 'react';
 import InlineDisplay from '../inline_display/inline_display_container'
-import BoardCreateContainer from '../board/board_create_container'
 import PinIndexItem from '../pin/pin_index_item'
 import BoardIndexItem from '../board/board_index_item'
-import { Link } from 'react-router-dom'
-
 
 class UserProfile extends React.Component{
     constructor(props){
@@ -64,8 +61,6 @@ class UserProfile extends React.Component{
 
     displayUserBoards(userBoards, currentUser, userId, owner){
         
-        
-
         if (userBoards.length === 0){
             if ( currentUser == owner){
                 return(
@@ -105,8 +100,7 @@ class UserProfile extends React.Component{
         let { currentUser, userId, pins, userBoards, owner } = this.props
         if (!pins) return null
         if (owner === undefined) return null
-
-        
+ 
         return(
             <div>
                 <div>
@@ -116,7 +110,6 @@ class UserProfile extends React.Component{
             </div>
         )
     }
-
 }
 
 export default UserProfile

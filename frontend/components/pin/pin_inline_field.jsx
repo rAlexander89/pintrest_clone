@@ -61,15 +61,16 @@ class InlineField extends React.Component{
     }
 
     renderEditView() {
-        return <div>
-            <input
-                type='text'
-                defaultValue={`${this.props.field}`}
-                onChange={this.update('newData')}
-            />
-            {/* <button onClick={() => this.handleSubmit}>Savnne</button> */}
-            <button type='submit' onClick={(e) => this.handleSubmit(e)}>Save</button>
-        </div>
+        return(
+            <div>
+                <input
+                    type='text'
+                    defaultValue={`${this.props.field}`}
+                    onChange={this.update('newData')}
+                />
+                <button type='submit' onClick={(e) => this.handleSubmit(e)}>Save</button>
+            </div>
+        ) 
     }
 
     renderDefaultView() {

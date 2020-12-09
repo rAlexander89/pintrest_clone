@@ -23,7 +23,6 @@ class BoardCreate extends React.Component {
         ))
     }
     
-
     handleChange(field) {
         return e => {
             this.setState({ [field]: e.currentTarget.value });
@@ -58,11 +57,8 @@ class BoardCreate extends React.Component {
         }
     }
 
-
-
     render() {
         return (
-
             <div className='board-create-container'>
                 <div className="pin-details">
                         <div className="pin-add-title">
@@ -86,9 +82,7 @@ class BoardCreate extends React.Component {
                             <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
                         </div>
                     </div>
-            </div>
-
-            
+            </div>  
         );
     }
 }

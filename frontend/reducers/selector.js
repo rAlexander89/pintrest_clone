@@ -25,7 +25,6 @@ export const selectUserBoards = (userId, boards) => {
     if (boards === undefined ) return null
     let userBoards = []
     Object.values(boards).forEach(board => {
-
           if (board.author_id == userId) {
               userBoards.push(board)
           }

@@ -1,8 +1,5 @@
 import React from 'react'
-// import BoardIndexItem from './board_index_item'
 import BoardIndexItem from './board_index_item'
-import BoardCreateContainer from './board_create_container'
-
 
 class BoardIndex extends React.Component{
     constructor(props){

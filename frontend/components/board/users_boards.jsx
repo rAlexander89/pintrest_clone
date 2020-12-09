@@ -1,7 +1,5 @@
 import React from 'react';
 import BoardIndexItem from './board_index_item';
-import BoardCreateContainer from './board_create_container'
-
 
 class UsersBoardsIndex extends React.Component {
     constructor(props) {
@@ -12,17 +10,15 @@ class UsersBoardsIndex extends React.Component {
     this.props.fetchBoards()
     }
 
-
-
     render() {
-        let { currentUser, userId, userBoards } = this.props;
+        let { userId, userBoards } = this.props;
         if ( userBoards === null ) return null
 
         return (
             <div>
                 <p>howdy partner! This is where I'm gonna put down some cool boards, I'll tell you hwut!</p>
                 <div className='board-index-container'>
-                    {userBoards.map((userBoard) => (
+                    { userBoards.map((userBoard) => (
                         <BoardIndexItem
                             board={userBoard}
                             key={userBoard.id}

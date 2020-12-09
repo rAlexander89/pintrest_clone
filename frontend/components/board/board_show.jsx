@@ -56,7 +56,6 @@ class BoardShow extends React.Component {
         let { board, thisBoardsPins, owner, currentUser } = this.props;
         if (owner === null) return null;
         if (board === undefined) return null;
-        
 
         return(
             <div className="content-container">

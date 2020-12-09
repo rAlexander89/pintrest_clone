@@ -2,14 +2,11 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import Modal from './modal'
 
-
-
 const mSTP = ({ ui }) => {
     return {
         modal: ui.modal,
     };
 };
-
 
 const mDTP = dispatch => {
     return {

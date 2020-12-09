@@ -8,7 +8,6 @@ import BoardShow from './board_show';
 
 const mSTP = ({ entities: { boards, pins, users }, session, errors }, ownProps) => {
 
-
     let board_data = ownProps.match.params;
     let board = boards[ownProps.match.params.boardId];
     let owner_id = board ? board_data.userId : undefined;
@@ -23,6 +22,7 @@ const mSTP = ({ entities: { boards, pins, users }, session, errors }, ownProps) 
         thisBoardsPins: selectBoardPins(all_pins, board_data.boardId)
     }
 }
+
 const mDTP = (dispatch) => {
     return {
         fetchBoard: board => dispatch(fetchBoard(board)),
@@ -31,6 +31,5 @@ const mDTP = (dispatch) => {
         fetchUsers: () => dispatch(fetchUsers())
     }
 }
-
 
 export default connect(mSTP, mDTP)(BoardShow)
