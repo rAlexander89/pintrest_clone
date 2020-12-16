@@ -70,5 +70,9 @@ class User < ApplicationRecord
     dependent: :destroy,
     class_name: :Board
 
+    has_many :comments, 
+    foreign_key: :user_id,
+    class_name: :Comment
+
   
 end

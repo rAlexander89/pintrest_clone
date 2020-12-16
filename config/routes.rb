@@ -5,7 +5,10 @@ root to: 'static_pages#root'
       resources :boards, only: [:show, :create, :update, :destroy]
     end
     resource :session, only: [:create, :destroy]
-    resources :pins, only: [:index, :show, :create, :update, :destroy]  
+    resources :pins, only: [:index, :show, :create, :update, :destroy] do 
+      resource :comments, only: [:show]  
+    end
+    resources :comments, only: [:create, :update, :destroy, :index]
     resources :board_pins, only: [:index, :create, :show]
     resources :boards, only: [:index]
     # resources :user_boards, only: [:index, :create, :show]

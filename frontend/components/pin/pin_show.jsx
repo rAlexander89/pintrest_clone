@@ -1,6 +1,8 @@
-import React from 'react';
-import InlineDisplay from '../inline_display/inline_display_container';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import InlineDisplay from '../inline_display/inline_display_container'
+import { Link } from 'react-router-dom'
+import PinCreateCommentFormContainer from './pin_comment_create_container'
+import CommentIndex from './comment_index'
 
 
 class PinShow extends React.Component {
@@ -13,6 +15,7 @@ class PinShow extends React.Component {
     componentDidMount(){
         this.props.fetchBoards()
         this.props.fetchPin(this.props.match.params.pinId)
+        this.props.fetchPinComments(this.props.match.params.pinId)
     }
 
     displayDeleteButton(currentUser, owner, pin){
@@ -24,11 +27,10 @@ class PinShow extends React.Component {
                 </div>
             )
         }
-
     }
 
     render(){
-        let { pin, boards, currentUser, owner } = this.props;
+        let { pin, boards, currentUser, owner, comments } = this.props;
         if (pin === undefined) return null;
         let board = boards[pin.board_id]
         if (board === undefined) return null;
@@ -48,6 +50,12 @@ class PinShow extends React.Component {
                             <li id='pin-description'><InlineDisplay editType='pin' item={pin} objKey={'description'} field={pin.description}/></li>
                         </ul>
                     </div>
+                </div>
+                <div>
+                    <PinCreateCommentFormContainer currentUser={currentUser} pin_id={pin.id}/>
+                </div>
+                <div>
+                    <CommentIndex comments={comments} />
                 </div>
             </div>
         )

@@ -12,6 +12,7 @@
 #  board_id    :integer          not null
 #
 class Pin < ApplicationRecord
+
     validates :title, presence: true, uniqueness: {scope: :author_id}
     validates :description, presence: true
     validates :owner, presence: true
@@ -27,6 +28,8 @@ class Pin < ApplicationRecord
     has_one :board,
     class_name: :Board
 
-
+    has_many :comments, 
+    foreign_key: :pin_id,
+    class_name: :Comment
 
 end
