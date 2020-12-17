@@ -4,7 +4,6 @@ class CreatePins < ActiveRecord::Migration[5.2]
       t.string :title, null: false
       t.string :pin, null: false
       t.integer :author_id, null: false
-
       t.timestamps
     end
 

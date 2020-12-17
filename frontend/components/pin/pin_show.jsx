@@ -51,11 +51,15 @@ class PinShow extends React.Component {
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <PinCreateCommentFormContainer currentUser={currentUser} pin_id={pin.id}/>
-                </div>
-                <div>
-                    <CommentIndex comments={comments} />
+                <div className='peripheral-container'>
+                    <div className='comment-index'>
+                        <div className='comment-header'>
+                            <PinCreateCommentFormContainer currentUser={currentUser} pin_id={pin.id}/>
+                        </div>
+                        <div className='comment-body'>
+                            <CommentIndex comments={comments} />
+                        </div>  
+                    </div>
                 </div>
             </div>
         )
