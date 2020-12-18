@@ -1,6 +1,7 @@
 class Api::PinsController < ApplicationController
 
-    before_action :require_login, only: [:create]
+    # before_action :require_login, only: [:create]
+    before_action :require_login
 
     def index
         @pins = Pin.all
@@ -31,6 +32,7 @@ class Api::PinsController < ApplicationController
         end
     end
 
+
     def destroy
         @pin = Pin.find_by(id: params[:id])
         if @pin && @pin.author_id == current_user.id
@@ -43,6 +45,8 @@ class Api::PinsController < ApplicationController
             render json: @pin.errors.full_messages, status: 422
         end
     end
+
+
 
 
 

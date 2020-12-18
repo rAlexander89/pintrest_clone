@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchBoard, fetchBoardPins, deleteBoard } from '../../actions/board_actions';
 import { fetchPins } from '../../actions/pin_actions'
 import { fetchUsers } from '../../actions/user_action'
-import { selectBoardPins } from '../../reducers/selector';
+import { selectBoardPins } from '../../reducers/selectors';
 
 import BoardShow from './board_show';
 

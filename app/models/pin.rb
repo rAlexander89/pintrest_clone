@@ -18,7 +18,6 @@ class Pin < ApplicationRecord
     validates :owner, presence: true
     validates :board_id, presence: true
 
-
     has_one_attached :photo
 
     belongs_to :author,
@@ -31,5 +30,10 @@ class Pin < ApplicationRecord
     has_many :comments, 
     foreign_key: :pin_id,
     class_name: :Comment
+
+    has_many :likes, as: :likeable,
+    dependent: :destroy
+
+
 
 end

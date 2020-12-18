@@ -1,1 +1,1 @@
-json.extract! @like, :id, :liked_id, :user_id
+json.partial! 'like', like: @like

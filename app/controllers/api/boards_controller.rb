@@ -1,5 +1,5 @@
-
 class Api::BoardsController < ApplicationController
+        before_action :require_login
 
     def index
         @boards = Board.all
