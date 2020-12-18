@@ -34,7 +34,7 @@ export const selectUserBoards = (userId, boards) => {
 
 }
 
-// export const getLikes = (state, item) => {
+
 export const getLikes = (likesFromEntities, item) => {
     if ( !likesFromEntities || !item) return null;
     let likes = [];
