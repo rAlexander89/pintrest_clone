@@ -41,6 +41,7 @@ class Likes extends React.Component {
         //     }
 
         // }
+        debugger
 
         return (
             <div>

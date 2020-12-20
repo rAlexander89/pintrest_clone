@@ -2,15 +2,13 @@ class Api::LikesController < ApplicationController
     before_action :require_login
     
     def create
-        debugger
         @like = Like.new(like_params)
         @like.author_id = current_user.id
-        debugger
         
         if @like.save
-            render :show
+            # render :show
         else
-            debugger
+
             render json: @like.errors.full_messages, status: 422
         end
     end
@@ -26,9 +24,10 @@ class Api::LikesController < ApplicationController
 
     def show  # Doesn't show an individual comment. Shows comments that belong to an object.
         # debugger
-        # debugger
-        @like = Like.where(likeable_id: params[:likeable_id])
-        # debugger
+        likeable_id = params[:params][:likeable_id]
+        likeable_type = params[:params][:likeable_type]
+
+        @likes = Like.where(likeable_id: likeable_id, likeable_type: likeable_type)
         render :show
     end
 
@@ -36,6 +35,7 @@ class Api::LikesController < ApplicationController
 
     def like_params
         params.require(:like).permit(:likeable_type, :likeable_id)
+
     end
 
 

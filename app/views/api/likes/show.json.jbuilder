@@ -1,1 +1,5 @@
-json.partial! 'like', like: @like
+@likes.each do |like|
+    json.set! like.id do
+        json.partial! "like", like: like
+    end
+end
