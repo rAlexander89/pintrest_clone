@@ -5,10 +5,11 @@ import { fetchItemLikes } from '../../actions/like_actions';
 import Likes from './likes';
 
 // const mSTP = ({ entities: { pins, users, boards, comments, likes }, session }, ownProps) => {
-const mSTP = ({ entities: { pins, users, boards, comments, likes }, session }, ownProps) => {
+const mSTP = ( { entities: { users, likes }, session } ) => {
 
     return {
-        likes: likes
+        likes: likes,
+        currentUserId: users[session.currentUserId].id,
     }
 }
 

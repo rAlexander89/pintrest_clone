@@ -66,8 +66,6 @@ class PinShow extends React.Component {
         let board = boards[pin.board_id]
         if (board === undefined) return null;
         let params = {
-            // likeable_route: 'pins',
-            // likeabe_type: 'Pin',
             likeable_type: 'Pin',
             likeable_id: pin.id
         }

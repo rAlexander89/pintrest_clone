@@ -9,8 +9,10 @@ const likesReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_LIKES:
-                    nextState[action.like.id] = action.likes
-            return nextState;
+    
+                    // Object.assign({}, state, action.pins)
+                    // nextState[likes] = action.likes
+            return action.likes;
         case RECEIVE_LIKE:
                     nextState[action.like.id] = action.like
             return nextState;
@@ -18,7 +20,7 @@ const likesReducer = (state = {}, action) => {
             delete nextState[action.like.id]
             return nextState;
         // case RECEIVE_PINS:
-        //     debugger
+        //   
         //             return Object.assign(nextState, action.pins.likes)
         default:
             return state;
