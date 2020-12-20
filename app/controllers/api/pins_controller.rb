@@ -9,7 +9,9 @@ class Api::PinsController < ApplicationController
     end
 
     def show
+        debugger
         @pin = Pin.find(params[:id])
+        debugger
         render :show
     end
 

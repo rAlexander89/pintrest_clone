@@ -18,8 +18,7 @@
 
 class Like < ApplicationRecord
 
-
-    validates :author_id, presence: true
+    validates :author_id, :likeable_type, :likeable_id, presence: true
 
     belongs_to :likeable, polymorphic: true
 

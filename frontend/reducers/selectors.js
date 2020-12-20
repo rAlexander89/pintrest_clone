@@ -38,7 +38,6 @@ export const selectUserBoards = (userId, boards) => {
 export const getLikes = (likesFromEntities, item) => {
     if ( !likesFromEntities || !item) return null;
     let likes = [];
-    // debugger
     let type = item.author_id ? 'Pin' : 'Comment';
 
     Object.values(likesFromEntities).forEach(like => {

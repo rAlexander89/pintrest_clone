@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import PinCreateCommentFormContainer from './pin_comment_create_container'
 import CommentIndex from './comment_index'
 // import { like, unlike } from '../../util/like_api_util'
-// import Likes from '../like'
+import Likes from '../like/likes_container'
 // import Likes from '../like/likes'
 
 
@@ -61,12 +61,16 @@ class PinShow extends React.Component {
 
     render(){
 
-
-        debugger
         let { pin, boards, currentUser, owner, comments } = this.props;
         if (pin === undefined) return null;
         let board = boards[pin.board_id]
         if (board === undefined) return null;
+        let params = {
+            // likeable_route: 'pins',
+            // likeabe_type: 'Pin',
+            likeable_type: 'Pin',
+            likeable_id: pin.id
+        }
 
         return(
             <div className="content-container">
@@ -81,6 +85,7 @@ class PinShow extends React.Component {
                             <li>{this.displayDeleteButton(currentUser, owner, pin)}</li>
                             <li id='pin-owner'>board title: <Link to={`/users/${this.props.pin.author_id}/boards/${pin.board_id}`}>{board.title}</Link></li>
                             <div onClick={this.toggleLike}><i className="far fa-thumbs-up likebtn"></i>Like</div>
+                            <Likes params={params}/>
                             {/* <li id='pin-owner' onClick={() => this.likePin(pin.id, currentUser.id, 'pins')}>Like</li> */}
                             <li id='pin-description'><InlineDisplay editType='pins' item={pin} objKey={'description'} field={pin.description}/></li>
                         </ul>

@@ -11,7 +11,7 @@ root to: 'static_pages#root'
     resources :comments, only: [:create, :update, :destroy, :index]
     resources :board_pins, only: [:index, :create, :show]
     resources :boards, only: [:index]
-    resources :likes, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy, :show]
   end
 end
 
