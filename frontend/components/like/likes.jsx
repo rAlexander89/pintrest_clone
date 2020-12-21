@@ -59,6 +59,7 @@ class Likes extends React.Component {
             }
         } else {
             if ( likesCount <= 1 ){
+                debugger
                 return(
                     <div className='like-menu'>
                         <div onClick={() => deleteLike(usersLike)}>
@@ -76,7 +77,7 @@ class Likes extends React.Component {
                             Unlike |
                     </div>
                         <div className='like-display'>
-                            | {likesCount - 1} users like this.
+                            | You and {likesCount - 1} other users like this.
                     </div>
                     </div>
                 )
