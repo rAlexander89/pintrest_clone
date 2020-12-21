@@ -30,6 +30,9 @@ class PinCreateCommentForm extends React.Component {
         formData.append('comment[user_id]', user_id);
         formData.append('comment[pin_id]', pin_id);
         this.props.createComment(formData)
+        this.setState({
+            comment_txt: ''
+        })
     }
 
 
@@ -40,8 +43,8 @@ class PinCreateCommentForm extends React.Component {
             return (
                 <form>
                         <textarea
-                            placeholder="Comment here"
-                            // value={comment_txt}
+                            placeholder="Comment here..."
+                            value={this.state.comment_txt}
                             onChange={this.update("comment_txt")}
                             />
                     <div className='submit-buttons'>
