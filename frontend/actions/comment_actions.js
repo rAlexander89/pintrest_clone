@@ -45,7 +45,7 @@ export const fetchComment = commentId => dispatch => {
 export const createComment = comment => dispatch => {
     comment
     return CommentAPIUtil.createComment(comment)
-        .then(comment => dispatch(receiveComment(comment))
+        .then(comment => dispatch(receiveComments(comment))
         )
 }
 

@@ -61,6 +61,7 @@ class PinShow extends React.Component {
                             <li id='pin-owner'>board title: <Link to={`/users/${this.props.pin.author_id}/boards/${pin.board_id}`}>{board.title}</Link></li>
                             {/* <div onClick={this.toggleLike}><i className="far fa-thumbs-up likebtn"></i>Like</div> */}
                             <Likes params={params}/>
+                            <br></br>
                             {/* <li id='pin-owner' onClick={() => this.likePin(pin.id, currentUser.id, 'pins')}>Like</li> */}
                             <li id='pin-description'><InlineDisplay editType='pins' item={pin} objKey={'description'} field={pin.description}/></li>
                         </ul>

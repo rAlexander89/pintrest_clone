@@ -1,6 +1,5 @@
 
 import { connect } from 'react-redux'
-import { clearErrors } from '../../actions/session_actions'
 import { createComment } from '../../actions/comment_actions'
 import PinCreateCommentForm from './pin_comment_create_form'
 

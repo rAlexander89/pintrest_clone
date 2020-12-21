@@ -1,27 +1,54 @@
 
 class Api::CommentsController < ApplicationController
-
-    def create
-    comment = Comment.new(comment_params);
-    if comment.save
-      @comments = Comment.all
-      if (params[:comment][:pin_id])
-        @comments = @comments.where(pin_id: params[:comment][:pin_id])
-      end
-      render :index
-    else
-      render json: comment.errors.full_messages, status: 422 
-    end
-  end
+  before_action :require_login
 
   def index
     @comments = Comment.all
     render :index
   end
 
+   def create
+    comment = Comment.new(comment_params);
+    if comment.save
+      # @comments = Comment.all
+      # if (params[:comment][:pin_id])
+            @comments = Comment.where(pin_id: params[:comment][:pin_id])
+      # end
+        render :index
+      # render "/api/comments/index"
+    else
+      render json: comment.errors.full_messages, status: 422 
+    end
+  end
+
+    
+  # def create
+  #     @comment = Comment.new(comment_params)
+      
+  #     if @comment.save
+  #         render :show
+  #     else
+  #         render json: @comment.errors.full_messages, status: 422
+  #     end
+  # end
+
+  #   def create
+  #   comment = Comment.new(comment_params);
+  #   if comment.save
+  #     @comments = Comment.all
+  #     if (params[:comment][:pin_id])
+  #       @comments = @comments.where(pin_id: params[:comment][:pin_id])
+  #     end
+  #     render :index
+  #   else
+  #     render json: comment.errors.full_messages, status: 422 
+  #   end
+  # end
+
+
   def show  # Doesn't show an individual comment. Shows comments that belong to an object.
     @comments = Comment.where(pin_id: params[:pin_id])
-    render :show
+    render :index
   end
 
 
