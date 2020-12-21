@@ -7,18 +7,13 @@ class Api::LikesController < ApplicationController
         
         if @like.save
             render json: @like
-            # render :show
         else
-
             render json: @like.errors.full_messages, status: 422
         end
     end
 
     def destroy
-
-        debugger
         @like = Like.find_by(id: params[:like][:id])
-        debugger
         if @like.delete
             render json: {}
         else
@@ -27,7 +22,6 @@ class Api::LikesController < ApplicationController
     end
 
     def show  # Doesn't show an individual comment. Shows comments that belong to an object.
-        # debugger
         likeable_id = params[:params][:likeable_id]
         likeable_type = params[:params][:likeable_type]
 
@@ -39,8 +33,5 @@ class Api::LikesController < ApplicationController
 
     def like_params
         params.require(:like).permit(:likeable_type, :likeable_id)
-
     end
-
-
 end

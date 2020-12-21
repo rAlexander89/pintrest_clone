@@ -4,10 +4,6 @@ class Likes extends React.Component {
     constructor(props) {
         super(props)
         this.likesCount = this.likesCount.bind(this)
-        // this.toggleLike = this.toggleLike.bind(this)
-        // this.state = {
-        //     liked: false
-        // }
     }
 
     componentDidMount(){
@@ -37,11 +33,32 @@ class Likes extends React.Component {
             })
         }
 
-
-
-        if (includesCurrentUser){
-            // let 
-            if (likesCount === 1){
+        if (!includesCurrentUser){
+            if (likesCount < 1 ){
+                return(
+                    <div className='like-menu'>
+                        <div className='like-toggle' onClick={() => createLike(likeParams)}>
+                            Like |
+                        </div>
+                        <div className='like-display'>
+                            | Be the first to like this!
+                        </div>
+                    </div>
+                )
+            } else {
+                return(
+                    <div className='like-menu'>
+                        <div className='like-toggle' onClick={() => createLike(likeParams)}>
+                            Like |
+                        </div>
+                        <div className='like-display'>
+                            | {likesCount} users like this.
+                        </div>
+                    </div>
+                )
+            }
+        } else {
+            if ( likesCount <= 1 ){
                 return(
                     <div className='like-menu'>
                         <div onClick={() => deleteLike(usersLike)}>
@@ -53,30 +70,20 @@ class Likes extends React.Component {
                     </div>
                 )
             } else {
-                return(
+                return (
                     <div className='like-menu'>
-                        <div className='like-toggle' onClick={() => deleteLike(likeParams)}>
+                        <div className='like-toggle' onClick={() => deleteLike(usersLike)}>
                             Unlike |
-                        </div>
+                    </div>
                         <div className='like-display'>
-                            | You and {likesCount - 1} other users like this.
-                        </div>
+                            | {likesCount - 1} users like this.
+                    </div>
                     </div>
                 )
             }
-        } else {
-            return(
-                <div className='like-menu'>
-                    <div className='like-toggle'onClick={() => createLike(likeParams)}>
-                        Like |
-                    </div>
-                    <div className='like-display'>
-                        | {likesCount} users like this.
-                    </div>
-                </div>
-            ) 
         }
     }
+
 
     render(){
         let { likes, currentUserId } = this.props

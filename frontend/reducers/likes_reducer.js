@@ -1,7 +1,5 @@
 
 import { RECEIVE_LIKE, REMOVE_LIKE, RECEIVE_LIKES } from "../actions/like_actions";
-// import { RECEIVE_PINS } from "../actions/pin_actions";
-
 
 const likesReducer = (state = {}, action) => {
     debugger
