@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-// import { getLikes } from '../../reducers/selectors';
 import { fetchItemLikes } from '../../actions/like_actions';
+import { createLike, deleteLike } from '../../actions/like_actions';
 
 import Likes from './likes';
 
@@ -16,6 +16,8 @@ const mSTP = ( { entities: { users, likes }, session } ) => {
 const mDTP = dispatch => {
     return {
         fetchItemLikes: likeId => dispatch(fetchItemLikes(likeId)),
+        createLike: (like) => dispatch(createLike(like)),
+        deleteLike: (like) => dispatch(deleteLike(like))
     }
 }
 

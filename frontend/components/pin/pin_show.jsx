@@ -13,7 +13,7 @@ class PinShow extends React.Component {
     constructor(props){
         super(props)
         this.displayDeleteButton = this.displayDeleteButton.bind(this)
-        this.toggleLike = this.toggleLike.bind(this)
+        // this.toggleLike = this.toggleLike.bind(this)
     }
 
     componentDidMount(){
@@ -21,30 +21,6 @@ class PinShow extends React.Component {
         this.props.fetchPin(this.props.match.params.pinId)
         this.props.fetchPinComments(this.props.match.params.pinId)
     }
-
-    toggleLike(e) {
-        e.preventDefault();
-
-        let newLike = {
-            likeable_type: "Pin",
-            likeable_id: this.props.pin.id
-        };
-        let toggle = false;
-        this.props.likes.forEach(like => {
-            if (like.author_id === this.props.currentUser.id) {
-                newLike = like;
-                toggle = true;
-            }
-        })
-
-        if (toggle) {
-            this.props.deleteLike(newLike);
-        } else {
-            this.props.createLike(newLike);
-        }
-    }
-
-
 
     displayDeleteButton(currentUser, owner, pin){
         if ( currentUser === owner ){
@@ -65,6 +41,7 @@ class PinShow extends React.Component {
         if (pin === undefined) return null;
         let board = boards[pin.board_id]
         if (board === undefined) return null;
+
         let params = {
             likeable_type: 'Pin',
             likeable_id: pin.id
@@ -82,7 +59,7 @@ class PinShow extends React.Component {
                             <li id='pin-owner'>photo by <Link to={`/users/${this.props.owner.id}`}>{this.props.owner.username}</Link></li>
                             <li>{this.displayDeleteButton(currentUser, owner, pin)}</li>
                             <li id='pin-owner'>board title: <Link to={`/users/${this.props.pin.author_id}/boards/${pin.board_id}`}>{board.title}</Link></li>
-                            <div onClick={this.toggleLike}><i className="far fa-thumbs-up likebtn"></i>Like</div>
+                            {/* <div onClick={this.toggleLike}><i className="far fa-thumbs-up likebtn"></i>Like</div> */}
                             <Likes params={params}/>
                             {/* <li id='pin-owner' onClick={() => this.likePin(pin.id, currentUser.id, 'pins')}>Like</li> */}
                             <li id='pin-description'><InlineDisplay editType='pins' item={pin} objKey={'description'} field={pin.description}/></li>

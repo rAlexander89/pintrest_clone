@@ -19,6 +19,8 @@
 class Like < ApplicationRecord
 
     validates :author_id, :likeable_type, :likeable_id, presence: true
+    validates :author_id, uniqueness: {scope: [:likeable_id, :likeable_type]}
+    # validates :author_id, uniquness: {scope: [:likeable_id, :likeable_type]}
 
     belongs_to :likeable, polymorphic: true
 

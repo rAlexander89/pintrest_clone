@@ -3,7 +3,6 @@ import { fetchPin, deletePin } from '../../actions/pin_actions';
 import { fetchBoards } from '../../actions/board_actions';
 import { fetchPinComments } from '../../actions/comment_actions';
 import { getLikes } from '../../reducers/selectors';
-import { createLike, deleteLike } from '../../actions/like_actions';
 
 import PinShow from './pin_show';
 
@@ -28,9 +27,7 @@ const mDTP = dispatch => {
         fetchPin: pinId => dispatch(fetchPin(pinId)),
         deletePin: pinId => dispatch(deletePin(pinId)),
         fetchBoards: () => dispatch(fetchBoards()),
-        fetchPinComments: pinId => dispatch(fetchPinComments(pinId)),
-        createLike: (like) => dispatch(createLike(like)),
-        deleteLike: (like) => dispatch(deleteLike(like))
+        fetchPinComments: pinId => dispatch(fetchPinComments(pinId))
     }
 }
 

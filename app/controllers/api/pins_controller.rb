@@ -10,18 +10,12 @@ class Api::PinsController < ApplicationController
 
     def show
         @pin = Pin.find(params[:id])
-        # @pin = Pin.find(params[:id])
-        # debugger
-        # @pin = Pin.find_by(id: params[:id]).includes(:likes).where(likeable_id: params[:id], likeable_type: 'Pin')
-        # debugger
         render :show
     end
 
     def create 
-        debugger
         @pin = Pin.new(pin_params)
         @pin.author_id = current_user.id
-        debugger
         if @pin.save
             render :show
         else
