@@ -2,12 +2,10 @@ import { RECEIVE_COMMENTS, RECEIVE_COMMENT } from "../actions/comment_actions";
 
 const commentsReducer = (state = {}, action) => {
     Object.freeze(state);
-    debugger
 
     let nextState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_COMMENTS:
-            debugger
             nextState = action.comments;
             return nextState;
         case RECEIVE_COMMENT:

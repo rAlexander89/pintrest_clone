@@ -59,7 +59,6 @@ class Likes extends React.Component {
             }
         } else {
             if ( likesCount <= 1 ){
-                debugger
                 return(
                     <div className='like-menu'>
                         <div onClick={() => deleteLike(usersLike)}>
