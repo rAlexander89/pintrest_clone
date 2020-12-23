@@ -3,6 +3,11 @@
     flex-direction: column;
 }
 
+.comment-header{
+    padding: 15px;
+    border-bottom: 1px ridge rgba(0,0,0,0.17);
+}
+
 .comment-body{
     margin-top: 20px;
 }

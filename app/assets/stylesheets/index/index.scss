@@ -1,5 +1,5 @@
 
-.index-container{
+.index-container, .profile-display-boards{
     column-gap: 20px;
     align-items: center;
     margin: 25px;
@@ -7,9 +7,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
-.pin-index-container{
+.pin-index-container, .user-content{
     max-width: 1400px;
     display: flex;
     flex-direction: row;
@@ -18,7 +19,7 @@
     align-items: center;
 }
 
-.pin-index-container img{
+.pin-index-container img, .user-content img{
     width: 350px;
     margin-bottom: 20px;
     margin-right: 20px;
@@ -35,12 +36,23 @@
 
 .splash{
     height: calc(100vh - 105px);
+    width: 100%;
     background-image: url('https://i.imgur.com/OJ4t6FJ.jpg');
     align-items: center;
 }
+
+
     
 
-.body{
-    height: calc(100vh - 105px);
+.content-body{
+    height: calc(100vh - 75px);
+    display: flex;
+    justify-content: center;
     overflow-y: auto;
+    overflow-x: hidden
 }
+
+.content-display{
+    padding-top: 15px;
+}
+

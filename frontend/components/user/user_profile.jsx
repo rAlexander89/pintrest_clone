@@ -64,14 +64,14 @@ class UserProfile extends React.Component{
         if (userBoards.length === 0){
             if ( currentUser == owner){
                 return(
-                    <div>
+                    <div className='user-boards-container'>
                         <h1 id='header'> {owner.username}'s Latest Boards:</h1>
                         <p id='snippet'>You don't have any boards! Make some!</p>
                     </div>
                 )
             } else {
                 return(
-                    <div>
+                    <div className='user-boards-container'>
                         <h1 id='header'> {owner.username}'s Latest Boards:</h1>
                         <p id='snippet'>They don't have any boards yet!</p>
                     </div>
@@ -79,7 +79,7 @@ class UserProfile extends React.Component{
             }
         } else {
             return(
-                <div>
+                <div className='user-boards-container'>
                     <h1 id='header'> {owner.username}'s Latest Boards:</h1>
                     <div className='profile-display-boards'>
                         {userBoards.reverse().map((userBoard) => (
@@ -102,12 +102,10 @@ class UserProfile extends React.Component{
         if (owner === undefined) return null
  
         return(
-            <div>
-                <div>
+                <div className='user-content'>
                     {this.displayUserBoards(userBoards, currentUser, userId, owner)}
                     {this.fetchUserPins(pins, owner, currentUser)}
                 </div>
-            </div>
         )
     }
 }

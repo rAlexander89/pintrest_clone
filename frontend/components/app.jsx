@@ -1,6 +1,14 @@
 import React from 'react'
+
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import { fab } from '@fortawesome/free-brands-svg-icons'
+// import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+// library.add(fab, faCheckSquare, faCoffee)
+
 import GreetingContainer from './greeting/greeting_container.js';
 import { Route, Switch, Link } from 'react-router-dom';
+
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -30,46 +38,51 @@ class App extends React.Component{
                     <Link to='/pins'>
                         <img id='logo' src='https://i.imgur.com/IaouNpW.jpg' />
                     </Link>
-                    <h1 id='nav-title'><Link to='/pins'>Pintrest</Link></h1>
                 </div>
             )
         } 
     }
 
     render(){
-
         return (
             <div className='single-page'>
-                <div className='header'>
-                    <div className='nav-logo'>
-                        <Link to='/'>
-                        <img id='logo' to='/' src='https://i.imgur.com/IaouNpW.jpg' />
-                        </Link>
-                        <h1 id='nav-title'><Link to='/'>Pintrest</Link></h1>
-                    </div>  
-                    <div className='nav-links'>
-                        <ul id='nav-list'>
-                            <li><ModalContainer /></li>
-                            <li><GreetingContainer /></li>
-                        </ul>
-                    </div>  
+                <div className='top-nav'>
+                    <div className='content-header'>
+                        <div className='nav-logo'>
+                            <Link to='/'>
+                            <img id='logo' to='/' src='https://i.imgur.com/IaouNpW.jpg' />
+                            </Link>
+                            <h1 id='nav-title'><Link to='/'>Pintrest</Link></h1>
+                        </div>  
+                        <div className='nav-links'>
+                            <ModalContainer />
+                            <GreetingContainer />
+                            {/* <ul id='nav-list'>
+                                <li><ModalContainer /></li>
+                                <li><GreetingContainer /></li>
+                            </ul> */}
+                        </div>  
+                    </div>
                 </div>
-                <div className='body'>
-                    <Switch>
-                        <AuthRoute exact path='/' component={SplashContainer} />
-                        <ProtectedRoute exact path="/pins" component={PinIndexContainer} />
-                        <ProtectedRoute exact path="/pins/:pinId" component={PinShowContainer} />
-                        <ProtectedRoute exact path="/p/create" component={CreatePinContainer} />
-                        <ProtectedRoute exact path="/b/create" component={CreateBoardContainer} />
-                        <ProtectedRoute exact path='/users/:userId/boards' component={UsersBoardsContainer} />
-                        <ProtectedRoute exact path='/users/:userId/boards/:boardId' component={BoardShowContainer} />
-                        <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
-                        <ProtectedRoute exact path='/boards/' component={BoardIndexContainer} />
-                    </Switch>
+                <div className='content-body'>
+                    <div className='content-display'>
+                        <Switch>
+                            <AuthRoute exact path='/' component={SplashContainer} />
+                            <ProtectedRoute exact path="/pins" component={PinIndexContainer} />
+                            <ProtectedRoute exact path="/pins/:pinId" component={PinShowContainer} />
+                            <ProtectedRoute exact path="/p/create" component={CreatePinContainer} />
+                            <ProtectedRoute exact path="/b/create" component={CreateBoardContainer} />
+                            <ProtectedRoute exact path='/users/:userId/boards' component={UsersBoardsContainer} />
+                            <ProtectedRoute exact path='/users/:userId/boards/:boardId' component={BoardShowContainer} />
+                            <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
+                            <ProtectedRoute exact path='/boards/' component={BoardIndexContainer} />
+                        </Switch>
+                    </div>
+                    <div className='user-tools'>
+
+                    </div>
                 </div>
-                <div>
-                    <Footer />
-                </div>
+                <Footer />
             </div>
         );
     }

@@ -1,45 +1,87 @@
 .content-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 1400px;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // max-width: 1400px;
+    // width: 100%;
+    // height: 100%;
     // margin-top: 10px;
-    align-items: center;
-    padding: 0px 15px 0px 15px;
-    box-sizing: border-box; 
+    // align-items: center;
+    // padding: 0px 15px 0px 15px;
+    // box-sizing: border-box; 
+    // overflow-y: auto;
+    // margin: auto;
+    // background: red;
 }
 
 .pin-show-container, .pin-create-container,.board-create-container{
-    margin: auto;
-    max-width: 1100px;
-    height: auto;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-flow: wrap;
+    // margin: auto;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // max-width: 1000px;
+    // min-width: 540px;
+    // flex-flow: wrap;
+    // height: 100%;
+    // width: 100%;
+    // background: red;
+    
+}
+
+.pin-show {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  justify-content: center;
+}
+
+.row > div {
+    margin: 8px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 100%;
+
 }
 
 .pin-show-item {
-    display: block;
-    margin: auto;
-    max-width: 900px;
-    box-sizing: border-box;
-    max-height: 95vh;
+  height: auto;
 }
 
-.pin-show-item, img {
-    max-width: 100%;
-    max-height: 600px;
+@media screen and (min-width: 500px) {
+  .column {
+    flex: 1
+  }
+}
+
+
+.pin-show-item, .pin-show-det, .peripheral-container{
+    width: 500px;
+}
+
+
+.pin-show-item img {
+    width: 500px;
+}
+
+.pin-show-item {
+    width: 500px;
     border-radius: 20px;
-    box-shadow:  5px 5px 10px #dbdbdb, 
-    -5px -5px 10px #fbfbfb;
     border-bottom: 5px groove rgba(221, 221, 221, 0.219);
-    box-shadow: inset -7px -7px 31px #fff6d17c;
     animation: fadeInAnimation ease 2s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
-
 }
 
 .idx-image img{
@@ -47,34 +89,43 @@
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
 }
-.pin-show-det {
-    margin: 15px;
-    background: #feffd157;
-    padding: 10px;
-    padding: 15px;
-    min-width: 350px;
-    max-width: 425px;
-    overflow-wrap: break-word;
-    border-radius: 8px;
-    box-shadow:  5px 5px 10px #dbdbdb, 
-    -5px -5px 10px #fbfbfb;
-    border-bottom: 5px groove rgba(221, 221, 221, 0.219);
-    box-shadow: inset -7px -7px 31px #fff6d17c;
-    animation: fadeInAnimation ease 2s;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards;
+
+
+.like-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
+.pin-show-det {
+    overflow-wrap: break-word;
+    text-align: center;
+    display: flex;
+    flex-direction: column;    
+}
+
+    
+    
 #pin-title, #board-title{
     font-size: 46px;
     font-weight: 600px;
     margin-bottom: 2px;
 }
+    
+#pin-description{
+    font-size: 18px;
+    padding: 10px;
 
-.submit-buttons{
-    display: flex;
-    flex-direction: row;
 }
+
+.pin-features{
+    display: flex;
+    justify-content: space-between;
+}
+
 
 
 #pin-owner, #board-owner{
@@ -83,13 +134,18 @@
     margin-bottom: 5px;
 }
 
-@media screen and (max-width: 1200px){
-    .pin-show-item{
-        max-width: 60%;
-    }
-    .pin-show-det{
-        max-width: 40%;
-    }
+.comment-form{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+
+
+.comment-box{
+    width: 500px;
+    box-sizing: border-box;
+    height: auto;
 }
 
 .no-board-warning{
@@ -100,6 +156,7 @@
 #warning-link{
     text-decoration: underline;
 }
+
 @keyframes fadeInAnimation {
     0% { 
                 opacity: 0; 
@@ -107,4 +164,4 @@
             100% { 
                 opacity: 1; 
             } 
-}
+        }
