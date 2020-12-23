@@ -20,16 +20,18 @@
     // width: 1000px;
 //   }
 // }
+// , .user-boards-container
 
 @media only screen and (max-width: 1031px) {
-  .content-header {
+  .content-header, .index-container, .user-boards-container, #header  {
     width: 500px;
   }
 }
 
 @media only screen and (min-width: 1032px) {
-  .content-header {
-    width: 1032px;
+  .content-header, .index-container, .user-boards-container, #header {
+    width: 1400px;
+    // width: 1032px;
   }
 }
 
@@ -39,7 +41,6 @@
     flex-direction: row;
     justify-content: space-between;
     min-height: 50px;
-
     box-sizing: border-box;
     align-items: center;
     padding: 0px 10px 0px 10px;

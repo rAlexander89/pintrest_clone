@@ -25,7 +25,7 @@ class PinShow extends React.Component {
             return(
                 <div className='pin-features'>
 
-                    <div>
+                    <div className='pin-sub'>
                         double click title or description to enable edit
                     </div>
 

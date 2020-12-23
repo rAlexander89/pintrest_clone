@@ -1,26 +1,24 @@
 
-.index-container, .profile-display-boards{
-    column-gap: 20px;
-    align-items: center;
-    margin: 25px;
+.index-container {
+    column-gap: 15px;
+    margin: 25px 10px 25px 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
 }
 
 .pin-index-container, .user-content{
-    max-width: 1400px;
+    // max-width: 1400px;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
 .pin-index-container img, .user-content img{
-    width: 350px;
+    // width: 350px;
+    width: 325px;
     margin-bottom: 20px;
     margin-right: 20px;
     border-radius: 20px;
@@ -40,9 +38,6 @@
     background-image: url('https://i.imgur.com/OJ4t6FJ.jpg');
     align-items: center;
 }
-
-
-    
 
 .content-body{
     height: calc(100vh - 75px);
