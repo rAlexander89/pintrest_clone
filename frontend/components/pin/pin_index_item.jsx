@@ -18,7 +18,7 @@ class PinIndexItem extends React.Component {
     render() {
         const { pin } = this.props;
         return (
-            <div>
+            <div className='pin-index-item'>
                 <Link to={`/pins/${pin.id}`}>
                 <img className="idx-image" src={pin.photoUrl} onClick={() => this.showPin(pin)}/>
                 </Link>

@@ -77,23 +77,15 @@
 .pin-show-item {
     width: 500px;
     border-radius: 20px;
-    // font-size: 12px;
-    // border-bottom: 5px groove rgba(221, 221, 221, 0.219);
-    animation: fadeInAnimation ease 2s;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards;
 }
 
 .pin-sub{
     font-size: 12px;
 }
 
-.idx-image img{
-    animation: fadeInAnimation ease 2s;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards;
+.idx-image{
+    border-radius: 20px;
 }
-
 
 .like-menu{
     display: flex;
@@ -103,15 +95,13 @@
     padding-bottom: 10px;
 }
 
-.pin-show-det {
+.pin-show-det{
     overflow-wrap: break-word;
     text-align: center;
     display: flex;
     flex-direction: column;    
 }
 
-    
-    
 #pin-title, #board-title{
     font-size: 46px;
     font-weight: 600px;
@@ -161,9 +151,9 @@
 
 @keyframes fadeInAnimation {
     0% { 
-                opacity: 0; 
-            } 
-            100% { 
-                opacity: 1; 
-            } 
-        }
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
+}

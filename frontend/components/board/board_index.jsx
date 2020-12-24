@@ -16,7 +16,7 @@ class BoardIndex extends React.Component{
         let { boards, currentUser } = this.props;
 
         return(
-            <div>
+            <div className='index-container'>
                 <p id='header'>The Latest Boards</p>
                 <div className='board-index-container'>
                   {boards.reverse().map((board) => ( 
@@ -27,7 +27,7 @@ class BoardIndex extends React.Component{
                         />
                   ))}
               </div>
-            </div>
+        </div>
         )
     }
 }

@@ -13,3 +13,62 @@
  *= require_tree .
  *= require_self
  */
+
+.content-header{
+    width: 100%;
+}
+
+.single-page{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 50px;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 0px 10px 0px 10px;
+    top: 0; 
+}
+
+.user-tools{
+    position: fixed;
+    bottom: 14px;
+    right: 14px;
+    z-index: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.user-tools-item{
+    height: 50px;
+    width: 50px;
+    background: white;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.36);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.36);
+    // box-shadow: 0px 0px 10px 0px#2d2d2d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .content-header, .content-display, #header  {
+    width: 500px;
+  }
+}
+
+
+@media only screen and (min-width: 901px) {
+  .content-header, .content-display, #header {
+    width: 60%;
+  }
+}

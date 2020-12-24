@@ -7,20 +7,22 @@
     font-size: 32px;
     margin-left: 15px;
 }
-.board-index-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+// .board-index-container{
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+// }
 
 .profile-display-boards{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    // justify-content: center;
     flex-direction: row;
     white-space: nowrap;
     height: 320px;
     overflow-x: auto;
-    white-space: nowrap;
+    margin: 0px 10px 0px 10px;
+    // white-space: nowrap;
 }
 
 .profile-display-boards  div {

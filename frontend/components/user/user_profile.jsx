@@ -41,9 +41,9 @@ class UserProfile extends React.Component{
             }
         } else {
             return (
-                <div>
+                <div className="index-container" >
                     <h1 id='header'>{owner.username}'s Latest Pins</h1>
-                    <div className="index-container" >
+                    <div className='pin-index-container'>
                         {
                             userPins.reverse().map((pin) => (
                                 <PinIndexItem
@@ -53,7 +53,7 @@ class UserProfile extends React.Component{
                                 />
                             ))
                         }
-                    </div >
+                    </div>
                 </div>
             )
         }

@@ -22,6 +22,7 @@ import BoardIndexContainer from './board/board_index_container';
 import BoardShowContainer from './board/board_show_container';
 import UsersBoardsContainer from './board/users_boards_container';
 import UserShowContainer from './user/user_profile_container';
+import UserToolsContainer from '../components/user_tools/user_tools_container';
 import Footer from './splash/footer.jsx';
 
 class App extends React.Component{
@@ -57,10 +58,6 @@ class App extends React.Component{
                         <div className='nav-links'>
                             <ModalContainer />
                             <GreetingContainer />
-                            {/* <ul id='nav-list'>
-                                <li><ModalContainer /></li>
-                                <li><GreetingContainer /></li>
-                            </ul> */}
                         </div>  
                     </div>
                 </div>
@@ -78,10 +75,8 @@ class App extends React.Component{
                             <ProtectedRoute exact path='/boards/' component={BoardIndexContainer} />
                         </Switch>
                     </div>
-                    <div className='user-tools'>
-
-                    </div>
                 </div>
+                <UserToolsContainer/>
                 <Footer />
             </div>
         );
