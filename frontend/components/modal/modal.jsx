@@ -24,8 +24,6 @@ class Modal extends React.Component {
                     {this.props.modal === 'pin' ? < PinShowContainer /> :
                         (this.props.modal === 'login' ? < SessionFormContainer /> :
                             <SignupFormContainer />)}
-
-
                 </div>
             </div>
         )

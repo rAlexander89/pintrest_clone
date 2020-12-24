@@ -1,0 +1,49 @@
+// #90{
+  // animation: rotate-center-90 0.6s ease-in-out both;
+// 
+// }
+
+.r45{
+  // -webkit-animation: rotate-center-45 0.6s ease-in-out both;
+  // animation: rotate-center-45 0.6s ease-in-out both;
+  // transform: rotate(45deg) 0.6s ease-in-out;
+  transform: rotate(225deg);
+  transition-duration: 0.25s;
+}
+
+.r90{
+  transform: rotate(0deg);
+  transition-duration: 0.25s;
+
+}
+
+#hidden{
+  display: none;
+  translate: 20px;
+  transition-duration: 0.25s;
+}
+ 
+#reveal{
+    transition-duration: 0.25s;
+}
+
+@keyframes rotate-center-45 {
+  0% {
+    // -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    // -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+}
+@keyframes rotate-center-90 {
+  0% {
+    // -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    // -webkit-transform: rotate(45deg);
+            transform: rotate(90deg);
+  }
+}
