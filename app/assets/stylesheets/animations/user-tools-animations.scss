@@ -4,46 +4,40 @@
 // }
 
 .r45{
-  // -webkit-animation: rotate-center-45 0.6s ease-in-out both;
-  // animation: rotate-center-45 0.6s ease-in-out both;
-  // transform: rotate(45deg) 0.6s ease-in-out;
   transform: rotate(225deg);
   transition-duration: 0.25s;
+  // z-index:20;
+  // background: white;
 }
 
 .r90{
   transform: rotate(0deg);
   transition-duration: 0.25s;
+//   // z-index:20;
+  // background: white;
 
+}
+
+#hidden, #shift{
+  // display: none;
+  transform: translateY(120px);
+  transition-duration: 0.25s;
+  z-index: -1;
 }
 
 #hidden{
-  display: none;
-  translate: 20px;
-  transition-duration: 0.25s;
-}
- 
-#reveal{
-    transition-duration: 0.25s;
+  animation: fade 0.1s forwards;
 }
 
-@keyframes rotate-center-45 {
-  0% {
-    // -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-  100% {
-    // -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-  }
+
+ 
+#reveal, #shift-reveal{
+  // visibility: visible;
+  transition-duration: 0.25s;
+  // transform: translateY(0px);
 }
-@keyframes rotate-center-90 {
-  0% {
-    // -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-  100% {
-    // -webkit-transform: rotate(45deg);
-            transform: rotate(90deg);
-  }
+
+@keyframes fade {
+  from {opacity: 1;}
+  to {opacity: 0;}
 }

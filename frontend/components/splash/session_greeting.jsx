@@ -22,7 +22,6 @@ class SessionGreeting extends React.Component{
                 </div>
             </div>
         )
-
     }
 }
 
