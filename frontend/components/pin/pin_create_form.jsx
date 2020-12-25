@@ -206,17 +206,13 @@ class CreatePinForm extends React.Component {
 
         let backgroundImage = this.state.photoUrl || this.state.backroundImage
         let dropMessage = this.state.dropMessage
-        let removeIcon = "no-image"
         
-        if (this.state.photoUrl) {
-            dropMessage = "",
-            removeIcon = "remove-preview"
+        if (this.state.photoUrl){
+            dropMessage = ""
         }
         
         return (
         <div className='image-preview'>
-            {/* <div className={this.state.display}  > */}
-            <div>
 
                 <DropZone
                 onDrop={this.onDrop}
@@ -239,18 +235,10 @@ class CreatePinForm extends React.Component {
                     </div>
                 )}
                 </DropZone>
-            </div>
 
-
-            {this.clearPhoto()}
-
-                {/* <button className={removeIcon} onClick={this.removePreview}>
-                    remove image
-                </button> */}
-
+                {this.clearPhoto()}
         </div>
-
-        );
+        )
     }
 
   removePreview() {
@@ -264,48 +252,49 @@ class CreatePinForm extends React.Component {
     render() {
         let { title, description, photoUrl, working, author_id } = this.state;
         let { boards } = this.props;
-        let preview = photoUrl ? photoUrl : null;
+        // let preview = photoUrl ? photoUrl : null;
         
             return (
                 <div className="pin-create-container">
-                    {/* <div className="image-preview" style={{backgroundImage: `url(${preview})`}} > */}
-                        {/* {preview} */}
-                    {/* </div> */}
-
-                    {this.dropZone()}
-
-                    <div className="pin-details">
-                        <div className="pin-add-title">
-                            <input
-                                id='pin-title'
-                                type="text"
-                                placeholder="pin title"
-                                value={title}
-                                onChange={this.update("title")}
-                                />
-                                {this.displayErrors('title')}
+                    <div className='row'>
+                        <div className='column-pin-create'>
+                            {this.dropZone()}
                         </div>
-                        <br/>
-                            
-                            {this.selectUserBoards(author_id, boards)}
-                        <br/>
-    
-                        <div>
-                            <textarea
-                                placeholder="give us a blurb about your pin"
-                                value={description}
-                                onChange={this.update("description")}
-                                />
-                            {this.displayErrors('desc')}
-                        </div>
-                            <input type="file" name="file-upload" id="file-upload" onChange={this.handleFile} />
-                            <label htmlFor="file-upload">
-                            </label>
-                            <br/>
-                            <br/>
-                        <div className='submit-buttons'>
-                            {this.saveButton()}
-                        <div>
+
+                        <div className='column-pin-create'>
+                            <div className="pin-details">
+                                <div className="pin-add-title">
+                                    <input
+                                        id='pin-title'
+                                        type="text"
+                                        placeholder="pin title"
+                                        value={title}
+                                        onChange={this.update("title")}
+                                        />
+                                        {this.displayErrors('title')}
+                                </div>
+
+                                <br/>
+                                    {this.selectUserBoards(author_id, boards)}
+                                <br/>
+            
+                                <div>
+                                    <textarea
+                                        className='pin-blurb'
+                                        placeholder="give us a blurb about your pin"
+                                        value={description}
+                                        onChange={this.update("description")}
+                                        />
+                                    {this.displayErrors('desc')}
+                                </div>
+                                    <input type="file" name="file-upload" id="file-upload" onChange={this.handleFile} />
+                                    <label htmlFor="file-upload">
+                                    </label>
+                                    <br/>
+                                    <br/>
+                                <div className='submit-buttons'>
+                                    {this.saveButton()}
+                                </div>
                             </div>
                         </div>
                     </div>
