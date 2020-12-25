@@ -18,8 +18,6 @@
     overflow-y: auto;
     max-width: 1000px;
     overflow-y: auto;
-
-
 }
 
 
@@ -27,13 +25,10 @@
 .modal-tab{
     height: 45px;
     width: 100%;
-    background: #2d2d2d;
+    background: #ffffff;
     margin: auto;
     border-radius: 10px 10px 0px 0px;
-    -webkit-box-shadow: inset 0px 0px 15px 4px rgba(0,0,0,0.50);
-    -moz-box-shadow: inset 0px 0px 15px 4px rgba(0,0,0,0.50);
-    box-shadow: inset 0px 0px 15px 4px rgba(0,0,0,0.50);
-    //text specific
+    border: 1px solid rgba(175,175,175, 0.5);
     text-align:left;
     padding-left: 15px;
     padding-top: 15px;
@@ -47,8 +42,6 @@
 .close-tab{
     width:50px;
     height:40px;
-    color: #8a8a8a;
+    color: rgb(34,34,34);
     text-shadow: 0px 1px #000;
-    
-
 }

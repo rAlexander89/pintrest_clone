@@ -59,29 +59,32 @@ class BoardCreate extends React.Component {
 
     render() {
         return (
-            <div className='board-create-container'>
-                <div className="pin-details">
-                        <div className="pin-add-title">
-                            <input
-                                id='pin-title'
-                                type="text"
-                                placeholder="board title"
-                                value={this.state.title}
-                                onChange={this.update("title")} />
-                            {this.displayErrors('title')}
-                        </div>
+            <div className='column-board-create'>
+                <div className='board-create-container'>
+                    <div className="pin-details">
+                            <div className="pin-add-title">
+                                <input
+                                    id='pin-title'
+                                    type="text"
+                                    placeholder="board title"
+                                    value={this.state.title}
+                                    onChange={this.update("title")} />
+                                {this.displayErrors('title')}
+                            </div>
 
-                        <div>
-                            <textarea
-                                placeholder="give us a blurb about your board"
-                                value={this.state.description}
-                                onChange={this.update("description")} />
-                            {this.displayErrors('desc')}
+                            <div>
+                                <textarea
+                                    className='board-blurb'
+                                    placeholder="give us a blurb about your board"
+                                    value={this.state.description}
+                                    onChange={this.update("description")} />
+                                {this.displayErrors('desc')}
+                            </div>
+                            <div className="pin-top-buttons">
+                                <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
+                            </div>
                         </div>
-                        <div className="pin-top-buttons">
-                            <button id="save-pin" className="save-pin" onClick={this.handleSubmit}>Save</button>
-                        </div>
-                    </div>
+                </div>
             </div>  
         );
     }

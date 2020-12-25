@@ -1,68 +1,54 @@
 .content-container{
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: center;
-    // max-width: 1400px;
-    // width: 100%;
-    // height: 100%;
-    // margin-top: 10px;
-    // align-items: center;
-    // padding: 0px 15px 0px 15px;
-    // box-sizing: border-box; 
-    // overflow-y: auto;
-    // margin: auto;
-    // background: red;
 }
 
 .pin-show-container, .pin-create-container,.board-create-container{
-    // margin: auto;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: center;
-    // max-width: 1000px;
-    // min-width: 540px;
-    // flex-flow: wrap;
-    // height: 100%;
-    // width: 100%;
-    // background: red;
-    
 }
 
 
 
 .pin-show {
-  overflow-y: auto;
-  height: 100%;
+    overflow-y: auto;
+    height: 100%;
 }
 
 .row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  height: auto;
-  overflow-y: auto;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+    justify-content: center;
 }
 
 .row > div {
-    margin: 8px;
+    margin: 8px;        
 }
 
 .column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-basis: 100%;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 100%;
 }
 
 .column-pin-create{
     width: 352px;
 }
 
+.column-board-create{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.board-create-container{
+    width: 352px;
+}
+
 .pin-show-item {
-  height: auto;
+    height: auto;
 }
 
 @media screen and (min-width: 500px) {

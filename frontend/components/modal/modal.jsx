@@ -21,7 +21,7 @@ class Modal extends React.Component {
             case 'board':
                 return <BoardCreateContainer/>
         }
-            
+
     }
 
    
@@ -35,7 +35,7 @@ class Modal extends React.Component {
             <div className="modal-background">
                 <div className="modal-child" onClick={e => e.stopPropagation()}>
                     <div className='modal-tab'>
-                        <div onClick={this.props.closeModal} className='close-tab'>close</div>
+                        <div onClick={this.props.closeModal} className='close-tab'>x</div>
                     </div>
                     {this.renderModal(type)}
                 </div>

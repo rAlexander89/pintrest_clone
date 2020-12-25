@@ -37,7 +37,7 @@ class UserTools extends React.Component{
                         <Icons icon={'newPin'}/>
                     </div>
 
-                    <div className='user-tools-item' id='reveal' onClick={() => this.modalFunc('pin')}>
+                    <div className='user-tools-item' id='reveal' onClick={() => this.modalFunc('board')}>
                             <Icons icon={'newBoard'}/>
                     </div>
 

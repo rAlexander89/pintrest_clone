@@ -11,21 +11,17 @@ class CreatePinForm extends React.Component {
             boardId: '',
             owner: this.props.user.username,
             author_id: this.props.author_id,
-            // photoFile: '',
-            // photoUrl: '',
             photoFile: null,
             photoUrl: null,
             display: 'image-preview',
             dropMessage: "Drag and drop or click to upload",
             dropPreviewMessage: "Drop To Preview!",
             dropErrorMessage: "Invalid File",
-            status: "immage-not-saved",
             backroundImage: "https://i.imgur.com/elPWvzM.png"
         }
 
         this.update = this.update.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleFile = this.handleFile.bind(this)
         this.selectUserBoards = this.selectUserBoards.bind(this)
         this.displayErrors = this.displayErrors.bind(this)
         this.saveButton = this.saveButton.bind(this)
@@ -135,27 +131,6 @@ class CreatePinForm extends React.Component {
             .then(() => this.props.clearErrors())
     }
 
-
-    showImage() {
-        document.getElementById("image-preview").classList.toggle("image-load");
-    }
-
-
-    handleFile(e) {
-        e.preventDefault();
-        let file = e.currentTarget.files[0];
-        let fileReader = new FileReader();
-        fileReader.onloadend = () => {
-            this.setState({
-                photoFile: file,
-                photoUrl: fileReader.result,
-            });
-            this.showImage();
-        }
-        if (file) fileReader.readAsDataURL(file);
-    }
-
-
     saveButton(){
         let { photoFile } = this.state
 
@@ -252,7 +227,6 @@ class CreatePinForm extends React.Component {
     render() {
         let { title, description, photoUrl, working, author_id } = this.state;
         let { boards } = this.props;
-        // let preview = photoUrl ? photoUrl : null;
         
             return (
                 <div className="pin-create-container">
@@ -287,10 +261,6 @@ class CreatePinForm extends React.Component {
                                         />
                                     {this.displayErrors('desc')}
                                 </div>
-                                    <input type="file" name="file-upload" id="file-upload" onChange={this.handleFile} />
-                                    <label htmlFor="file-upload">
-                                    </label>
-                                    <br/>
                                     <br/>
                                 <div className='submit-buttons'>
                                     {this.saveButton()}
