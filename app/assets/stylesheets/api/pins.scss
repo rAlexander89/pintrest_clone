@@ -1,3 +1,36 @@
 // Place all the styles related to the api/pins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.image-preview{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 350px;
+    height: 590px;
+}
+
+.image-window{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.background-image{
+    width: 350px;
+    height: 550px;
+    border-radius: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background: rgb(223, 223, 223);
+    border: 1px solid rgba(175,175,175, 0.5);
+    object-fit: contain;
+}
+
+.drop-message{
+    text-align: center;
+}

@@ -14,7 +14,7 @@ const mDTP = dispatch => {
     return {
         clearErrors: () => dispatch(clearErrors()),
         closeModal: () => dispatch(closeModal()),
-        openModal: () => dispatch(openModal())
+        openModal: (type) => dispatch(openModal(type))
     };
 };
 

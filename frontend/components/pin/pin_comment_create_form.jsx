@@ -39,7 +39,6 @@ class PinCreateCommentForm extends React.Component {
     
     
     render() {
-        // const {comment_txt} = this.state;
         return (
             <form className='comment-form'>
                 <textarea

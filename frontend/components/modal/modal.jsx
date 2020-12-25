@@ -1,6 +1,8 @@
 import React from 'react';
 import SessionFormContainer from '../session_form/session_form_container';
-import PinShowContainer from '../pin/pin_show';
+// import PinShowContainer from '../pin/pin_show';
+import PinCreateContainer from '../pin/pin_create_container'
+import BoardCreateContainer from '../board/board_create_container'
 
 
 
@@ -8,12 +10,26 @@ class Modal extends React.Component {
     constructor(props) {
         super(props)
         this.state = { modal: this.props.modal };
+        this.renderModal = this.renderModal.bind(this)
+    }
+
+
+    renderModal(type){
+        switch(type){
+            case 'pin':
+                return <PinCreateContainer/>
+            case 'board':
+                return <BoardCreateContainer/>
+        }
+            
     }
 
    
 
     render() {
+
         if (!this.props.modal) return null;
+        let { type } = this.props.modal
 
         return (
             <div className="modal-background">
@@ -21,9 +37,7 @@ class Modal extends React.Component {
                     <div className='modal-tab'>
                         <div onClick={this.props.closeModal} className='close-tab'>close</div>
                     </div>
-                    {this.props.modal === 'pin' ? < PinShowContainer /> :
-                        (this.props.modal === 'login' ? < SessionFormContainer /> :
-                            <SignupFormContainer />)}
+                    {this.renderModal(type)}
                 </div>
             </div>
         )

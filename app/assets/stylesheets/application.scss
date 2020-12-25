@@ -54,7 +54,6 @@
     -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.36);
     -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.36);
     box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.36);
-    // box-shadow: 0px 0px 10px 0px#2d2d2d;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,14 +62,18 @@
 }
 
 @media only screen and (max-width: 900px) {
-  .content-header, .content-display, #header  {
+  .content-header, .content-display, #header, .modal-child  {
     width: 500px;
   }
 }
 
 
 @media only screen and (min-width: 901px) {
-  .content-header, .content-display, #header {
+  .content-header, .content-display, #header, .modal-child {
     width: 60%;
   }
+}
+
+a{
+  cursor: pointer;
 }

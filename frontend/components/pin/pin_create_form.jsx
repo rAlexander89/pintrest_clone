@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import DropZone from 'react-dropzone'
 
 class CreatePinForm extends React.Component {
     constructor(props) {
@@ -10,15 +11,26 @@ class CreatePinForm extends React.Component {
             boardId: '',
             owner: this.props.user.username,
             author_id: this.props.author_id,
-            photoFile: '',
-            photoUrl: ''
+            // photoFile: '',
+            // photoUrl: '',
+            photoFile: null,
+            photoUrl: null,
+            display: 'image-preview',
+            dropMessage: "Drag and drop or click to upload",
+            dropPreviewMessage: "Drop To Preview!",
+            dropErrorMessage: "Invalid File",
+            status: "immage-not-saved",
+            backroundImage: "https://i.imgur.com/elPWvzM.png"
         }
-        this.update = this.update.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleFile = this.handleFile.bind(this);
-        this.selectUserBoards = this.selectUserBoards.bind(this);
-        this.displayErrors = this.displayErrors.bind(this);
-        this.saveButton = this.saveButton.bind(this);
+
+        this.update = this.update.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleFile = this.handleFile.bind(this)
+        this.selectUserBoards = this.selectUserBoards.bind(this)
+        this.displayErrors = this.displayErrors.bind(this)
+        this.saveButton = this.saveButton.bind(this)
+        this.onDrop = this.onDrop.bind(this)
+        this.removePreview = this.removePreview.bind(this);
     }
 
     componentDidMount() {
@@ -72,7 +84,6 @@ class CreatePinForm extends React.Component {
     }
 
     update(field) {
-        
         return e => {
             this.setState({ [field]: e.currentTarget.value })
         }
@@ -132,8 +143,8 @@ class CreatePinForm extends React.Component {
 
     handleFile(e) {
         e.preventDefault();
-        const file = e.currentTarget.files[0];
-        const fileReader = new FileReader();
+        let file = e.currentTarget.files[0];
+        let fileReader = new FileReader();
         fileReader.onloadend = () => {
             this.setState({
                 photoFile: file,
@@ -144,9 +155,11 @@ class CreatePinForm extends React.Component {
         if (file) fileReader.readAsDataURL(file);
     }
 
+
     saveButton(){
         let { photoFile } = this.state
-        if (typeof photoFile == 'string' ){
+
+        if (photoFile === null ){
             return null 
         } else {
             return(
@@ -157,16 +170,110 @@ class CreatePinForm extends React.Component {
         }
     }
 
+
+    clearPhoto(){
+        let { photoFile } = this.state
+
+        if (photoFile === null ){
+            return null 
+            
+        } else {
+            return(
+                <button className='clear-pin' onClick={this.removePreview}>
+                    Clear Pin
+                </button>
+            )
+        }
+    }
+    
+    onDrop(acceptedFiles) {
+        let file = acceptedFiles[0];
+        let fileReader = new FileReader();
+
+        fileReader.onloadend = () => {
+            this.setState({ 
+                photoFile: file, 
+                photoUrl: fileReader.result 
+            });
+        };
+
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
+    }
+
+      dropZone() {
+
+        let backgroundImage = this.state.photoUrl || this.state.backroundImage
+        let dropMessage = this.state.dropMessage
+        let removeIcon = "no-image"
+        
+        if (this.state.photoUrl) {
+            dropMessage = "",
+            removeIcon = "remove-preview"
+        }
+        
+        return (
+        <div className='image-preview'>
+            {/* <div className={this.state.display}  > */}
+            <div>
+
+                <DropZone
+                onDrop={this.onDrop}
+                accept="image/*"
+                minSize={0}
+                maxSize={20000000}
+                >
+
+                {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
+                    <div {...getRootProps()} className="heightUpload txt-light">
+                    <input {...getInputProps()} className="txt-light" />
+                        <img className="background-image" src={backgroundImage}/>
+                        
+                        <div className="drop-message">
+                            {!isDragActive && dropMessage}
+                            {!isDragActive && ""}
+                            {isDragActive && !isDragReject && this.state.dropPreviewMessage}
+                            {isDragReject && this.state.dropErrorMessage}
+                        </div>
+                    </div>
+                )}
+                </DropZone>
+            </div>
+
+
+            {this.clearPhoto()}
+
+                {/* <button className={removeIcon} onClick={this.removePreview}>
+                    remove image
+                </button> */}
+
+        </div>
+
+        );
+    }
+
+  removePreview() {
+    this.setState({ 
+        photoFile: null,
+        photoUrl: null 
+    })
+  }
+
+
     render() {
-        const { title, description, photoUrl, working, author_id } = this.state;
-        const { boards } = this.props;
-        const preview = photoUrl ? <img id="image-preview" src={photoUrl} /> : null;
+        let { title, description, photoUrl, working, author_id } = this.state;
+        let { boards } = this.props;
+        let preview = photoUrl ? photoUrl : null;
         
             return (
                 <div className="pin-create-container">
-                    <div className="image-preview">
-                        {preview}
-                    </div>
+                    {/* <div className="image-preview" style={{backgroundImage: `url(${preview})`}} > */}
+                        {/* {preview} */}
+                    {/* </div> */}
+
+                    {this.dropZone()}
+
                     <div className="pin-details">
                         <div className="pin-add-title">
                             <input
