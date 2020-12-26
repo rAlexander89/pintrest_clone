@@ -1,10 +1,11 @@
 
-import { connect } from 'react-redux';
-import CreatePinForm from './pin_create_form';
-import { clearErrors } from '../../actions/session_actions';
-import { createPin } from '../../actions/pin_actions';
-import { fetchBoards } from '../../actions/board_actions';
+import { connect } from 'react-redux'
+import CreatePinForm from './pin_create_form'
+import { clearErrors } from '../../actions/session_actions'
+import { createPin } from '../../actions/pin_actions'
+import { fetchBoards } from '../../actions/board_actions'
 import { savePinToBoard } from '../../actions/pin_actions'
+import { closeModal } from '../../actions/modal_actions'
 
 const mSTP = (state) => {
     return{
@@ -19,6 +20,7 @@ const mDTP = dispatch => {
     return{
         createPin: pin => dispatch(createPin(pin)),
         clearErrors: () => dispatch(clearErrors()),
+        closeModal: () => dispatch(closeModal()),
         savePinToBoard: boardPin => dispatch(savePinToBoard(boardPin)),
         fetchBoards: () => dispatch(fetchBoards())
     }

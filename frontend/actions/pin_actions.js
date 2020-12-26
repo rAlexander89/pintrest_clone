@@ -1,5 +1,6 @@
 
 import * as PinAPIUtil from '../util/pin_api_util';
+import { closeModal } from './modal_actions';
 
 export const RECEIVE_PINS = "RECEIVE_PINS";
 export const RECEIVE_PIN = "RECEIVE_PIN";

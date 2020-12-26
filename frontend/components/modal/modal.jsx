@@ -9,27 +9,26 @@ import BoardCreateContainer from '../board/board_create_container'
 class Modal extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { modal: this.props.modal };
+        this.state = { modal: this.props.modal }
         this.renderModal = this.renderModal.bind(this)
     }
 
 
-    renderModal(type){
+    renderModal(type, history){
         switch(type){
             case 'pin':
-                return <PinCreateContainer/>
+                return <PinCreateContainer history={history}/>
             case 'board':
-                return <BoardCreateContainer/>
+                return <BoardCreateContainer history={history}/>
         }
-
     }
-
-   
 
     render() {
 
         if (!this.props.modal) return null;
         let { type } = this.props.modal
+        let { history } = this.props
+        debugger
 
         return (
             <div className="modal-background">
@@ -37,7 +36,7 @@ class Modal extends React.Component {
                     <div className='modal-tab'>
                         <div onClick={this.props.closeModal} className='close-tab'>x</div>
                     </div>
-                    {this.renderModal(type)}
+                    {this.renderModal(type, history)}
                 </div>
             </div>
         )

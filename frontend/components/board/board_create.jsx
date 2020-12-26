@@ -18,9 +18,8 @@ class BoardCreate extends React.Component {
         this.props.createBoard(this.state).then(
             this.props.clearErrors()
         )
-        .then(board => this.props.history.push(
-            `/boards`
-        ))
+        .then(this.props.closeModal())
+        .then(this.props.history.push(`/boards`))
     }
     
     handleChange(field) {

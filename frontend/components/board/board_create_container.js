@@ -14,7 +14,8 @@ const mSTP = (state) => {
 const mDTP = dispatch => {
     return{
         createBoard: board => dispatch(createBoard(board)),
-        clearErrors: () => dispatch(clearErrors())
+        clearErrors: () => dispatch(clearErrors()),
+        closeModal: () => dispatch(closeModal())
     }
 }
 

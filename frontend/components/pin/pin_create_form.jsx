@@ -1,6 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import DropZone from 'react-dropzone'
+import { pinSuccess } from '../misc_functions/alerts'
+import Swal from 'sweetalert2'
+import { clearErrors } from '../../actions/session_actions'
+
+
 
 class CreatePinForm extends React.Component {
     constructor(props) {
@@ -17,7 +22,7 @@ class CreatePinForm extends React.Component {
             dropMessage: "Drag and drop or click to upload",
             dropPreviewMessage: "Drop To Preview!",
             dropErrorMessage: "Invalid File",
-            backroundImage: "https://i.imgur.com/elPWvzM.png"
+            backroundImage: "https://i.imgur.com/elPWvzM.png",
         }
 
         this.update = this.update.bind(this)
@@ -26,13 +31,17 @@ class CreatePinForm extends React.Component {
         this.displayErrors = this.displayErrors.bind(this)
         this.saveButton = this.saveButton.bind(this)
         this.onDrop = this.onDrop.bind(this)
-        this.removePreview = this.removePreview.bind(this);
+        this.removePreview = this.removePreview.bind(this)
+        this.closeAndRedirect = this.closeAndRedirect.bind(this)
     }
 
+    
     componentDidMount() {
         this.props.fetchBoards()
         this.props.clearErrors()
     }
+
+
 
 
     selectUserBoards(userId, boards){
@@ -113,10 +122,22 @@ class CreatePinForm extends React.Component {
        }
     }
 
+    closeAndRedirect(pin){
+        this.props.clearErrors()
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Pin created! Redirecting...',
+            timer: 2500
+        })
+        this.props.closeModal()
+        this.props.history.push(`/pins/${pin.pin.id}`)
+    }
+
 
     handleSubmit(e) {
         e.preventDefault();
-        const { title, description, photoFile, boardId, author_id, owner } = this.state;
+        const { title, description, photoFile, boardId, author_id, owner} = this.state;
         const formData = new FormData();
 
         formData.append('pin[title]', title);
@@ -125,10 +146,10 @@ class CreatePinForm extends React.Component {
         formData.append('pin[description]', description);
         formData.append('pin[photo]', photoFile);
         formData.append('pin[board_id]', boardId);
+
         
         this.props.createPin(formData)
-            .then( pin => this.props.history.push(`/pins/${pin.pin.id}`))
-            .then(() => this.props.clearErrors())
+            .then( pin => this.closeAndRedirect(pin))
     }
 
     saveButton(){
@@ -227,6 +248,8 @@ class CreatePinForm extends React.Component {
     render() {
         let { title, description, photoUrl, working, author_id } = this.state;
         let { boards } = this.props;
+
+        debugger
         
             return (
                 <div className="pin-create-container">

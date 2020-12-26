@@ -1,10 +1,12 @@
-import { connect } from 'react-redux';
-import { closeModal } from '../../actions/modal_actions';
+import { connect } from 'react-redux'
+import { closeModal } from '../../actions/modal_actions'
 import Modal from './modal'
+import { withRouter } from 'react-router-dom'
 
-const mSTP = ({ ui }) => {
+// const mSTP = ({ ui }) => {
+const mSTP = (state) => {
     return {
-        modal: ui.modal,
+        modal: state.ui.modal,
     };
 };
 
@@ -14,4 +16,4 @@ const mDTP = dispatch => {
     };
 };
 
-export default connect(mSTP, mDTP)(Modal);
+export default withRouter(connect(mSTP, mDTP)(Modal));
