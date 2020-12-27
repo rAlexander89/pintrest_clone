@@ -1,7 +1,7 @@
 class Api::BoardPinsController < ApplicationController
 
     def index
-        @board_pins = BoardPin.all
+        @board_pins = Pin.where(board_id: params[:board_id])
         render :index
     end
 

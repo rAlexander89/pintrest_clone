@@ -2,9 +2,11 @@ import * as BoardAPIUtil from '../util/board_api_util';
 
 export const RECEIVE_BOARDS = "RECEIVE_BOARDS";
 export const RECEIVE_BOARD = "RECEIVE_BOARD";
+// export const RECEIVE_BOARD_PINS = "RECEIVE_BOARD_PINS"; 
 export const REMOVE_BOARD = "REMOVE_BOARD";
 export const RECEIVE_BOARD_ERRORS = "RECEIVE_BOARD_ERRORS";
 export const RECEIVE_BOARD_PINS = "RECEIVE_BOARD_PINS";
+
 
 export const receiveBoards = boards => ({
     type: RECEIVE_BOARDS,
@@ -39,7 +41,7 @@ export const fetchBoards = () => dispatch => {
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }
 
-export const fetchBoard = (board) => dispatch => {
+export const fetchBoard = board => dispatch => {
     return BoardAPIUtil.fetchBoard(board)
         .then(board => dispatch(receiveBoard(board)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
@@ -63,8 +65,8 @@ export const deleteBoard = (userId, boardId) => dispatch => {
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }
 
-export const fetchBoardPins = () => dispatch => {
-    return BoardAPIUtil.fetchBoardPins()
+export const fetchBoardPins = boardData => dispatch => {
+    return BoardAPIUtil.fetchBoardPins(boardData)
         .then(boardPins => dispatch(receiveBoardPins(boardPins)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))
 }

@@ -7,7 +7,7 @@ export const fetchBoards = () => {
 
 export const fetchBoard = (board) => {
     return $.ajax({
-        url: `/api/users/${board.author_id}/boards/${board.board_id}`,
+        url: `/api/users/${board.author_id}/boards/${board.id}`,
         method: "GET"
     })
 }
@@ -35,9 +35,10 @@ export const deleteBoard = (userId, boardId) => {
     })
 }
 
-export const fetchBoardPins = () => {
+export const fetchBoardPins = board_id => {
     return $.ajax({
         url: '/api/board_pins/',
-        method: 'GET'
+        method: 'GET',
+        data: { board_id }
     })
 }

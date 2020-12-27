@@ -1,7 +1,6 @@
 
 export const selectBoardPins = (pins, boardId) => {
     if (!pins) return null;
-    // if (Object.values(pins).length === 0) return null;
     let pinsOnBoard = [];
     Object.values(pins).forEach(pin => {
         if (pin.board_id === parseInt(boardId)){

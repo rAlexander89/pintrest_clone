@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import DropZone from 'react-dropzone'
-import { pinSuccess } from '../misc_functions/alerts'
 import Swal from 'sweetalert2'
-import { clearErrors } from '../../actions/session_actions'
 
 
 
@@ -128,7 +126,9 @@ class CreatePinForm extends React.Component {
             icon: 'success',
             title: 'Success!',
             text: 'Pin created! Redirecting...',
-            timer: 2500
+            timer: 3000,
+            showCancelButton: false,
+            showConfirmButton: false
         })
         this.props.closeModal()
         this.props.history.push(`/pins/${pin.pin.id}`)
@@ -248,8 +248,6 @@ class CreatePinForm extends React.Component {
     render() {
         let { title, description, photoUrl, working, author_id } = this.state;
         let { boards } = this.props;
-
-        debugger
         
             return (
                 <div className="pin-create-container">

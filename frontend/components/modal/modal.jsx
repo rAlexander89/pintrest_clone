@@ -28,7 +28,6 @@ class Modal extends React.Component {
         if (!this.props.modal) return null;
         let { type } = this.props.modal
         let { history } = this.props
-        debugger
 
         return (
             <div className="modal-background">

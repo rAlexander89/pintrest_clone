@@ -6,26 +6,29 @@ import { selectBoardPins } from '../../reducers/selectors';
 
 import BoardShow from './board_show';
 
-const mSTP = ({ entities: { boards, pins, users }, session, errors }, ownProps) => {
+const mSTP = ({ entities: { boards, pins, users, boardPins }, session, errors }, ownProps) => {
 
     let board_data = ownProps.match.params;
     let board = boards[ownProps.match.params.boardId];
-    let owner_id = board ? board_data.userId : undefined;
-    let all_pins = pins
+    // let owner_id = board ? board_data.userId : undefined;
+    // let all_pins = pins
 
     return {
         currentUser: users[session.currentUserId],
-        owner: users[owner_id],
+        author: users[ownProps.match.params.userId],
         board,
         board_data,
-        pins: pins,
-        thisBoardsPins: selectBoardPins(all_pins, board_data.boardId)
+        boardPins
+        // pins: pins,
+        // thisBoardsPins: selectBoardPins(all_pins, board_data.boardId)
+        // thisBoardsPins: selectBoardPins(all_pins, ownProps.match.params.boardId)
     }
 }
 
 const mDTP = (dispatch) => {
     return {
         fetchBoard: board => dispatch(fetchBoard(board)),
+        fetchBoardPins: board => dispatch(fetchBoardPins(board)),
         deleteBoard: (userId, boardId) => dispatch(deleteBoard(userId, boardId)),
         fetchPins: () => dispatch(fetchPins()),
         fetchUsers: () => dispatch(fetchUsers())

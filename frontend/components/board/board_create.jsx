@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2'
 
 class BoardCreate extends React.Component {
     constructor(props) {
@@ -11,16 +12,30 @@ class BoardCreate extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.update = this.update.bind(this)
         this.displayErrors = this.displayErrors.bind(this)
+        this.closeAndRedirect = this.closeAndRedirect.bind(this)
+    }
+
+    closeAndRedirect(board){
+        this.props.clearErrors()
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Board created! Redirecting...',
+            timer: 3000,
+            showCancelButton: false,
+            showConfirmButton: false
+        })
+        this.props.closeModal()
+        this.props.history.push(`/users/${board.board.author_id}/boards/${board.board.id}`)
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createBoard(this.state).then(
-            this.props.clearErrors()
-        )
-        .then(this.props.closeModal())
-        .then(this.props.history.push(`/boards`))
+        this.props.createBoard(this.state)
+        .then(board => this.closeAndRedirect(board))
     }
+
+
     
     handleChange(field) {
         return e => {

@@ -11,11 +11,12 @@ class UserTools extends React.Component{
         this.modalFunc = this.modalFunc.bind(this)
     }
     
-    modalFunc(props){
+    modalFunc(props, show){
         let modalObject = {
             type: props
         }
         this.props.openModal(modalObject)
+        this.setState({ show: !show })
     }
     
     createOptions(show){
@@ -33,11 +34,11 @@ class UserTools extends React.Component{
                         </a>
                     </div>
             
-                    <div className='user-tools-item' id='reveal' onClick={() => this.modalFunc('pin')}>
+                    <div className='user-tools-item' id='reveal' onClick={() => this.modalFunc('pin', show)}>
                         <Icons icon={'newPin'}/>
                     </div>
 
-                    <div className='user-tools-item' id='reveal' onClick={() => this.modalFunc('board')}>
+                    <div className='user-tools-item' id='reveal' onClick={() => this.modalFunc('board', show)}>
                             <Icons icon={'newBoard'}/>
                     </div>
 
