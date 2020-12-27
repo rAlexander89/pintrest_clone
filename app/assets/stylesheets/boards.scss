@@ -7,22 +7,20 @@
     font-size: 32px;
     margin-left: 15px;
 }
-// .board-index-container{
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-// }
+
+
+.board-show-det{
+    margin-left: 15px;
+}
 
 .profile-display-boards{
     display: flex;
     align-items: center;
-    // justify-content: center;
     flex-direction: row;
     white-space: nowrap;
     height: 320px;
     overflow-x: auto;
     margin: 0px 10px 0px 10px;
-    // white-space: nowrap;
 }
 
 .profile-display-boards  div {

@@ -1,14 +1,14 @@
 
-export const selectBoardPins = (pins, boardId) => {
-    if (!pins) return null;
-    let pinsOnBoard = [];
-    Object.values(pins).forEach(pin => {
-        if (pin.board_id === parseInt(boardId)){
-                pinsOnBoard.push(pin)
-            }
-    })
-    return pinsOnBoard
-}
+// export const selectBoardPins = (pins, boardId) => {
+//     if (!pins) return null;
+//     let pinsOnBoard = [];
+//     Object.values(pins).forEach(pin => {
+//         if (pin.board_id === parseInt(boardId)){
+//                 pinsOnBoard.push(pin)
+//             }
+//     })
+//     return pinsOnBoard
+// }
 
 export const selectUserIds = (users) => {
     if (Object.values(users).length <= 1) return null;

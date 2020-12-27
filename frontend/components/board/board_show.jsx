@@ -32,7 +32,7 @@ class BoardShow extends React.Component {
             )
         } else {
                 return(
-                <div className="index-container">
+                <div className="pin-index-container">
                     {
                         thisBoardsPins.map(pin => (
                             <PinIndexItem
@@ -68,8 +68,9 @@ class BoardShow extends React.Component {
         if (thisBoardsPins.length === 0 ) return null
 
         return(
-            <div className='content-container'>
-                <div className='board-show-container'>
+            // <div className='content-container'>
+            <div className='index-container'>
+                {/* <div className='board-show-container'> */}
                     <div className='board-show-det'>
                         <div id='board-title'>
                             {board.title}
@@ -83,12 +84,14 @@ class BoardShow extends React.Component {
                         <div id='board-description'>
                             <InlineDisplay editType='board' item={board} objKey={'description'} field={board.description} />
                         </div>
-                         <div className='board-show-items'>
-                             {this.iteratePins(thisBoardsPins)}
-                        </div>
                     </div>
 
-                </div>
+                    {/* <div className='board-show-items'> */}
+
+                {/* </div> */}
+                {/* <div className='pin-index-container'> */}
+                    {this.iteratePins(thisBoardsPins)}
+                {/* </div> */}
 
             </div>
         )
