@@ -60,3 +60,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.empty-board{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    overflow-y: auto;
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import PinIndexItem from '../pin/pin_index_item';
 import InlineDisplay from '../inline_display/inline_display_container'
 import Swal from 'sweetalert2'
+import PinCreateContainer from '../pin/pin_create_container'
 
 
 class BoardShow extends React.Component {
@@ -89,8 +90,9 @@ class BoardShow extends React.Component {
 
         if (thisBoardsPins === null || thisBoardsPins.length === 0){
             return(
-                <div>
-                    This board doesn't have any pins in this board yet!
+                <div className='empty-board'>
+                    This board doesn't have any pins in this board yet! Make one!
+                    <PinCreateContainer history={this.props.history}/>
                 </div>
             )
         } else {
