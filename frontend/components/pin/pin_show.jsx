@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import PinCreateCommentFormContainer from './pin_comment_create_container'
 import CommentIndex from './comment_index'
 import Likes from '../like/likes_container'
+import Swal from 'sweetalert2'
 
 
 
@@ -11,12 +12,65 @@ class PinShow extends React.Component {
     constructor(props){
         super(props)
         this.displayDeleteButton = this.displayDeleteButton.bind(this)
+        this.confirmDelete = this.confirmDelete.bind(this)
+        this.deleteAndRedirect = this.deleteAndRedirect.bind(this)
     }
 
     componentDidMount(){
         this.props.fetchBoards()
         this.props.fetchPin(this.props.match.params.pinId)
         this.props.fetchPinComments(this.props.match.params.pinId)
+    }
+
+      deleteAndRedirect(pin){
+        let _author_id = pin.author_id
+        this.confirmDelete(pin, _author_id)
+    }
+
+    confirmDelete(pin, _author_id){
+        Swal.fire({
+            title: 'Please confirm!',
+            text: 'Are you sure you want to delete this pin?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes'
+        })
+        .then(function(result){
+            if (result.value){
+                $.ajax({
+                    url: `/api/pins/${pin.id}`,
+                    method: "DELETE",
+                    dataType: 'json',
+                    beforeSend: function(){
+                        Swal.fire({
+                            title: 'Please Wait!!!',
+                            text: 'Deleting...',
+                            onOpen: function(){
+                                Swal.showLoading()
+                            }
+                        })
+                    },
+                    success : function(data){
+                        Swal.fire({
+                            type: 'success',
+                            title: 'Pin deleted succesffully!',
+                            showConfirmationButton: false,
+                            timer: 2000
+                        }).then(function(){
+                            location.href=`/#/users/${_author_id}`;
+                        })
+                    },
+                    complete: function(){
+                        Swal.hideLoading();
+                    },
+                    error: function(jqXHR, textStatus, errThrown){
+                        Swal.hideLoading();
+                        Swal.fire('Oops!', 'Something went wrong! Try again!')
+                    }
+                }).then(
+                )
+            }
+        })
     }
 
     
@@ -28,9 +82,7 @@ class PinShow extends React.Component {
                     <div className='pin-sub'>
                         double click title or description to enable edit
                     </div>
-
-                    <div className='pin-delete' onClick={() => this.props.deletePin(pin.id)
-                        .then(this.props.history.push(`/users/${owner.id}`))}>
+                    <div className='pin-delete' onClick={() => this.deleteAndRedirect(pin)}>
                         
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                 width="1em" 
