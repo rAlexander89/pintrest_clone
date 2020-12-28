@@ -5,7 +5,6 @@
 
 #header{
     font-size: 32px;
-    // margin-left: 15px;
 }
 
 
@@ -13,25 +12,22 @@
     margin-left: 15px;
 }
 
+
 .profile-display-boards{
     display: flex;
-    align-items: center;
     flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
     white-space: nowrap;
     height: 320px;
     overflow-x: auto;
     margin: 0px 10px 0px 10px;
+    overflow-x: auto;
 }
 
-.profile-display-boards  div {
-    position: relative;
-    display: inline-block;
-    margin-right: 20px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
 
 .board-index-item{
+    flex: 0 0 auto;
     width: 250px;
     height: 275px;
     text-overflow: ellipsis;
@@ -43,7 +39,6 @@
     -webkit-box-shadow: 0px 10px 8px -4px rgba(45,45,45,0.41);
     -moz-box-shadow: 0px 10px 8px -4px rgba(45,45,45,0.41);
     box-shadow: 0px 10px 8px -4px rgba(45,45,45,0.41);
-
 }
 
 

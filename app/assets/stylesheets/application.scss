@@ -69,12 +69,21 @@
 
 
 
-.pin-index-container, .board-index-container{
+.pin-index-container{
   column-count: 4;
   column-gap: 5px;
   row-gap: 5px;
   margin: 0 auto;
+  height: fit-content;
 }
+
+.board-index-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 
 .pin-index-item img{
   width: 350px;
@@ -82,7 +91,7 @@
 
 
 @media screen and (max-width: 1470px){
-  .pin-index-container, .board-index-container{
+  .pin-index-container{
     column-count: 3;
   }
 
@@ -93,7 +102,7 @@
 
 
 @media screen and (max-width: 1080px){
-  .pin-index-container, .board-index-container{
+  .pin-index-container{
     column-count: 2;
   }
 
@@ -103,7 +112,7 @@
 } 
 
 @media screen and (max-width: 760px){
-  .pin-index-container, .board-index-container{
+  .pin-index-container{
     column-count: 1;
   }
    .content-header, .content-display, #header, .modal-child {
