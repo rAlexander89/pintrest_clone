@@ -89,7 +89,7 @@ class BoardShow extends React.Component {
     iteratePins(thisBoardsPins,  author, currentUser){
 
         if (thisBoardsPins === null || thisBoardsPins.length === 0){
-            if ( auhthor === currentUser){
+            if ( author === currentUser){
                 return(
                      <div className='empty-board'>
                         This board doesn't have any pins in this board yet! Make one!

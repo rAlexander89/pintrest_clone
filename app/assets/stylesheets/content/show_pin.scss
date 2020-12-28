@@ -2,6 +2,11 @@
 }
 
 .pin-show-container, .pin-create-container,.board-create-container{
+    // overflow-y: auto;
+}
+
+.pin-create-container{
+    overflow-y: auto;
 }
 
 
@@ -50,12 +55,6 @@
 .pin-show-item {
     height: auto;
 }
-
-// @media screen and (min-width: 500px) {
-//   .column {
-//     flex: 1
-//   }
-// }
 
 .pin-show-item, .pin-show-det, .peripheral-container {
     width: 500px;
