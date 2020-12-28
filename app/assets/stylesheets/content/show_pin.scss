@@ -51,11 +51,11 @@
     height: auto;
 }
 
-@media screen and (min-width: 500px) {
-  .column {
-    flex: 1
-  }
-}
+// @media screen and (min-width: 500px) {
+//   .column {
+//     flex: 1
+//   }
+// }
 
 .pin-show-item, .pin-show-det, .peripheral-container {
     width: 500px;

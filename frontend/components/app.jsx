@@ -1,14 +1,7 @@
 import React from 'react'
 
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { fab } from '@fortawesome/free-brands-svg-icons'
-// import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-// library.add(fab, faCheckSquare, faCoffee)
-
 import GreetingContainer from './greeting/greeting_container.js';
 import { Route, Switch, Link } from 'react-router-dom';
-
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -56,7 +49,6 @@ class App extends React.Component{
                             <h1 id='nav-title'><Link to='/'>Pintrest</Link></h1>
                         </div>  
                         <div className='nav-links'>
-                            <ModalContainer />
                             <GreetingContainer />
                         </div>  
                     </div>
@@ -78,6 +70,7 @@ class App extends React.Component{
                 </div>
                 <UserToolsContainer/>
                 <Footer />
+                <ModalContainer />
             </div>
         );
     }

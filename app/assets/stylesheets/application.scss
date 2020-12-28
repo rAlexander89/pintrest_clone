@@ -31,7 +31,6 @@
     min-height: 50px;
     box-sizing: border-box;
     align-items: center;
-    padding: 0px 10px 0px 10px;
     top: 0; 
 }
 
@@ -57,22 +56,65 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    
+    cursor: pointer; 
 }
 
-@media only screen and (max-width: 900px) {
-  .content-header, .content-display, #header, .modal-child  {
+
+
+@media only screen and (min-width: 1405px) {
+  .content-header, .content-display, #header, .modal-child {
+    width: 1405px;
+  }
+}
+
+
+
+.pin-index-container, .board-index-container{
+  column-count: 4;
+  column-gap: 5px;
+  row-gap: 5px;
+  margin: 0 auto;
+}
+
+.pin-index-item img{
+  width: 350px;
+}
+
+
+@media screen and (max-width: 1470px){
+  .pin-index-container, .board-index-container{
+    column-count: 3;
+  }
+
+   .content-header, .content-display, #header, .modal-child {
+    width: 1050px;
+  }
+} 
+
+
+@media screen and (max-width: 1080px){
+  .pin-index-container, .board-index-container{
+    column-count: 2;
+  }
+
+  .content-header, .content-display, #header, .modal-child {
+    width: 750px;
+  }
+} 
+
+@media screen and (max-width: 760px){
+  .pin-index-container, .board-index-container{
+    column-count: 1;
+  }
+   .content-header, .content-display, #header, .modal-child {
     width: 500px;
   }
-}
 
-
-@media only screen and (min-width: 901px) {
-  .content-header, .content-display, #header, .modal-child {
-    width: 60%;
+  #header{
+    padding-left: 10px
   }
-}
+} 
+
 
 a{
   cursor: pointer;

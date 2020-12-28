@@ -86,15 +86,24 @@ class BoardShow extends React.Component {
         
     }
 
-    iteratePins(thisBoardsPins){
+    iteratePins(thisBoardsPins,  author, currentUser){
 
         if (thisBoardsPins === null || thisBoardsPins.length === 0){
-            return(
-                <div className='empty-board'>
-                    This board doesn't have any pins in this board yet! Make one!
-                    <PinCreateContainer history={this.props.history}/>
-                </div>
-            )
+            if ( auhthor === currentUser){
+                return(
+                     <div className='empty-board'>
+                        This board doesn't have any pins in this board yet! Make one!
+                        <PinCreateContainer history={this.props.history}/>
+                    </div>
+
+                )
+            } else {
+                return(
+                    <div className='empty-board'>
+                        This board doesn't have any pins in this board yet! Make one!
+                    </div>
+                )
+            }
         } else {
                 return(
                 <div className="pin-index-container">
@@ -147,7 +156,7 @@ class BoardShow extends React.Component {
                         </div>
                     </div>
 
-                    {this.iteratePins(thisBoardsPins)}
+                    {this.iteratePins(thisBoardsPins, author, currentUser)}
             </div>
         )
     }
