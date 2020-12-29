@@ -29,6 +29,11 @@ class UserTools extends React.Component{
                         </a>
                     </div>
                     <div className='user-tools-item' id='shift-reveal'>
+                        <a href='https://angel.co/u/ryan-alexander-acosta-1' target ='_blank'>
+                             <Icons icon={'angelList'}/>
+                        </a>
+                    </div>
+                    <div className='user-tools-item' id='shift-reveal'>
                         <a href="https://www.linkedin.com/in/ryan-acosta-1aa428198/" target="_blank">
                           <Icons icon={'linkedIn'}/>
                         </a>

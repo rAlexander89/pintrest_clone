@@ -4,6 +4,7 @@ import { linkedIn } from './linkedIn'
 import { gitHub } from './gitHub'
 import { newPin } from './newPin'
 import { newBoard } from './newBoard'
+import { angelList } from './angellist'
 
 
 class Icons extends React.Component{
@@ -23,6 +24,8 @@ class Icons extends React.Component{
                 return gitHub();
             case 'linkedIn':
                 return linkedIn();
+            case 'angelList':
+                return angelList();
             default:
                 return 'yo, what icon bruv?';
         }
