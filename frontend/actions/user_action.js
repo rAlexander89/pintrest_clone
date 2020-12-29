@@ -13,10 +13,10 @@ export const receiveUserErrors = errors => {
     }
 }
 
-const receiveUser = pinId => {
+const receiveUser = userId => {
     return{
-        type: RECEIVE_PIN,
-        pinId
+        type: RECEIVE_USER,
+        userId
     }
 };
 
@@ -29,8 +29,8 @@ const receiveAllUsers = users => {
 }
 
 
-export const fetchUser = pinId => dispatch => {
-    return UserApiUtil.fetchUser(pinId)
+export const fetchUser = userId => dispatch => {
+    return UserApiUtil.fetchUser(userId)
         .then(pin => dispatch(receiveUser(pin)))
 }
 

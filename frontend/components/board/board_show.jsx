@@ -126,18 +126,23 @@ class BoardShow extends React.Component {
             author_id: this.props.board_data.userId,
             id: this.props.board_data.boardId
         }
+        this.props.fetchUser(boardData.author_id)
         this.props.fetchBoard(boardData)
         this.props.fetchBoardPins(boardData.id)
     }
 
 
     render(){
+
+        
         let { board, author, currentUser, boardPins } = this.props
-
+        
         let thisBoardsPins = Object.values(boardPins)
-
+        
         if (board === undefined ) return null
         if (currentUser === undefined ) return null
+        if (author === undefined ) return null
+        
 
         return(
             <div className='index-container'>

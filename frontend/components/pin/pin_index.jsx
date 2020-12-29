@@ -14,7 +14,6 @@ class PinIndex extends React.Component {
     render() {
         const { pins } = this.props;
 
-
         return (
             <div className="index-container">
                 <h1 id='header'>Latest Pins</h1>
