@@ -9,16 +9,12 @@ const commentsReducer = (state = {}, action) => {
             nextState = action.comments;
             return nextState;
         case RECEIVE_COMMENT:
-            debugger
             nextState[action.comment.id] = action.comment
             return nextState;
         case REMOVE_COMMENT:
-            debugger
             let newState = Object.assign({}, state);
             delete newState[action.commentId];
             return newState;
-        // case RECEIVE_COMMENT:
-        //     return nextState ;
         default:
             return state;
     }

@@ -24,18 +24,16 @@ class PinShow extends React.Component {
         } 
         this.props.fetchPin(pinId)
         this.props.fetchBoard(boardData)
-        // this.props.fetchBoards()
         this.props.fetchPinComments(pinId)
-        // this.props.fetchUser(this.props.pin.author_id)
     }
 
-      deleteAndRedirect(pin){
+      deleteAndRedirect(pin, deletePin){
 
         let _author_id = pin.author_id
-        this.confirmDelete(pin, _author_id)
+        this.confirmDelete(pin, _author_id, deletePin)
     }
 
-    confirmDelete(pin, _author_id){
+    confirmDelete(pin, _author_id, deletePin){
         Swal.fire({
             title: 'Please confirm!',
             text: 'Are you sure you want to delete this pin?',
@@ -45,44 +43,52 @@ class PinShow extends React.Component {
         })
         .then(function(result){
             if (result.value){
-                $.ajax({
-                    url: `/api/pins/${pin.id}`,
-                    method: "DELETE",
-                    dataType: 'json',
-                    beforeSend: function(){
-                        Swal.fire({
-                            title: 'Please Wait!!!',
-                            text: 'Deleting...',
-                            onOpen: function(){
-                                Swal.showLoading()
-                            }
-                        })
-                    },
-                    success : function(data){
-                        Swal.fire({
-                            type: 'success',
-                            title: 'Pin deleted succesffully!',
-                            showConfirmationButton: false,
-                            timer: 2000
-                        }).then(function(){
-                            location.href=`/#/users/${_author_id}`;
-                        })
-                    },
-                    complete: function(){
-                        Swal.hideLoading();
-                    },
-                    error: function(jqXHR, textStatus, errThrown){
-                        Swal.hideLoading();
-                        Swal.fire('Oops!', 'Something went wrong! Try again!')
-                    }
-                }).then(
-                )
+                debugger
+                deletePin(pin.id)
+                location.href=`/#/users/${_author_id}`
+            } else {
+                return null
             }
+                    // }
+                    // $.ajax({
+                        //     url: `/api/pins/${pin.id}`,
+                        //     method: "DELETE",
+                        //     dataType: 'json',
+                //         beforeSend: function(){
+                //             Swal.fire({
+                //                 title: 'Please Wait!!!',
+                //                 text: 'Deleting...',
+                //                 onOpen: function(){
+                //                     Swal.showLoading()
+                //                 }
+
+                //             })
+                //         },
+                //     success : function(data){
+                //         Swal.fire({
+                //             type: 'success',
+                //             title: 'Pin deleted succesffully!',
+                //             showConfirmationButton: false,
+                //             timer: 2000
+                //         }).then(function(){
+                //             location.href=`/#/users/${_author_id}`;
+                //         })
+                //     },
+                //     complete: function(){
+                //         Swal.hideLoading();
+                //     },
+                //     error: function(jqXHR, textStatus, errThrown){
+                //         Swal.hideLoading();
+                //         Swal.fire('Oops!', 'Something went wrong! Try again!')
+                //     }
+                // }).then(
+                // )
+            // }
         })
     }
 
     
-    displayDeleteButton(currentUser, author, pin){
+    displayDeleteButton(currentUser, author, pin, deletePin){
         if ( currentUser === author ){
             return(
                 <div className='pin-features'>
@@ -90,7 +96,7 @@ class PinShow extends React.Component {
                     <div className='pin-sub'>
                         double click title or description to enable edit
                     </div>
-                    <div className='pin-delete' onClick={() => this.deleteAndRedirect(pin)}>
+                    <div className='pin-delete' onClick={() => this.deleteAndRedirect(pin, deletePin)}>
                         
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                 width="1em" 
@@ -108,7 +114,7 @@ class PinShow extends React.Component {
 
     render(){
         
-        let {pin, board, currentUser, comments, deleteComment } = this.props;
+        let {pin, board, currentUser, comments, deleteComment, deletePin } = this.props;
         if (pin === null ) return null;
         if (currentUser === null ) return null;
         if (Object.values(board).length < 1) return null
@@ -117,6 +123,7 @@ class PinShow extends React.Component {
             likeable_type: 'Pin',
             likeable_id: pin.id   
         }
+     
         
         return(
             <div className='pin-show'>
@@ -126,7 +133,7 @@ class PinShow extends React.Component {
         
 
                             <img className="pin-item" src={pin.photoUrl} />
-                                {this.displayDeleteButton(currentUser, pin.owner, pin)}
+                                {this.displayDeleteButton(currentUser.username, pin.owner, pin, deletePin)}
                         </div>
                     </div>
                     <div className='column'>
