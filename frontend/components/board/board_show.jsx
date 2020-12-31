@@ -124,11 +124,11 @@ class BoardShow extends React.Component {
     componentDidMount(){
         let boardData = {
             author_id: this.props.board_data.userId,
-            id: this.props.board_data.boardId
+            board_id: this.props.board_data.boardId
         }
         this.props.fetchUser(boardData.author_id)
         this.props.fetchBoard(boardData)
-        this.props.fetchBoardPins(boardData.id)
+        this.props.fetchBoardPins(boardData.board_id)
     }
 
 
@@ -141,6 +141,7 @@ class BoardShow extends React.Component {
         
         if (board === undefined ) return null
         if (currentUser === undefined ) return null
+        
         if (author === undefined ) return null
         
 

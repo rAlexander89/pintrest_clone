@@ -17,12 +17,20 @@ class PinShow extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchBoards()
-        this.props.fetchPin(this.props.match.params.pinId)
-        this.props.fetchPinComments(this.props.match.params.pinId)
+        let pinId = this.props.match.params.pinId
+        let boardData = {
+            author_id: this.props.pin.author_id,
+            board_id: this.props.pin.board_id
+        } 
+        this.props.fetchPin(pinId)
+        this.props.fetchBoard(boardData)
+        // this.props.fetchBoards()
+        this.props.fetchPinComments(pinId)
+        // this.props.fetchUser(this.props.pin.author_id)
     }
 
       deleteAndRedirect(pin){
+
         let _author_id = pin.author_id
         this.confirmDelete(pin, _author_id)
     }
@@ -74,8 +82,8 @@ class PinShow extends React.Component {
     }
 
     
-    displayDeleteButton(currentUser, owner, pin){
-        if ( currentUser === owner ){
+    displayDeleteButton(currentUser, author, pin){
+        if ( currentUser === author ){
             return(
                 <div className='pin-features'>
 
@@ -99,32 +107,35 @@ class PinShow extends React.Component {
     }
 
     render(){
-
-        let { pin, boards, currentUser, owner, comments } = this.props;
-        if (pin === undefined) return null;
-        let board = boards[pin.board_id]
-        if (board === undefined) return null;
-
+        
+        let {pin, board, currentUser, comments, deleteComment } = this.props;
+        if (pin === null ) return null;
+        if (currentUser === null ) return null;
+        if (Object.values(board).length < 1) return null
+        
         let params = {
             likeable_type: 'Pin',
-            likeable_id: pin.id
+            likeable_id: pin.id   
         }
-
+        
         return(
             <div className='pin-show'>
                 <div className='row'>
                     <div className='column'>
                         <div className="pin-show-item">
         
-                            <img className="pin-item" src={this.props.pin.photoUrl} />
-                                {this.displayDeleteButton(currentUser, owner, pin)}
+
+                            <img className="pin-item" src={pin.photoUrl} />
+                                {this.displayDeleteButton(currentUser, pin.owner, pin)}
                         </div>
                     </div>
                     <div className='column'>
                         <div className='pin-show-det'>
                                 <div id='pin-title'><InlineDisplay editType='pin' item={pin} objKey={'title'} field={pin.title}/></div>
-                                <div id='pin-owner'>photo by <Link to={`/users/${this.props.owner.id}`}>{this.props.owner.username}</Link></div>
-                                <div id='pin-owner'>board title: <Link to={`/users/${this.props.pin.author_id}/boards/${pin.board_id}`}>{board.title}</Link></div>
+                                <div id='pin-owner'>photo by <Link to={`/users/${pin.author_id}`}>{pin.owner}</Link></div>
+                                <div id='pin-owner'>board title: <Link to={`/users/${pin.author_id}/boards/${pin.board_id}`}>
+                                    {board.title} 
+                                    </Link></div>
                                 <Likes params={params}/>
                                 <div id='pin-description'>
                                     <InlineDisplay editType='pins' item={pin} objKey={'description'} field={pin.description}/>
@@ -136,7 +147,7 @@ class PinShow extends React.Component {
                                     <PinCreateCommentFormContainer currentUser={currentUser} pin_id={pin.id}/>
                                 </div>
                                 <div className='comment-body'>
-                                    <CommentIndex comments={comments} />
+                                    <CommentIndex deleteComment ={deleteComment} comments={comments} currentUser={currentUser} />
                                 </div>  
                             </div>
                         </div>

@@ -10,7 +10,8 @@ class CommentIndex extends React.Component{
 
     render(){
 
-        let { comments } = this.props
+        let { comments, currentUser, deleteComment } = this.props
+
 
         return(
             <div className='pin-comments'>
@@ -18,6 +19,8 @@ class CommentIndex extends React.Component{
                     <CommentIndexItem
                         comment={comment}
                         key={comment.id}
+                        currentUser={currentUser}
+                        deleteComment={deleteComment}
                     />
                 ))}
             </div>

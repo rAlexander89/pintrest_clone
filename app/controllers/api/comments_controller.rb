@@ -36,18 +36,29 @@ class Api::CommentsController < ApplicationController
     end
   end
 
+  # def destroy
+  #   comment = Comment.find_by(id: params[:id]);
+  #   debugger
+  #   if comment.destroy
+  #     @comments = Comment.all
+  #     if (params[:comment][:pin_id])
+  #       @comments = @comments.where(pin_id: params[:comment][:pin_id])
+  #     end
+  #     render :index
+  #   else
+  #     render json: comment.errors.full_messages, status: 422 
+  #   end
+  # end
+
   def destroy
-    comment = Comment.find_by(id: params[:id]);
-    if comment.destroy
-      @comments = Comment.all
-      if (params[:comment][:pin_id])
-        @comments = @comments.where(pin_id: params[:comment][:pin_id])
-      end
-      render :index
-    else
-      render json: comment.errors.full_messages, status: 422 
+        @comment = Comment.find_by(id: params[:id])
+        # if 
+          @comment.destroy
+            # render json: :show
+        # else
+            # render json: @comment.errors.full_messages, status: 422
+        # end
     end
-  end
 
   private
 

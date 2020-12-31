@@ -18,11 +18,22 @@ import UserShowContainer from './user/user_profile_container';
 import UserToolsContainer from '../components/user_tools/user_tools_container';
 import Footer from './splash/footer.jsx';
 
+
+let onPopState = handler => {
+    window.onpopstate = handler;
+}
+
 class App extends React.Component{
     constructor(props){
         super(props);
         this.state = {pins: []};
         this.redirect = this.redirect.bind(this)
+    }
+
+    componentDidMount(){
+        onPopState((event) => {
+            console.log(event)
+        })
     }
 
     redirect(){

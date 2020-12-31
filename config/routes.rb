@@ -3,6 +3,7 @@ root to: 'static_pages#root'
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:index, :create, :show] do 
       resources :boards, only: [:show, :create, :update, :destroy]
+      # resources :pins, only: [:show]
     end
     resource :session, only: [:create, :destroy]
     resources :pins, only: [:index, :show, :create, :update, :destroy] do 

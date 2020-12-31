@@ -9,12 +9,11 @@ import BoardShow from './board_show';
 const mSTP = ({ entities: { boards, users, boardPins }, session, errors }, ownProps) => {
 
     let board_data = ownProps.match.params;
-    let board = boards[ownProps.match.params.boardId];
 
     return {
         currentUser: users[session.currentUserId],
         author: users[ownProps.match.params.userId],
-        board,
+        board: boards,
         board_data,
         boardPins
     }

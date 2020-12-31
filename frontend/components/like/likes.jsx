@@ -86,7 +86,7 @@ class Likes extends React.Component {
             if ( likesCount <= 1 ){
                 return(
                     <div className='like-menu'>
-                        <div onClick={() => deleteLike(usersLike)}>
+                        <div className='like-toggle' onClick={() => deleteLike(usersLike)}>
                             {this.likeUnlikeIcon(includesCurrentUser)}
                         </div>
                         <div>

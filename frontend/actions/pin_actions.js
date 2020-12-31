@@ -18,8 +18,9 @@ export const receivePins = pins => {
 const receivePin = data => {
     return {
         type: RECEIVE_PIN,
-        pin: data.pin,
-        owner: data.owner
+        pin: data
+        // pin: data.pin,
+        // owner: data.owner
     }
 }
 
@@ -63,7 +64,7 @@ export const updatePin = pin => dispatch => {
 
 export const deletePin = pinId => dispatch => {
     return PinAPIUtil.deletePin(pinId)
-        .then(pinId => dispatch(removePin(pinId)),
+        .then(() => dispatch(removePin(pinId)),
             error => dispatch(receivePinErrors(error.responseJSON)))
 }
 
