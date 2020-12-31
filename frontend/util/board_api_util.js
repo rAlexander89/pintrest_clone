@@ -28,9 +28,12 @@ export const updateBoard = (board) => {
     })
 }
 
-export const deleteBoard = (userId, boardId) => {
+export const deleteBoard = (boardData) => {
+    let user_id = boardData.author_id
+    let id = boardData.board_id
     return $.ajax({
-        url: `/api/users/${userId}/boards/${boardId}`,
+        // url: `/api/users/${boardData.author_id}/boards/${boardData.board_id}`,
+        url: `/api/users/${user_id}/boards/${id}`,
         method: "DELETE"
     })
 }

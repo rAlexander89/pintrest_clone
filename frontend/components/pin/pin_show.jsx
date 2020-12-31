@@ -43,47 +43,11 @@ class PinShow extends React.Component {
         })
         .then(function(result){
             if (result.value){
-                debugger
                 deletePin(pin.id)
                 location.href=`/#/users/${_author_id}`
             } else {
                 return null
             }
-                    // }
-                    // $.ajax({
-                        //     url: `/api/pins/${pin.id}`,
-                        //     method: "DELETE",
-                        //     dataType: 'json',
-                //         beforeSend: function(){
-                //             Swal.fire({
-                //                 title: 'Please Wait!!!',
-                //                 text: 'Deleting...',
-                //                 onOpen: function(){
-                //                     Swal.showLoading()
-                //                 }
-
-                //             })
-                //         },
-                //     success : function(data){
-                //         Swal.fire({
-                //             type: 'success',
-                //             title: 'Pin deleted succesffully!',
-                //             showConfirmationButton: false,
-                //             timer: 2000
-                //         }).then(function(){
-                //             location.href=`/#/users/${_author_id}`;
-                //         })
-                //     },
-                //     complete: function(){
-                //         Swal.hideLoading();
-                //     },
-                //     error: function(jqXHR, textStatus, errThrown){
-                //         Swal.hideLoading();
-                //         Swal.fire('Oops!', 'Something went wrong! Try again!')
-                //     }
-                // }).then(
-                // )
-            // }
         })
     }
 

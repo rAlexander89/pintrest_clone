@@ -15,6 +15,7 @@ class BoardIndex extends React.Component{
     render(){
         let { boards, currentUser } = this.props;
 
+
         return(
             <div className='index-container'>
                 <p id='header'>The Latest Boards</p>

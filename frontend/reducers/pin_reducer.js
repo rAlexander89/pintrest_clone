@@ -16,7 +16,6 @@ const PinReducer = (state = {}, action) => {
             return Object.assign({}, state, { [pin.id]: pin })
         case REMOVE_PIN:
             let newState = Object.assign({}, state);
-            debugger
             // delete newState[action.pin.Id];
             delete newState[action.pinId];
             return newState;

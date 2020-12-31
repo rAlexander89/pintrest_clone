@@ -14,13 +14,17 @@ class BoardShow extends React.Component {
         this.displayBoardDelete = this.displayBoardDelete.bind(this)
     }
 
-
     deleteAndRedirect(board){
         let _author_id = board.author_id
-        this.confirmDelete(board, _author_id)
+        let { deleteBoard } = this.props
+        this.confirmDelete(board, _author_id, deleteBoard)
     }
 
-    confirmDelete(board, _author_id){
+    confirmDelete(board, _author_id, deleteBoard){
+        let boardData = {
+            author_id: _author_id,
+            board_id: board.id
+        }
         Swal.fire({
             title: 'Please confirm!',
             text: 'Are you sure you want to delete this board?',
@@ -30,43 +34,13 @@ class BoardShow extends React.Component {
         })
         .then(function(result){
             if (result.value){
-                $.ajax({
-                    url: `/api/users/${board.author_id}/boards/${board.id}`,
-                    method: "DELETE",
-                    dataType: 'json',
-                    beforeSend: function(){
-                        Swal.fire({
-                            title: 'Please Wait!!!',
-                            text: 'Deleting...',
-                            onOpen: function(){
-                                Swal.showLoading()
-                            }
-                        })
-                    },
-                    success : function(data){
-                        Swal.fire({
-                            type: 'success',
-                            title: 'Board deleted succesffully!',
-                            showConfirmationButton: false,
-                            timer: 2000
-                        }).then(function(){
-                            location.href=`/#/users/${_author_id}`;
-                        })
-                    },
-                    complete: function(){
-                        Swal.hideLoading();
-                    },
-                    error: function(jqXHR, textStatus, errThrown){
-                        Swal.hideLoading();
-                        Swal.fire('Oops!', 'Something went wrong! Try again!')
-                    }
-                }).then(
-                )
+                deleteBoard(boardData)
+                location.href=`/#/users/${_author_id}`
+            } else {
+                return null
             }
         })
     }
-        
-
 
     displayBoardDelete(author, currentUser, board){
         if ( author === currentUser ){
@@ -136,13 +110,18 @@ class BoardShow extends React.Component {
 
         
         let { board, author, currentUser, boardPins } = this.props
+        let { boardId }  = this.props.board_data
         
         let thisBoardsPins = Object.values(boardPins)
         
         if (board === undefined ) return null
+
         if (currentUser === undefined ) return null
         
         if (author === undefined ) return null
+
+        debugger
+
         
 
         return(
