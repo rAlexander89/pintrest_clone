@@ -12,6 +12,7 @@ const PinReducer = (state = {}, action) => {
             return Object.assign({}, state, action.pins)
         case RECEIVE_PIN:
             let { pin } = action.pin
+            debugger
 
             return Object.assign({}, state, { [pin.id]: pin })
         case REMOVE_PIN:

@@ -11,6 +11,8 @@ import PinShow from './pin_show';
 const mSTP = ({ entities: { pins, users, boards, comments, likes }, session }, ownProps) => {
 
     let pin = pins[ownProps.match.params.pinId]
+
+    debugger
     
     return {
         currentUser: users[session.currentUserId],
