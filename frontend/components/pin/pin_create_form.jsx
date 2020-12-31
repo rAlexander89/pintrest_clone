@@ -284,7 +284,7 @@ class CreatePinForm extends React.Component {
                                     {this.displayErrors('desc')}
                                 </div>
                                     <br/>
-                                <div className='submit-buttons'>
+                                <div className='submit-comment'>
                                     {this.saveButton()}
                                 </div>
                             </div>
