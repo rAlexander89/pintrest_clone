@@ -131,7 +131,8 @@ class CreatePinForm extends React.Component {
             showCancelButton: false,
             showConfirmButton: false
         })
-        this.props.history.push(`/pins/${pin.pin.pin.id}`)
+        // this.props.history.push(`/users/${this.state.author_id}/boards/${this.state.boardId}pins/${pin.pin.pin.id}`)
+        this.props.history.push(`/users/${pin.pin.pin.author_id}/boards/${pin.pin.pin.board_id}/pins/${pin.pin.pin.id}`)
     }
 
 

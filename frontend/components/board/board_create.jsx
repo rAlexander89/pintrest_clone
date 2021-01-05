@@ -27,7 +27,8 @@ class BoardCreate extends React.Component {
             showCancelButton: false,
             showConfirmButton: false
         })
-        .then(this.props.history.push(`/users/${board.board.author_id}/boards/${board.board.id}`))
+        debugger
+        this.props.history.push(`/users/${board.board.author_id}/boards/${board.board.id}`)
         
     }
 
