@@ -15,6 +15,9 @@ class Api::BoardsController < ApplicationController
         end
     end
 
+    def showBoardFromPin
+    end
+
     def create
         @board = Board.create(board_params)
         if @board.save

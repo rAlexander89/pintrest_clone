@@ -18,7 +18,8 @@ const mSTP = ({ entities: { users, boards }, session }, ownProps) => {
 const mDTP = dispatch => {
     return {
         createBoard: board => dispatch(createBoard(board)),
-        fetchBoards: () => dispatch(fetchBoards())
+        fetchBoard: (boardData) => dispatch(fetchBoards(boardData))
+        // fetchBoards: () => dispatch(fetchBoards())
     }
 }
 

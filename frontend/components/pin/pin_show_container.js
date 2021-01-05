@@ -9,14 +9,26 @@ import { deleteComment } from '../../actions/comment_actions'
 import PinShow from './pin_show';
 
 const mSTP = ({ entities: { pins, users, boards, comments, likes }, session }, ownProps) => {
-
+    
     let pin = pins[ownProps.match.params.pinId]
+    let boardData = {
+        author_id: ownProps.match.params.userId,
+        board_id: ownProps.match.params.boardId
+    } 
 
-    debugger
+    let pinData = {
+        pin_id: ownProps.match.params.pinId,
+        author_id: ownProps.match.params.userId,
+        board_id: ownProps.match.params.boardId
+    }
+
+
     
     return {
         currentUser: users[session.currentUserId],
-        pin,
+        boardData: boardData,
+        pin: pins[ownProps.match.params.pinId],
+        pinData: pinData,
         comments: Object.values(comments),
         board: boards,
         likes: getLikes(likes, pin),

@@ -123,7 +123,6 @@ class CreatePinForm extends React.Component {
     closeAndRedirect(pin){
         this.props.clearErrors()
         this.props.closeModal()
-        debugger
         Swal.fire({
             icon: 'success',
             title: 'Success!',

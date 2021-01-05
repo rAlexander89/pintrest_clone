@@ -4,7 +4,6 @@ import { closeModal, openModal } from '../../actions/modal_actions'
 
 
 const mSTP = state => {
-    debugger
     return{
         session: state.session.id
         

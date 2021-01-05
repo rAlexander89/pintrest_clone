@@ -2,11 +2,13 @@ Rails.application.routes.draw do
 root to: 'static_pages#root'
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:index, :create, :show] do 
-      resources :boards, only: [:show, :create, :update, :destroy]
-      # resources :pins, only: [:show]
+      resources :boards, only: [:show, :create, :update, :destroy] do
+        resources :pins, only: [:show]
+      end
     end
     resource :session, only: [:create, :destroy]
-    resources :pins, only: [:index, :show, :create, :update, :destroy] do 
+    # resources :pins, only: [:index, :show, :create, :update, :destroy] do 
+    resources :pins, only: [:index, :create, :update, :destroy] do 
       resource :comments, only: [:show]
     end
     resources :comments, only: [:create, :update, :destroy, :index]
@@ -16,4 +18,3 @@ root to: 'static_pages#root'
     resources :follows, only: [:index, :create, :show, :destroy]
   end
 end
-

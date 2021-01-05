@@ -6,8 +6,6 @@ import CommentIndex from './comment_index'
 import Likes from '../like/likes_container'
 import Swal from 'sweetalert2'
 
-
-
 class PinShow extends React.Component {
     constructor(props){
         super(props)
@@ -17,17 +15,15 @@ class PinShow extends React.Component {
     }
 
     componentDidMount(){
-        let pinId = this.props.match.params.pinId
-        let boardData = {
-            author_id: this.props.pin.author_id,
-            board_id: this.props.pin.board_id
-        } 
-        this.props.fetchPin(pinId)
+        let { boardData, pinData } = this.props
+
+        this.props.fetchPin(pinData)
         this.props.fetchBoard(boardData)
-        this.props.fetchPinComments(pinId)
+        this.props.fetchPinComments(pinData.pin_id)
     }
 
-      deleteAndRedirect(pin, deletePin){
+
+    deleteAndRedirect(pin, deletePin){
 
         let _author_id = pin.author_id
         this.confirmDelete(pin, _author_id, deletePin)
@@ -78,16 +74,16 @@ class PinShow extends React.Component {
 
     render(){
         
-        let {pin, board, currentUser, comments, deleteComment, deletePin } = this.props;
+        let {pin, pinData, board, currentUser, comments, deleteComment, deletePin } = this.props;
         if (pin === null ) return null;
         if (currentUser === null ) return null;
         if (Object.values(board).length < 1) return null
         
         let params = {
             likeable_type: 'Pin',
-            likeable_id: pin.id   
+            likeable_id: pinData.pin_id
         }
-     
+
         
         return(
             <div className='pin-show'>

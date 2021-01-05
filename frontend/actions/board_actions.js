@@ -42,6 +42,7 @@ export const fetchBoards = () => dispatch => {
 }
 
 export const fetchBoard = board => dispatch => {
+    
 
     return BoardAPIUtil.fetchBoard(board)
         .then(board => dispatch(receiveBoard(board)),
@@ -61,7 +62,7 @@ export const updateBoard = board => dispatch => {
 }
 
 export const deleteBoard = (userId, boardId) => dispatch => {
-    debugger
+
     return BoardAPIUtil.deleteBoard(userId, boardId)
         .then(() => dispatch(removeBoard(boardId)),
             error => dispatch(receiveBoardErrors(error.responseJSON)))

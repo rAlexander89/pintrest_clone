@@ -79,6 +79,7 @@ class BoardShow extends React.Component {
                 )
             }
         } else {
+            debugger
                 return(
                 <div className="pin-index-container">
                     {
@@ -114,15 +115,14 @@ class BoardShow extends React.Component {
         
         let thisBoardsPins = Object.values(boardPins)
         
+        if (author === undefined ) return null
+        if (currentUser === undefined ) return null
         if (board === undefined ) return null
 
-        if (currentUser === undefined ) return null
         
-        if (author === undefined ) return null
 
-        debugger
 
-        
+
 
         return(
             <div className='index-container'>

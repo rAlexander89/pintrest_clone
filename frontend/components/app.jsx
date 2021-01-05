@@ -19,9 +19,6 @@ import UserToolsContainer from '../components/user_tools/user_tools_container';
 import Footer from './splash/footer.jsx';
 
 
-let onPopState = handler => {
-    window.onpopstate = handler;
-}
 
 class App extends React.Component{
     constructor(props){
@@ -31,9 +28,7 @@ class App extends React.Component{
     }
 
     componentDidMount(){
-        onPopState((event) => {
-            console.log(event)
-        })
+
     }
 
     redirect(){
@@ -68,10 +63,10 @@ class App extends React.Component{
                     <div className='content-display'>
                         <Switch>
                             <AuthRoute exact path='/' component={SplashContainer} />
-                            <ProtectedRoute exact path="/pins" component={PinIndexContainer} />
-                            <ProtectedRoute exact path="/pins/:pinId" component={PinShowContainer} />
-                            <ProtectedRoute exact path="/p/create" component={CreatePinContainer} />
-                            <ProtectedRoute exact path="/b/create" component={CreateBoardContainer} />
+                            <ProtectedRoute exact path='/pins' component={PinIndexContainer} />
+                            <ProtectedRoute exact path='/users/:userId/boards/:boardId/pins/:pinId' component={PinShowContainer} />
+                            <ProtectedRoute exact path='/p/create' component={CreatePinContainer} />
+                            <ProtectedRoute exact path='/b/create' component={CreateBoardContainer} />
                             <ProtectedRoute exact path='/users/:userId/boards' component={UsersBoardsContainer} />
                             <ProtectedRoute exact path='/users/:userId/boards/:boardId' component={BoardShowContainer} />
                             <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />

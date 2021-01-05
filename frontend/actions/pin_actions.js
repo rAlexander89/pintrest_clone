@@ -38,7 +38,6 @@ export const receivePinErrors = errors => {
 }
 
 export const fetchPins = () => dispatch => {
-    
     return PinAPIUtil.fetchPins()
         .then(pins => dispatch(receivePins(pins)),
             error => dispatch(receivePinErrors(error.responseJSON)))
