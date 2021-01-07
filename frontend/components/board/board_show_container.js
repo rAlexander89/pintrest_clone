@@ -11,10 +11,11 @@ const mSTP = ({ entities: { boards, users, boardPins }, session, errors }, ownPr
     let board_data = ownProps.match.params;
     let board_id = board_data.boardId
 
+
     return {
         currentUser: users[session.currentUserId],
         author: users[ownProps.match.params.userId],
-        board: boards,
+        board: boards[board_id],
         board_data,
         boardPins
     }

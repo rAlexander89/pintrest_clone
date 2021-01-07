@@ -31,7 +31,6 @@ class PinIndexItem extends React.Component {
                 <Link to={`/users/${pin.author_id}/boards/${pin.board_id}/pins/${pin.id}`}>
                     <img className="idx-image" src={pin.photoUrl} onClick={() => this.showPin(pin)}/>
                 </Link>
-                {/* {this.checklocation(pin)} */}
             </div>
         );
     }

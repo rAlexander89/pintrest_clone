@@ -20,6 +20,8 @@ class BoardShow extends React.Component {
         this.confirmDelete(board, _author_id, deleteBoard)
     }
 
+    
+
     confirmDelete(board, _author_id, deleteBoard){
         let boardData = {
             author_id: _author_id,
@@ -30,10 +32,11 @@ class BoardShow extends React.Component {
             text: 'Are you sure you want to delete this board?',
             type: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'Yes'
+            confirmButtonText: 'Yes',
+            author_id: boardData.author_id
         })
         .then(function(result){
-            if (result.value){
+                if (result.value){
                 deleteBoard(boardData)
                 location.href=`/#/users/${_author_id}`
             } else {
@@ -114,6 +117,7 @@ class BoardShow extends React.Component {
         let { boardId }  = this.props.board_data
         
         let thisBoardsPins = Object.values(boardPins)
+
         
         if (author === undefined ) return null
         if (currentUser === undefined ) return null
@@ -127,7 +131,7 @@ class BoardShow extends React.Component {
                             {board.title}
                         </div>
                         <div id='board-owner'>
-                            board by {this.props.author.username}
+                            board by {author.username}
                         </div>
                         <div>
                             {this.displayBoardDelete(author, currentUser,board)}

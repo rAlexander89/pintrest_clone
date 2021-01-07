@@ -23,6 +23,7 @@ const mSTP = ({ entities: { pins, users, boards, comments, likes }, session }, o
     }
 
 
+
     
     return {
         currentUser: users[session.currentUserId],
@@ -30,7 +31,7 @@ const mSTP = ({ entities: { pins, users, boards, comments, likes }, session }, o
         pin: pins[ownProps.match.params.pinId],
         pinData: pinData,
         comments: Object.values(comments),
-        board: boards,
+        board: boards[boardData.board_id],
         likes: getLikes(likes, pin),
     }
 }
