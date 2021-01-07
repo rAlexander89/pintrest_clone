@@ -1,5 +1,6 @@
 import React from 'react';
 import Icons from '../icons/icons'
+import {Link} from 'react-router-dom'
 
 class UserTools extends React.Component{
     constructor(props){
@@ -41,12 +42,18 @@ class UserTools extends React.Component{
                     </a>
                 </div>
         
-                <div className='user-tools-item' id='reveal' onClick={() => this.modalFunc('pin', show)}>
-                    <Icons icon={'newPin'}/>
+                {/* <div className='user-tools-item' id='reveal' onClick={() => this.modalFunc('pin', show)}> */}
+                <div className='user-tools-item' id='reveal'>
+                    <Link to='/p/create'>
+                        <Icons icon={'newPin'}/>
+                    </Link>
                 </div>
 
-                <div className='user-tools-item' id='reveal' onClick={() => this.modalFunc('board', show)}>
+                {/* <div className='user-tools-item' id='reveal' onClick={() => this.modalFunc('board', show)}> */}
+                <div className='user-tools-item' id='reveal'>
+                    <Link to='/b/create'>
                         <Icons icon={'newBoard'}/>
+                    </Link>
                 </div>
                     <div className='user-tools-item' onClick={() => this.setState({ show: !show })}>
                         <svg xmlns="http://www.w3.org/2000/svg" className='r45'
