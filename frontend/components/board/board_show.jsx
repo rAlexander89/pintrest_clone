@@ -69,8 +69,8 @@ class BoardShow extends React.Component {
             if ( author === currentUser){
                 return(
                      <div className='empty-board'>
-                        This board doesn't have any pins in this board yet! Make one!
-                        <PinCreateContainer history={this.props.history}/>
+                        <p id='p-desc'>This board doesn't have any pins in this board yet! Make one!</p>
+                        <PinCreateContainer history={this.props.history} from={'empty board'}/>
                     </div>
 
                 )

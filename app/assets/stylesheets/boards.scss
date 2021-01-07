@@ -57,9 +57,14 @@
 }
 
 .empty-board{
+    padding-top: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     overflow-y: auto;
+}
+
+#p-desc{
+    margin-bottom: 15px;
 }

@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 
 
 class CreatePinForm extends React.Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -31,6 +32,7 @@ class CreatePinForm extends React.Component {
         this.onDrop = this.onDrop.bind(this)
         this.removePreview = this.removePreview.bind(this)
         this.closeAndRedirect = this.closeAndRedirect.bind(this)
+        this.from = this.from.bind(this)
     }
 
     
@@ -131,7 +133,6 @@ class CreatePinForm extends React.Component {
             showCancelButton: false,
             showConfirmButton: false
         })
-        // this.props.history.push(`/users/${this.state.author_id}/boards/${this.state.boardId}pins/${pin.pin.pin.id}`)
         this.props.history.push(`/users/${pin.pin.pin.author_id}/boards/${pin.pin.pin.board_id}/pins/${pin.pin.pin.id}`)
     }
 
@@ -245,18 +246,29 @@ class CreatePinForm extends React.Component {
     })
   }
 
+  from(from){
+      if (from !== 'empty board'){
+          return(
+            <div className='form-title'>
+                Create a new pin:
+            </div>
+          )
+      }
+  }
+
 
     render() {
         let { title, description, photoUrl, working, author_id } = this.state;
-        let { boards } = this.props;
+        let { boards, from } = this.props;
+        debugger
         
             return (
                 <div className='column-pin-create-container'>
-
                     <div className="pin-create-container">
-                        <div className='form-title'>
+                        {this.from(from)}
+                        {/* <div className='form-title'>
                             Create a new pin:
-                            </div>
+                            </div> */}
                             <div>
                             <div className='row'>
                                 <div className='column-pin-create'>

@@ -7,7 +7,6 @@ root to: 'static_pages#root'
       end
     end
     resource :session, only: [:create, :destroy]
-    # resources :pins, only: [:index, :show, :create, :update, :destroy] do 
     resources :pins, only: [:index, :create, :update, :destroy] do 
       resource :comments, only: [:show]
     end
