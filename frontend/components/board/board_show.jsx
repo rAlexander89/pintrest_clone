@@ -79,7 +79,7 @@ class BoardShow extends React.Component {
                 )
             }
         } else {
-            debugger
+            
                 return(
                 <div className="pin-index-container">
                     {
@@ -119,11 +119,7 @@ class BoardShow extends React.Component {
         if (currentUser === undefined ) return null
         if (board === undefined ) return null
 
-        
-
-
-
-
+    
         return(
             <div className='index-container'>
                     <div className='board-show-det'>

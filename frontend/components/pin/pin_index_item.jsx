@@ -7,7 +7,7 @@ class PinIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.showPin = this.showPin.bind(this);
-        this.checklocation = this.checklocation.bind(this)
+        // this.checklocation = this.checklocation.bind(this)
     }
 
     showPin(pin) {
@@ -16,22 +16,22 @@ class PinIndexItem extends React.Component {
         )
     }
 
-    checklocation(pin){
-        let hash = window.location.hash
-            return(
-                <Link to={`/users/${pin.author_id}/boards/${pin.board_id}/pins/${pin.id}`}>
-                    <img className="idx-image" src={pin.photoUrl} onClick={() => this.showPin(pin)}/>
-                </Link>
-            )
-        // }
-    }
+    // checklocation(pin){
+    //         return(
+    //             <Link to={`/users/${pin.author_id}/boards/${pin.board_id}/pins/${pin.id}`}>
+    //                 <img className="idx-image" src={pin.photoUrl} onClick={() => this.showPin(pin)}/>
+    //             </Link>
+    //         )
+    // }
 
     render() {
         const { pin } = this.props;
-        debugger
         return (
             <div className='pin-index-item'>
-                {this.checklocation(pin)}
+                <Link to={`/users/${pin.author_id}/boards/${pin.board_id}/pins/${pin.id}`}>
+                    <img className="idx-image" src={pin.photoUrl} onClick={() => this.showPin(pin)}/>
+                </Link>
+                {/* {this.checklocation(pin)} */}
             </div>
         );
     }

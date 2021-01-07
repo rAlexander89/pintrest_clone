@@ -76,6 +76,7 @@ class PinShow extends React.Component {
         
         let {pin, pinData, board, currentUser, comments, deleteComment, deletePin } = this.props;
         if (pin === null ) return null;
+        if (pin === undefined ) return null;
         if (currentUser === null ) return null;
         if (Object.values(board).length < 1) return null
         
