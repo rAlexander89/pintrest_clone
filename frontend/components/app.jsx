@@ -18,6 +18,10 @@ import UserShowContainer from './user/user_profile_container';
 import UserToolsContainer from '../components/user_tools/user_tools_container';
 import Footer from './splash/footer.jsx';
 
+import createHistory from 'history/createBrowserHistory';
+
+const history = createHistory();   
+
 
 
 class App extends React.Component{

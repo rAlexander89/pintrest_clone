@@ -78,7 +78,9 @@ class PinShow extends React.Component {
         if (pin === null ) return null;
         if (pin === undefined ) return null;
         if (currentUser === null ) return null;
-        if (Object.values(board).length < 1) return null
+        
+        if (board === undefined) return null
+
         
         let params = {
             likeable_type: 'Pin',

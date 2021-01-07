@@ -2,7 +2,7 @@ import { RECEIVE_BOARDS, RECEIVE_BOARD, REMOVE_BOARD } from '../actions/board_ac
 
 const boardsReducer = (state = {}, action) => {
     Object.freeze(state);
-    debugger
+    
     switch (action.type) {
         case RECEIVE_BOARDS:
             return action.boards;
@@ -10,7 +10,7 @@ const boardsReducer = (state = {}, action) => {
             // return Object.assign({}, state, action.board )
             // return Object.assign({}, state, action.board )
             let { board } = action.board
-            debugger
+            
             // mewState = Object.assign({}, action.board.id = action.board)
             // newState[action.board.id] = action.board
             newState =  Object.assign({}, state, { [action.board.id]: action.board })
