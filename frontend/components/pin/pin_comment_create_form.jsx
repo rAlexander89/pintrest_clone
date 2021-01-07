@@ -40,6 +40,7 @@ class PinCreateCommentForm extends React.Component {
     
     render() {
         return (
+            
             <form className='comment-form'>
                 <textarea
                     className='comment-box'

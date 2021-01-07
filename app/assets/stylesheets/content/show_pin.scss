@@ -7,6 +7,9 @@
 
 .pin-create-container{
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
@@ -41,10 +44,16 @@
     width: 352px;
 }
 
-.column-board-create{
+.column-board-create, .column-pin-create-container{
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 15px;
+}
+
+.form-title{
+    font-size: 22px;
+    font-weight: 400;
     margin-bottom: 15px;
 }
 

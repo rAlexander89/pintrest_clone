@@ -251,48 +251,54 @@ class CreatePinForm extends React.Component {
         let { boards } = this.props;
         
             return (
-                <div className="pin-create-container">
-                    <div className='row'>
-                        <div className='column-pin-create'>
-                            {this.dropZone()}
-                        </div>
+                <div className='column-pin-create-container'>
 
-                        <div className='column-pin-create'>
-                            <div className="pin-details">
-                                <div className="pin-add-title">
-                                    <input
-                                        id='pin-title'
-                                        type="text"
-                                        placeholder="pin title"
-                                        value={title}
-                                        onChange={this.update("title")}
-                                        />
-                                        {this.displayErrors('title')}
+                    <div className="pin-create-container">
+                        <div className='form-title'>
+                            Create a new pin:
+                            </div>
+                            <div>
+                            <div className='row'>
+                                <div className='column-pin-create'>
+                                    {this.dropZone()}
                                 </div>
 
-                                <br/>
-                                    {this.selectUserBoards(author_id, boards)}
-                                <br/>
-            
-                                <div>
-                                    <textarea
-                                        className='pin-blurb'
-                                        placeholder="give us a blurb about your pin"
-                                        value={description}
-                                        onChange={this.update("description")}
-                                        />
-                                    {this.displayErrors('desc')}
-                                </div>
-                                    <br/>
-                                <div className='submit-comment'>
-                                    {this.saveButton()}
+                                <div className='column-pin-create'>
+                                    <div className="pin-details">
+                                        <div className="pin-add-title">
+                                            <input
+                                                id='pin-title'
+                                                type="text"
+                                                placeholder="pin title"
+                                                value={title}
+                                                onChange={this.update("title")}
+                                                />
+                                                {this.displayErrors('title')}
+                                        </div>
+
+                                                </div>
+                                            {this.selectUserBoards(author_id, boards)}
+                                        <div>
+                                            <br/>
+
+                                            <textarea
+                                                className='pin-blurb'
+                                                placeholder="give us a blurb about your pin"
+                                                value={description}
+                                                onChange={this.update("description")}
+                                                />
+                                            {this.displayErrors('desc')}
+                                        </div>
+                                        <div className='submit-comment'>
+                                            {this.saveButton()}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             )
+        }
     }
-}
-
+    
 export default CreatePinForm;

@@ -78,6 +78,9 @@ class BoardCreate extends React.Component {
         return (
             <div className='column-board-create'>
                 <div className='board-create-container'>
+                     <div className='form-title'>
+                        Create a new board:
+                    </div>
                     <div className="pin-details">
                             <div className="pin-add-title">
                                 <input
