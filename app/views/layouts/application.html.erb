@@ -9,17 +9,11 @@
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
 
+    <meta property='og:image' content="<%= image_url('project_pic.png')%>"/>
     <meta property="og:title" content="Full Stack - Rails/React/PostgresQL - Pintrest Clone" />
-    <meta property='og:image' content="<%= image_url('project_pic.png') %>"/>
-    <meta property="og:description"
-       content="A solo project clone of Pinterest.com created using Rails/PostgresQL backend and a Rails frontend."
-    />
-     <meta property="og:url"
-       content="https://pintrest.herokuapp.com"
-    />
+    <meta property="og:description" content="A solo project clone of Pinterest.com created using Rails/PostgresQL backend and a Rails frontend."/>
+    <meta property="og:url" content="https://pintrest.herokuapp.com/#/"/>
 
-
-    
   </head>
 
   <body>
