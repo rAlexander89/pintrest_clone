@@ -14,8 +14,6 @@ const Greeting = ({ currentUser, logout, openModal}) => {
                     <p className='dropdown-item' onClick={logout}><Link to='/'>Log Out</Link></p>
                 </div>  
             </div>
-            {/* <div><Link to='/p/create'><button id='make-pin'>Make a pin</button></Link></div>
-            <div><Link to='/b/create'><button id='make-board'>Make a board</button></Link></div> */}
         </div>
     );
 

@@ -5,7 +5,7 @@ const pinsErrorsReducer = (state = [], action) => {
 
     Object.freeze(state);
     
-    switch (action.type) {
+    switch (action.type){
         case RECEIVE_PIN_ERRORS:
             return action.errors;
         case CLEAR_ERRORS:

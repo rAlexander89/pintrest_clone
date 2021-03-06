@@ -9,7 +9,7 @@ const mSTP = ({ entities: { users, boards }, session }, ownProps) => {
     
     }
 }
-
+ 
 const mDTP = dispatch => {
     return{
         fetchUser: userId => dispatch(fetchUser(userId))

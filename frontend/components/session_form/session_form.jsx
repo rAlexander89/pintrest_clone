@@ -98,20 +98,10 @@ class SessionForm extends React.Component {
     <div>
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <ul>
-            <li>
               <img src='https://i.imgur.com/IaouNpW.jpg' />
-            </li>
-            <li>
               <h1 id='form-greeting'>Welcome to Pintrest</h1>
-            </li>
-            <li>
                 <SessionGreeting/>
-            </li>
-            <li>
               <p id='sub-greeting'>Please {this.formType}</p>
-            </li>
-          </ul>
           <br />
           <div>
           {this.renderErrors()}
@@ -135,7 +125,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <br />
-              <p onClick={this.demoUserLogin}>Or try our Demo User.</p>
+              <p onClick={this.demoUserLogin} className='demo-hover'>Click here to try our Demo User.</p>
             <br />
             <input type="submit" id='button' value={this.formType} />
           </div>

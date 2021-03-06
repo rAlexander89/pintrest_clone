@@ -15,7 +15,7 @@ export const receivePins = pins => {
     }
 }
 
-const receivePin = data => {
+export const receivePin = data => {
     return {
         type: RECEIVE_PIN,
         pin: data

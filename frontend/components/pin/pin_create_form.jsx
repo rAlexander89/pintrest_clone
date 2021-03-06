@@ -174,7 +174,6 @@ class CreatePinForm extends React.Component {
 
         if (photoFile === null ){
             return null 
-            
         } else {
             return(
                 <button className='clear-pin' onClick={this.removePreview}>
