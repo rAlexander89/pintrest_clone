@@ -87,6 +87,8 @@ class PinShow extends React.Component {
             likeable_id: pinData.pin_id
         }
 
+        debugger
+
         
         return(
             <div className='pin-show'>
@@ -109,6 +111,7 @@ class PinShow extends React.Component {
                                 <Likes params={params}/>
                                 <div id='pin-description'>
                                     <InlineDisplay editType='pins' item={pin} objKey={'description'} field={pin.description}/>
+                                    {pin.updated_at}
                                 </div>
                         </div>
                         <div className='peripheral-container'>
